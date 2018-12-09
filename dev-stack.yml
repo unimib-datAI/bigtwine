@@ -1,0 +1,25 @@
+version: '2'
+services:
+    mongodb:
+        image: mongo:4
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./volumes/mongodb/db/:/data/db/
+    kafka:
+        extends:
+            file: services/apigateway/src/main/docker/kafka.yml
+            service: kafka
+        environment:
+            - KAFKA_ADVERTISED_HOST_NAME=localhost
+    zookeeper:
+        extends:
+            file: services/apigateway/src/main/docker/kafka.yml
+            service: zookeeper
+    jhipster-registry:
+        extends:
+            file: services/apigateway/src/main/docker/jhipster-registry.yml
+            service: jhipster-registry
+        environment:
+            - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+            - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/localhost-config/
