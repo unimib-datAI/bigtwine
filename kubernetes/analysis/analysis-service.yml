@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: analysis
+  namespace: bigtwine
+  labels:
+    app: analysis
+spec:
+  selector:
+    app: analysis
+  ports:
+  - name: http
+    port: 9001

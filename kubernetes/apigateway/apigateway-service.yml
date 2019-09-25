@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: apigateway
+  namespace: bigtwine
+  labels:
+    app: apigateway
+spec:
+  selector:
+    app: apigateway
+  type: LoadBalancer
+  ports:
+  - name: http
+    port: 9000

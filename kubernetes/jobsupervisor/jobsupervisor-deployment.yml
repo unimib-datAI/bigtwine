@@ -1,0 +1,98 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobsupervisor
+  namespace: bigtwine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jobsupervisor
+      version: "v1"
+  template:
+    metadata:
+      labels:
+        app: jobsupervisor
+        version: "v1"
+    spec:
+      serviceAccountName: jobsupervisor
+      initContainers:
+        - name: init-ds
+          image: busybox
+          command:
+            - '/bin/sh'
+            - '-c'
+            - |
+                while true
+                do
+                  rt=$(nc -z -w 1 mongodb 27017)
+                  if [ $? -eq 0 ]; then
+                    echo "DB is UP"
+                    break
+                  fi
+                  echo "DB is not yet reachable;sleep for 10s before retry"
+                  sleep 10
+                done
+      containers:
+      - name: jobsupervisor-app
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/jobsupervisor:0.9.9
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: dev,k8s
+        - name: SPRING_CLOUD_CONFIG_URI
+          value: http://admin:${jhipster.registry.password}@jhipster-registry.bigtwine.svc.cluster.local:8761/config
+        - name: JHIPSTER_REGISTRY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: registry-secret
+              key: registry-admin-password
+        - name: EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE
+          value: http://admin:${jhipster.registry.password}@jhipster-registry.bigtwine.svc.cluster.local:8761/eureka/
+        - name: SPRING_DATA_MONGODB_DATABASE
+          value: jobsupervisor
+        - name: SPRING_DATA_MONGODB_URI
+          value: "mongodb://mongodb-0.mongodb.bigtwine:27017,mongodb-1.mongodb.bigtwine:27017,mongodb-2.mongodb.bigtwine:27017"
+        - name: SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS
+          value: jhipster-kafka.bigtwine.svc.cluster.local
+        - name: SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES
+          value: jhipster-zookeeper.bigtwine.svc.cluster.local
+        - name: JHIPSTER_METRICS_LOGS_ENABLED
+          value: 'true'
+        - name: JHIPSTER_LOGGING_LOGSTASH_ENABLED
+          value: 'true'
+        - name: JHIPSTER_LOGGING_LOGSTASH_HOST
+          value: jhipster-logstash
+        - name: SPRING_ZIPKIN_ENABLED
+          value: "true"
+        - name: SPRING_ZIPKIN_BASE_URL
+          value: http://jhipster-zipkin
+        - name: SPRING_SLEUTH_PROPAGATION_KEYS
+          value: "x-request-id,x-ot-span-context"
+        - name: APPLICATION_KUBERNETES_NAMESPACE
+          value: bigtwine
+        - name: APPLICATION_TWITTERNEEL_STREAM_FLINKJOB_KUBERNETESTEMPLATE
+          value: k8s/flink-job.yml
+        - name: JAVA_OPTS
+          value: " -Xmx256m -Xms256m"
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "500m"
+          limits:
+            memory: "512Mi"
+            cpu: "1"
+        ports:
+        - name: http
+          containerPort: 9007
+        readinessProbe:
+          httpGet:
+            path: /management/health
+            port: http
+          initialDelaySeconds: 20
+          periodSeconds: 15
+          failureThreshold: 6
+        livenessProbe:
+          httpGet:
+            path: /management/health
+            port: http
+          initialDelaySeconds: 120

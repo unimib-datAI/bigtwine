@@ -1,0 +1,28 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "analysis",
+      "apigateway",
+      "cronscheduler",
+      "geo",
+      "jobsupervisor",
+      "linkresolver",
+      "nel",
+      "ner",
+      "socials"
+    ],
+    "directoryPath": "../services/",
+    "clusteredDbApps": [
+      "analysis"
+    ],
+    "serviceDiscoveryType": "eureka",
+    "jwtSecretKey": "OTM4MGNhNTkyMGVkZjJmOTMxZTNjYmU3OGEyY2IwNWM1MzYwZWVlY2ZhN2U5ODE3YWY0MTVlZTZhNTRlOThjM2E3NDM2MDNjZWNjZjIyNDRiODA0MWRhMWJmNmFkMDgwYmRkNg==",
+    "dockerRepositoryName": "bigtwine",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "bigtwine",
+    "kubernetesServiceType": "LoadBalancer",
+    "monitoring": "elk",
+    "istio": "no",
+    "istioRoute": false
+  }
+}

@@ -1,0 +1,51 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: streamprocessor-5d8a186b0745710001088aff
+  namespace: bigtwine
+  labels:
+    job: flink-streamprocessor
+spec:
+  template:
+    metadata:
+      labels:
+        job: flink-streamprocessor
+    spec:
+      containers:
+      - name: flink-streamprocessor
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/flink-streamprocessor:0.9
+        args:
+        - it.unimib.disco.bigtwine.streamprocessor.TwitterStreamJob
+        - "--job-id"
+        - 5d8a186b0745710001088aff
+        - "--analysis-id"
+        - 5d8a186a31ac690001b9ffee
+        - "--twitter-token"
+        - 96366271-oBnCKMDkh8br7PSz2O8rY8Dzj0jmoxaARxYLX1oKb
+        - "--twitter-token-secret"
+        - fd6xbF1UDpPJeJUQgg9XXK3yh1Dv5vKZJ6jiokQuNnjVk
+        - "--twitter-consumer-key"
+        - 0NJb4MIbWfmM6WSWe0V4P1xpI
+        - "--twitter-consumer-secret"
+        - rBg3TxXPjgvJFvhWlxd0QWTD3aaIh1aeAY2oWOzUT9fcoqhIeT
+        - "--heartbeat-interval"
+        - '30'
+        - "--twitter-stream-lang"
+        - en
+        - "--twitter-stream-sampling"
+        - "-1"
+        - "--twitter-skip-retweets"
+        - 'true'
+        - "--twitter-stream-query"
+        - '"juventus,inter,milan"'
+        env:
+        - name: GRIDFS_HOST
+          value: mongodb-0.mongodb.bigtwine
+        - name: MONGO_HOST
+          value: mongodb-0.mongodb.bigtwine
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: jhipster-kafka.bigtwine.svc.cluster.local:9092
+        resources: {}
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Never
+      terminationGracePeriodSeconds: 30
