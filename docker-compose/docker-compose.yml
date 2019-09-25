@@ -1,0 +1,200 @@
+version: '2'
+services:
+    frontend:
+        image: ${REGISTRY}bigtwine/frontend
+        ports:
+            - '8080:80'
+    apigateway-app:
+        image: ${REGISTRY}bigtwine/apigateway
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - 'SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017'
+            - SPRING_DATA_MONGODB_DATABASE=apigateway
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+        ports:
+            - '9000:9000'
+
+    analysis-app:
+        image: ${REGISTRY}bigtwine/analysis
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - 'SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017'
+            - SPRING_DATA_MONGODB_DATABASE=analysis
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    cronscheduler-app:
+        image: ${REGISTRY}bigtwine/cronscheduler
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    geo-app:
+        image: ${REGISTRY}bigtwine/geo
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    
+    jobsupervisor-app:
+        image: ${REGISTRY}bigtwine/jobsupervisor
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger,docker'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - 'SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017'
+            - SPRING_DATA_MONGODB_DATABASE=jobsupervisor
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+            - APPLICATION_DOCKER_IMAGENAME=${REGISTRY}bigtwine/flink-streamprocessor
+            - APPLICATION_DOCKER_AUTOREMOVECONTAINER=false
+    
+    linkresolver-app:
+        image: ${REGISTRY}bigtwine/linkresolver
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+    
+    nel-app:
+        image: ${REGISTRY}bigtwine/nel
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+            - APPLICATION_PROCESSORS_MIND2016_WORKINGDIRECTORY=/data
+        volumes:
+            - nel-share:/data
+    nel-tool:
+        image: ${REGISTRY}bigtwine/nel-tool
+        volumes:
+            - nel-share:/data
+
+    ner-app:
+        image: ${REGISTRY}bigtwine/ner
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - JHIPSTER_SLEEP=30
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
+            - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+            - APPLICATION_PROCESSORS_RITTER_WORKINGDIRECTORY=/data
+        volumes:
+            - ner-share:/data
+    ner-tool:
+        image: ${REGISTRY}bigtwine/ner-tool
+        volumes:
+            - ner-share:/data
+ 
+    socials-app:
+        image: ${REGISTRY}bigtwine/socials
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - 'SPRING_PROFILES_ACTIVE=dev,swagger'
+            - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
+            - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - 'SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017'
+            - SPRING_DATA_MONGODB_DATABASE=socials
+            - JHIPSTER_SLEEP=30
+            - JHIPSTER_REGISTRY_PASSWORD=admin
+
+    mongodb:
+        image: 'mongo:4.0.2'
+        ports:
+            - 27017:27017
+
+    zookeeper:
+        extends:
+            file: kafka.yml
+            service: zookeeper
+    kafka:
+        extends:
+            file: kafka.yml
+            service: kafka
+        depends_on:
+            - zookeeper 
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry
+    socat:
+        image: alpine/socat
+        command: tcp-listen:9075,fork,reuseaddr unix-connect:/var/run/docker.sock
+        restart: unless-stopped
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - 127.0.0.1:9075:9075
+#    jhipster-elasticsearch:
+#        extends:
+#            file: jhipster-console.yml
+#            service: jhipster-elasticsearch
+#    jhipster-logstash:
+#        extends:
+#            file: jhipster-console.yml
+#            service: jhipster-logstash
+#        depends_on:
+#            - jhipster-elasticsearch
+#    jhipster-console:
+#        extends:
+#            file: jhipster-console.yml
+#            service: jhipster-console
+#        depends_on:
+#            - jhipster-elasticsearch
+#    jhipster-import-dashboards:
+#        extends:
+#            file: jhipster-console.yml
+#            service: jhipster-import-dashboards
+#        depends_on:
+#            - jhipster-elasticsearch
+#    jhipster-zipkin:
+#        extends:
+#            file: jhipster-console.yml
+#            service: jhipster-zipkin
+#        depends_on:
+#            - jhipster-elasticsearch
+volumes:
+    ner-share:
+        driver_opts:
+            type: tmpfs
+            device: tmpfs
+    nel-share:
+        driver_opts:
+            type: tmpfs
+            device: tmpfs
