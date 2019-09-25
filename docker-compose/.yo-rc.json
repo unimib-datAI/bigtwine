@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "analysis",
+      "apigateway",
+      "cronscheduler",
+      "geo",
+      "jobsupervisor",
+      "linkresolver",
+      "nel",
+      "ner",
+      "socials"
+    ],
+    "directoryPath": "../services/",
+    "gatewayType": "zuul",
+    "clusteredDbApps": [],
+    "monitoring": "elk",
+    "consoleOptions": [
+      "zipkin"
+    ],
+    "serviceDiscoveryType": "eureka",
+    "jwtSecretKey": "MWM1MTFiZTcyYjk1MDI0OWJlMmE4Yjk0YWE1Yjc5OTRmOTVkYTEyMGIzZjNjNmZlMmNlMjhjMjcyOTg0ZmIwNDcxYWI3ODNkNGZmYjliZjFjMWRiOWE2ZGRmYTEwNjNmMzJmYw=="
+  }
+}
