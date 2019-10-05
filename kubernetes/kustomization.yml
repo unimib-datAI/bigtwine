@@ -10,14 +10,19 @@ resources:
   - frontend/frontend-deployment.yml
   - analysis/analysis-service.yml
   - analysis/analysis-deployment.yml
+  - analysis/analysis-autoscale.yml
   - ner/ner-deployment.yml
   - ner/ner-service.yml
+  - ner/ner-autoscale.yml
   - geo/geo-service.yml
   - geo/geo-deployment.yml
+  - geo/geo-autoscale.yml
   - linkresolver/linkresolver-service.yml
   - linkresolver/linkresolver-deployment.yml
+  - linkresolver/linkresolver-autoscale.yml
   - nel/nel-service.yml
   - nel/nel-deployment.yml
+  - nel/nel-autoscale.yml
   - jobsupervisor/jobsupervisor-deployment.yml
   - jobsupervisor/jobsupervisor-service.yml
   - socials/socials-service.yml

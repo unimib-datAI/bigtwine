@@ -1,6 +1,7 @@
 #!/bin/sh
 
 eksctl create cluster -f ./cluster.yml --asg-access \
+  && kubectl apply -f metrics-server/ \
   && ./kubectl-apply.sh \
   && kubectl config set-context --current --namespace=bigtwine \
   && kubectl create rolebinding admin --clusterrole=admin --user=system:serviceaccount:bigtwine:jobsupervisor --namespace=bigtwine \
