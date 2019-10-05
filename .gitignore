@@ -11,6 +11,7 @@
 !/tools/clone-tools.sh
 /streamprocessor/**
 !/streamprocessor/.gitkeep
+/kubernetes/compiled.yml
 
 ######################
 # Node
