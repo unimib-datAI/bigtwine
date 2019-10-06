@@ -16,25 +16,22 @@ iam:
     - "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 
 nodeGroups:
-  - name: ng-1
-    minSize: 1
-    maxSize: 3
-    availabilityZones: ["eu-central-1a"]
-    instancesDistribution:
-      maxPrice: 0.008
-      instanceTypes: ["t3.medium", "t3.large", "c5.xlarge"]
-      onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 33
-      spotInstancePools: 2
+  - name: standard-workers
+    desiredCapacity: 3
+    instanceType: c5.xlarge
+    labels: { role: master }
+    iam:
+      withAddonPolicies:
+        autoScaler: true
     kubeletExtraConfig:
       kubeReserved:
-        cpu: "50m"
-        memory: "100Mi"
+        cpu: "200m"
+        memory: "256Mi"
         ephemeral-storage: "1Gi"
       kubeReservedCgroup: "/kube-reserved"
       systemReserved:
-        cpu: "50m"
-        memory: "100Mi"
+        cpu: "200m"
+        memory: "256Mi"
         ephemeral-storage: "1Gi"
       evictionHard:
         memory.available:  "200Mi"
@@ -42,51 +39,28 @@ nodeGroups:
       featureGates:
         DynamicKubeletConfig: true
         RotateKubeletServerCertificate: true
-  - name: ng-2
-    minSize: 1
+  - name: spot-workers
+    minSize: 0
     maxSize: 3
-    availabilityZones: ["eu-central-1b"]
+    labels: { role: worker }
     instancesDistribution:
-      maxPrice: 0.008
-      instanceTypes: ["t3.medium", "t3.large", "c5.xlarge"]
+      maxPrice: 0.10
+      instanceTypes: ["c5.xlarge", "c5.large", "t3.xlarge"]
       onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 33
-      spotInstancePools: 2
+      onDemandPercentageAboveBaseCapacity: 0
+      spotInstancePools: 3
+    iam:
+      withAddonPolicies:
+        autoScaler: true
     kubeletExtraConfig:
       kubeReserved:
-        cpu: "50m"
-        memory: "100Mi"
+        cpu: "200m"
+        memory: "256Mi"
         ephemeral-storage: "1Gi"
       kubeReservedCgroup: "/kube-reserved"
       systemReserved:
-        cpu: "50m"
-        memory: "100Mi"
-        ephemeral-storage: "1Gi"
-      evictionHard:
-        memory.available:  "200Mi"
-        nodefs.available: "10%"
-      featureGates:
-        DynamicKubeletConfig: true
-        RotateKubeletServerCertificate: true
-  - name: ng-3
-    minSize: 1
-    maxSize: 3
-    availabilityZones: ["eu-central-1c"]
-    instancesDistribution:
-      maxPrice: 0.008
-      instanceTypes: ["t3.medium", "t3.large", "c5.xlarge"]
-      onDemandBaseCapacity: 0
-      onDemandPercentageAboveBaseCapacity: 33
-      spotInstancePools: 2
-    kubeletExtraConfig:
-      kubeReserved:
-        cpu: "50m"
-        memory: "100Mi"
-        ephemeral-storage: "1Gi"
-      kubeReservedCgroup: "/kube-reserved"
-      systemReserved:
-        cpu: "50m"
-        memory: "100Mi"
+        cpu: "200m"
+        memory: "256Mi"
         ephemeral-storage: "1Gi"
       evictionHard:
         memory.available:  "200Mi"

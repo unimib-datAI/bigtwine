@@ -164,6 +164,8 @@ spec:
         app: mongodb
       annotations:
     spec:
+      nodeSelector:
+        role: master
       initContainers:
         - name: config
           image: busybox

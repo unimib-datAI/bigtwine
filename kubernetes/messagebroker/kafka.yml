@@ -10,6 +10,8 @@ spec:
       labels:
         app: jhipster-kafka
     spec:
+      nodeSelector:
+        role: master
       containers:
       - name: kafka
         image: wurstmeister/kafka:1.0.0
@@ -48,6 +50,8 @@ spec:
       labels:
         app: jhipster-zookeeper
     spec:
+      nodeSelector:
+        role: master
       containers:
       - name: zookeeper
         image: wurstmeister/zookeeper:3.4.6
