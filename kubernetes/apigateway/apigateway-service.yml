@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: apigateway
-  type: LoadBalancer
+  type: NodePort
   ports:
   - name: http
     port: 9000
