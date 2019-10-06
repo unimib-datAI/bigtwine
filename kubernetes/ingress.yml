@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "bigtwine-ingress"
+  namespace: "bigtwine"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+  labels:
+    app: bigtwine-ingress
+spec:
+  rules:
+    - host: bigtwine.doublerew.net
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "frontend"
+              servicePort: 80
+    - host: admin.bigtwine.doublerew.net
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "apigateway"
+              servicePort: 9000
+    
+    - host: api.bigtwine.doublerew.net
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "apigateway"
+              servicePort: 9000
+    - host: console.bigtwine.doublerew.net
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "jhipster-console"
+              servicePort: 5601

@@ -1,5 +1,6 @@
 resources:
   - namespace.yml
+  - ingress.yml
   - messagebroker/kafka.yml
   - db/mongodb.yml
   - registry/application-configmap.yml
