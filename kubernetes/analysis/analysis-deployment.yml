@@ -34,10 +34,10 @@ spec:
                 done
       containers:
       - name: analysis-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/analysis:0.9
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/analysis:0.9.2
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: prod
+          value: dev
         - name: SPRING_CLOUD_CONFIG_URI
           value: http://admin:${jhipster.registry.password}@jhipster-registry.bigtwine.svc.cluster.local:8761/config
         - name: JHIPSTER_REGISTRY_PASSWORD

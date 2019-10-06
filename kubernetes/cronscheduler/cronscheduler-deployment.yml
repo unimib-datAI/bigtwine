@@ -34,7 +34,7 @@ spec:
                 done
       containers:
       - name: cronscheduler-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/cronscheduler:0.9
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/cronscheduler:0.9.1
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
@@ -72,10 +72,10 @@ spec:
         resources:
           requests:
             memory: "256Mi"
-            cpu: "100m"
+            cpu: "200m"
           limits:
             memory: "512Mi"
-            cpu: "250m"
+            cpu: "400m"
         ports:
         - name: http
           containerPort: 9006
@@ -83,7 +83,7 @@ spec:
           httpGet:
             path: /management/health
             port: http
-          initialDelaySeconds: 20
+          initialDelaySeconds: 60
           periodSeconds: 15
           failureThreshold: 6
         livenessProbe:

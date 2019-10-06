@@ -68,10 +68,10 @@ spec:
         resources:
           requests:
             memory: "256Mi"
-            cpu: "100m"
+            cpu: "200m"
           limits:
             memory: "512Mi"
-            cpu: "250m"
+            cpu: "400m"
         ports:
         - name: http
           containerPort: 9009
@@ -79,7 +79,7 @@ spec:
           httpGet:
             path: /management/health
             port: http
-          initialDelaySeconds: 20
+          initialDelaySeconds: 60
           periodSeconds: 15
           failureThreshold: 6
         livenessProbe:

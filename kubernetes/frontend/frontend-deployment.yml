@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: frontend-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/frontend:0.1
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/frontend:0.9.0
         resources:
           requests:
             memory: "128Mi"
