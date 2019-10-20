@@ -13,7 +13,6 @@
 !/streamprocessor/.gitkeep
 /kubernetes/compiled.yml
 /kubernetes/cluster-autoscaler.yml
-/kubernetes/aws-alb-ingress-controller/alb-ingress-controller.yml
 
 ######################
 # Node

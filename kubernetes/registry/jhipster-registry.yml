@@ -57,7 +57,7 @@ spec:
         version: "1.0"
     spec:
       nodeSelector:
-        role: master
+        role: primary
       terminationGracePeriodSeconds: 10
       containers:
       - name: jhipster-registry

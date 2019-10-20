@@ -165,7 +165,7 @@ spec:
       annotations:
     spec:
       nodeSelector:
-        role: master
+        role: primary
       initContainers:
         - name: config
           image: busybox

@@ -16,13 +16,15 @@ iam:
     - "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
 
 nodeGroups:
-  - name: standard-workers
+  - name: ng-primary
     desiredCapacity: 3
     instanceType: c5.xlarge
-    labels: { role: master }
+    labels: { role: primary }
     iam:
       withAddonPolicies:
         autoScaler: true
+        externalDNS: true
+        albIngress: true
     kubeletExtraConfig:
       kubeReserved:
         cpu: "200m"
@@ -39,10 +41,10 @@ nodeGroups:
       featureGates:
         DynamicKubeletConfig: true
         RotateKubeletServerCertificate: true
-  - name: spot-workers
+  - name: ng-secondary
     minSize: 0
     maxSize: 3
-    labels: { role: worker }
+    labels: { role: secondary }
     instancesDistribution:
       maxPrice: 0.10
       instanceTypes: ["c5.xlarge", "c5.large", "t3.xlarge"]

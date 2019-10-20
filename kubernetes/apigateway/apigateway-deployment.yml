@@ -16,7 +16,7 @@ spec:
         version: "v1"
     spec:
       nodeSelector:
-        role: master
+        role: primary
       initContainers:
         - name: init-ds
           image: busybox
@@ -36,7 +36,7 @@ spec:
                 done
       containers:
       - name: apigateway-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/apigateway:0.9.3
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/apigateway:0.9.5
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
@@ -67,6 +67,8 @@ spec:
           value: "true"
         - name: SPRING_ZIPKIN_BASE_URL
           value: http://jhipster-zipkin
+        - name: JHIPSTER_CORS_ALLOWEDORIGINS
+          value: http://bigtwine.doublerew.net,http://admin.bigtwine.doublerew.net
         - name: SPRING_SLEUTH_PROPAGATION_KEYS
           value: "x-request-id,x-ot-span-context"
         - name: JAVA_OPTS
