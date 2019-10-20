@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
+ASG_GROUP_NAME=ng-secondary
 eksctl create cluster -f ./cluster.yml \
   && echo 'waiting 120s' && sleep 120 \
   && kubectl apply -f metrics-server/ \
@@ -7,8 +8,8 @@ eksctl create cluster -f ./cluster.yml \
   && ./kubectl-apply.sh \
   && kubectl create rolebinding admin --clusterrole=admin --user=system:serviceaccount:bigtwine:jobsupervisor --namespace=bigtwine \
   && eksctl create iamidentitymapping --name bigtwine --role arn:aws:iam::535233662260:role/BigtwineCodeBuildKubectlRole --group system:masters --username codebuild \
-  && ASG_GROUP_NAME=$(aws autoscaling describe-tags --filter "Name=key,Values=alpha.eksctl.io/cluster-name" "Name=value,Values=bigtwine" --output text | awk '{print $4}' | grep spot-workers) \
-  && sed "s/<AUTOSCALING_GROUP_NAME>/$ASG_GROUP_NAME/g" cluster-autoscaler-template.yml > cluster-autoscaler.yml \
+  && ASG_GROUP_ARN=$(aws autoscaling describe-tags --filter "Name=key,Values=alpha.eksctl.io/cluster-name" "Name=value,Values=bigtwine" --output text | awk '{print $4}' | grep $ASG_GROUP_NAME) \
+  && sed "s/<AUTOSCALING_GROUP_NAME>/$ASG_GROUP_ARN/g" cluster-autoscaler-template.yml > cluster-autoscaler.yml \
   && kubectl apply -f cluster-autoscaler.yml \
   && kubectl config set-context --current --namespace=bigtwine
 
