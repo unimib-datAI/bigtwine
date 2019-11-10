@@ -40,6 +40,8 @@ services:
             - 'SPRING_PROFILES_ACTIVE=dev,swagger'
             - 'EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka'
             - 'SPRING_CLOUD_CONFIG_URI=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/config'
+            - 'SPRING_DATA_MONGODB_URI=mongodb://mongodb:27017'
+            - SPRING_DATA_MONGODB_DATABASE=cronscheduler
             - JHIPSTER_SLEEP=30
             - SPRING_CLOUD_STREAM_KAFKA_BINDER_BROKERS=kafka
             - SPRING_CLOUD_STREAM_KAFKA_BINDER_ZK_NODES=zookeeper
@@ -119,6 +121,7 @@ services:
             - ner-share:/data
     ner-tool:
         image: ${REGISTRY}bigtwine/ner-tool
+        mem_limit: 1024M
         volumes:
             - ner-share:/data
  
