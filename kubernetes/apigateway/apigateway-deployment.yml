@@ -36,7 +36,7 @@ spec:
                 done
       containers:
       - name: apigateway-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/apigateway:0.9.5
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/apigateway:1.0.3
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
@@ -68,9 +68,13 @@ spec:
         - name: SPRING_ZIPKIN_BASE_URL
           value: http://jhipster-zipkin
         - name: JHIPSTER_CORS_ALLOWEDORIGINS
-          value: http://bigtwine.doublerew.net,http://admin.bigtwine.doublerew.net
+          value: http://bigtwine.doublerew.net,http://admin.bigtwine.doublerew.net,http://local.bigtwine.doublerew.net:9101
         - name: SPRING_SLEUTH_PROPAGATION_KEYS
           value: "x-request-id,x-ot-span-context"
+        - name: JHIPSTER_MAIL_BASEURL
+          value: http://admin.bigtwine.doublerew.net
+        - name: APPLICATION_FRONTENDURL
+          value: http://bigtwine.doublerew.net
         - name: JAVA_OPTS
           value: " -Xmx256m -Xms256m"
         resources:

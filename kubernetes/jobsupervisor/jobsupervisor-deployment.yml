@@ -35,10 +35,10 @@ spec:
                 done
       containers:
       - name: jobsupervisor-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/jobsupervisor:0.9.10
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/jobsupervisor:1.0.6
         env:
         - name: SPRING_PROFILES_ACTIVE
-          value: dev,k8s
+          value: prod,k8s
         - name: SPRING_CLOUD_CONFIG_URI
           value: http://admin:${jhipster.registry.password}@jhipster-registry.bigtwine.svc.cluster.local:8761/config
         - name: JHIPSTER_REGISTRY_PASSWORD
