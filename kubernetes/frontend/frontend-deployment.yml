@@ -19,7 +19,7 @@ spec:
         role: primary
       containers:
       - name: frontend-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/frontend:1.0.7
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/frontend:1.0.8
         imagePullPolicy: Always
         resources:
           requests:

@@ -33,7 +33,7 @@ spec:
                 done
       containers:
       - name: ner-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/ner:0.9.1
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/ner:1.0.0
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
@@ -98,11 +98,14 @@ spec:
             name: ner-share
         resources:
           requests:
-            memory: "768Mi"
-            cpu: "250m"
+            memory: "1024Mi"
+            cpu: "500m"
           limits:
-            memory: "1536Mi"
+            memory: "2048Mi"
             cpu: "1"
+        env:
+        - name: JVM_OPTS
+          value: "-Xms64M -Xmx1536M"
       volumes:
         - name: ner-share
           emptyDir: {}
