@@ -33,7 +33,7 @@ spec:
                 done
       containers:
       - name: linkresolver-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/linkresolver:1.0.0
+        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/linkresolver:1.0.1
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod
@@ -64,6 +64,8 @@ spec:
           value: "x-request-id,x-ot-span-context"
         - name: JAVA_OPTS
           value: " -Xmx256m -Xms256m"
+        # - name: LOGGING_LEVEL_IT_UNIMIB_DISCO_BIGTWINE_SERVICES_LINKRESOLVER
+        #   value: DEBUG
         resources:
           requests:
             memory: "256Mi"
