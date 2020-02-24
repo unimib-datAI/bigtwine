@@ -20,6 +20,8 @@ spec:
       labels:
         app.kubernetes.io/name: alb-ingress-controller
     spec:
+      nodeSelector:
+        role: primary
       containers:
         - name: alb-ingress-controller
           args:

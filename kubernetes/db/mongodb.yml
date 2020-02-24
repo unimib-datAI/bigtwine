@@ -162,7 +162,7 @@ spec:
     metadata:
       labels:
         app: mongodb
-      annotations:
+      annotations: {}
     spec:
       nodeSelector:
         role: primary
