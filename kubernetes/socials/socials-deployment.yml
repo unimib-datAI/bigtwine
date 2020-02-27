@@ -65,6 +65,40 @@ spec:
           value: "x-request-id,x-ot-span-context"
         - name: JAVA_OPTS
           value: " -Xmx256m -Xms256m"
+        - name: APPLICATION_SECURITY_ENCRYPTORS_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-encryptors-secret
+              key: secret
+        - name: APPLICATION_SECURITY_ENCRYPTORS_SALT
+          valueFrom:
+            secretKeyRef:
+              name: app-encryptors-secret
+              key: salt
+        - name: APPLICATION_SECURITY_TWITTER_CONSUMER_KEY
+          valueFrom:
+            secretKeyRef:
+              name: twitter-api-secret
+              key: consumer-key
+        - name: APPLICATION_SECURITY_TWITTER_CONSUMER_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: twitter-api-secret
+              key: consumer-secret
+        - name: APPLICATION_SECURITY_TWITTER_DEMO_USER_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: twitter-api-secret
+              key: access-token
+        - name: APPLICATION_SECURITY_TWITTER_DEMO_USER_ACCESS_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: twitter-api-secret
+              key: access-secret
+        - name: APPLICATION_SECURITY_TWITTER_DEMO_USER_ID
+          value: '1190939321529966592'
+        - name: APPLICATION_SECURITY_TWITTER_DEMO_USER_NAME
+          value: big_twine
         resources:
           requests:
             memory: "256Mi"

@@ -11,8 +11,11 @@
 !/tools/clone-tools.sh
 /streamprocessor/**
 !/streamprocessor/.gitkeep
+/docker-compose/socials.env
 /kubernetes/compiled.yml
 /kubernetes/cluster-autoscaler.yml
+/kubernetes/socials/socials-secrets.yml
+/docs/account.txt
 
 ######################
 # Node

@@ -2,6 +2,10 @@
 
 ## Preparation
 
+### Update secrets
+Copy the file `socials/socials-secrets.skeleton.yml` to `socials/socials-secrets.yml` and fill the missing secrets
+
+### Push docker images
 You will need to push your image to a registry. If you have not done so, use the following commands to tag and push the images:
 
 ```
