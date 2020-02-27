@@ -127,6 +127,8 @@ services:
  
     socials-app:
         image: ${REGISTRY}bigtwine/socials
+        env_file:
+            - ./socials.env
         environment:
             - _JAVA_OPTIONS=-Xmx512m -Xms256m
             - 'SPRING_PROFILES_ACTIVE=dev,swagger'

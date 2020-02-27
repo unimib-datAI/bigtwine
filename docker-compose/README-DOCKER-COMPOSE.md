@@ -1,8 +1,12 @@
 # JHipster generated Docker-Compose configuration
 
+## Configuration
+
+Copy the file `socials.env.skeleton` to `socials.env` and fill the missing secrets
+
 ## Usage
 
-Launch all your infrastructure by running: `docker-compose up -d`.
+Run the stack with the script `docker-compose-up.sh` to launch services in the correct order.
 
 ## Configured Docker services
 
