@@ -1,0 +1,923 @@
+openapi: 3.0.1
+info:
+  title: Analysis public REST API
+  version: 0.0.2
+paths:
+  /analyses:
+    summary: 'Manage analyses'
+    post:
+      summary: 'Create an analysis'
+      description: ""
+      operationId: createAnalysisV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysisDTO'
+      responses:
+        '201':
+          description: 'Analysis created'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisDTO'
+        '400':
+          description: 'Invalid input'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+      tags:
+        - 'Analysis'
+    get:
+      summary: 'Get a list of analysis of the logged user'
+      description: ""
+      operationId: listAnalysesV1
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+        - name: analysisType
+          in: query
+          description: 'Filter by analysis type'
+          required: false
+          schema:
+            $ref: '#/components/schemas/AnalysisTypeEnum'
+        - name: owned
+          in: query
+          description: 'Return only analyses owned by current user'
+          required: false
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedAnalyses'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        default:
+          description: 'Default error sample response'
+      tags:
+        - 'Analysis'
+  /analyses/{analysisId}:
+    summary: 'Manage an analysis'
+    parameters:
+      -
+        name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis to retrieve'
+        schema:
+          type: string
+    get:
+      summary: 'Get an analysis'
+      description: ""
+      operationId: getAnalysisV1
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis'
+    patch:
+      summary: 'Update an analysis (Only status and visibility are updatable)'
+      description: ""
+      operationId: patchAnalysisV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysisUpdatableDTO'
+      responses:
+        '204':
+          description: "Analysis updated"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisDTO'
+        '400':
+          $ref: '#/components/responses/InvalidStatusError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis'
+    delete:
+      summary: "Set the status of an analysis to cancelled"
+      operationId: deleteAnalysisV1
+      responses:
+        '200':
+          description: "Status change scheduled"
+        '400':
+          $ref: '#/components/responses/InvalidStatusError'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis'
+  /analyses/{analysisId}/history:
+    summary: 'Get the status history of an analysis'
+    parameters:
+      -
+        name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis to retrieve'
+        schema:
+          type: string
+    get:
+      summary: 'Get the status history of an analysis'
+      description: ""
+      operationId: getAnalysisHistoryV1
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnalysisStatusHistoryDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis'
+
+  /analyses/{analysisId}/settings:
+    summary: 'Get the settings of the analysis for the current user'
+    parameters:
+      - name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis to retrieve'
+        schema:
+          type: string
+    get:
+      summary: 'Get the default settings of the analysis for the current user'
+      description: ""
+      operationId: getAnalysisSettingsV1
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AnalysisSettingDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis'
+
+  /analysis-results/{analysisId}:
+    summary: 'Get the result of an analysis'
+    parameters:
+      -
+        name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis'
+        schema:
+          type: string
+    get:
+      summary: 'Get the results of an analysis'
+      description: ""
+      operationId: getAnalysisResultsV1
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedAnalysisResults'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis Results'
+  /analysis-results/{analysisId}/search:
+    summary: 'Search the result of an analysis'
+    parameters:
+      - name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis'
+        schema:
+          type: string
+    post:
+      summary: 'Search the results of an analysis'
+      description: ""
+      operationId: searchAnalysisResultsV1
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PagedAnalysisResults'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis Results'
+  /analysis-results/{analysisId}/count:
+    summary: 'Get the total number of results for the chosen analysis'
+    parameters:
+      - name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis'
+        schema:
+          type: string
+    get:
+      summary: 'Get the total number of results for the chosen analysis'
+      description: ""
+      operationId: countAnalysisResultsV1
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisResultsCount'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis Results'
+  /analysis-results/{analysisId}/export:
+    summary: 'Start the export on the analysis results'
+    parameters:
+      - name: analysisId
+        in: path
+        required: true
+        description: 'The id of the analysis'
+        schema:
+          type: string
+    post:
+      summary: 'Start the export on the analysis results'
+      description: ""
+      operationId: startAnalysisResultsExportV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnalysisExportDTO'
+      responses:
+        '200':
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnalysisExportDTO'
+        '400':
+          description: Analysis not ready for an export (current status must be CANCELLED, FAILED or COMPLETED)
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/AnalysisNotFoundError'
+      tags:
+        - 'Analysis Results'
+  /documents:
+    summary: ""
+    post:
+      summary: "Upload a new document"
+      description: ""
+      operationId: uploadDocumentV1
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                documentType:
+                  type: string
+                analysisType:
+                  type: string
+                category:
+                  type: string
+      responses:
+        '201':
+          description: "File uploaded"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+      tags:
+        - 'Documents'
+    get:
+      summary: "Get list of latest documents uploaded by the current user"
+      description: ""
+      operationId: listDocumentsMetaV1
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+        - name: documentType
+          in: query
+          description: 'Filter by document type'
+          required: false
+          schema:
+            type: string
+        - name: analysisType
+          in: query
+          description: 'Filter by analysis type'
+          required: false
+          schema:
+            type: string
+        - name: category
+          in: query
+          description: 'Filter by document category'
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: "The documents specs"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DocumentDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+      tags:
+        - 'Documents'
+  /documents/{documentId}:
+    summary: ""
+    parameters:
+      - name: documentId
+        in: path
+        required: true
+        description: 'The id of the document'
+        schema:
+          type: string
+    get:
+      summary: "Get document info"
+      description: ""
+      operationId: getDocumentMetaV1
+      responses:
+        '200':
+          description: "The document specs"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentDTO'
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '404':
+          $ref: '#/components/responses/DocumentNotFoundError'
+      tags:
+        - 'Documents'
+  /documents/{documentId}/download:
+    summary: ""
+    parameters:
+      - name: documentId
+        in: path
+        required: true
+        description: 'The id of the document'
+        schema:
+          type: string
+    get:
+      summary: "Download document content"
+      description: ""
+      operationId: downloadDocumentV1
+      responses:
+        '200':
+          description: "The content of the document"
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/UnaccessibleError'
+        '404':
+          $ref: '#/components/responses/DocumentNotFoundError'
+      tags:
+        - 'Documents'
+components:
+  schemas:
+    PagedResponse:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int64
+        pageSize:
+          type: integer
+        page:
+          type: integer
+        count:
+          type: integer
+    UserDTO:
+      type: object
+      properties:
+        uid:
+          type: string
+        username:
+          type: string
+    AnalysisStatusEnum:
+      type: string
+      default: ready
+      enum:
+        - ready
+        - started
+        - stopped
+        - completed
+        - cancelled
+        - failed
+    AnalysisVisibilityEnum:
+      type: string
+      default: public
+      enum:
+        - private
+        - public
+    AnalysisTypeEnum:
+      type: string
+      enum:
+        - twitter-neel
+    AnalysisInputTypeEnum:
+      type: string
+      enum:
+        - query
+        - dataset
+        - geo-area
+    AnalysisInputDTO:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          $ref: '#/components/schemas/AnalysisInputTypeEnum'
+        bounded:
+          type: boolean
+          readOnly: true
+    QueryAnalysisInputDTO:
+      allOf:
+        - $ref: '#/components/schemas/AnalysisInputDTO'
+        - type: object
+          required:
+            - tokens
+            - operator
+          properties:
+            type:
+              $ref: '#/components/schemas/AnalysisInputTypeEnum'
+            bounded:
+              type: boolean
+              readOnly: true
+            tokens:
+              type: array
+              items:
+                type: string
+            joinOperator:
+              type: string
+              enum:
+                - all
+                - any
+    DatasetAnalysisInputDTO:
+      allOf:
+        - $ref: '#/components/schemas/AnalysisInputDTO'
+        - type: object
+          required:
+            - documentId
+          properties:
+            type:
+              $ref: '#/components/schemas/AnalysisInputTypeEnum'
+            bounded:
+              type: boolean
+              readOnly: true
+            documentId:
+              type: string
+            name:
+              description: 'Name of the dataset'
+              type: string
+              readOnly: true
+            size:
+              description: 'Size of the dataset in bytes'
+              type: number
+              format: int64
+              readOnly: true
+    GeoAreaAnalysisInputDTO:
+      allOf:
+        - $ref: '#/components/schemas/AnalysisInputDTO'
+        - type: object
+          properties:
+            type:
+              $ref: '#/components/schemas/AnalysisInputTypeEnum'
+            description:
+              type: string
+            boundingBoxes:
+              type: array
+              items:
+                $ref: '#/components/schemas/BoundingBoxDTO'
+    BoundingBoxDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        northEastCoords:
+          $ref: '#/components/schemas/CoordinatesDTO'
+        southWestCoords:
+          $ref: '#/components/schemas/CoordinatesDTO'
+    AnalysisDTO:
+      type: object
+      required:
+        - type
+        - input
+      properties:
+        id:
+          type: string
+          readOnly: true
+        type:
+          $ref: '#/components/schemas/AnalysisTypeEnum'
+        owner:
+          allOf:
+            - $ref: '#/components/schemas/UserDTO'
+            - readOnly: true
+        status:
+          $ref: '#/components/schemas/AnalysisStatusEnum'
+        statusHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysisStatusHistoryDTO'
+        visibility:
+          $ref: '#/components/schemas/AnalysisVisibilityEnum'
+        input:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/QueryAnalysisInputDTO'
+            - $ref: '#/components/schemas/DatasetAnalysisInputDTO'
+            - $ref: '#/components/schemas/GeoAreaAnalysisInputDTO'
+          discriminator:
+            propertyName: type
+            mapping:
+              query: '#/components/schemas/QueryAnalysisInputDTO'
+              dataset: '#/components/schemas/DatasetAnalysisInputDTO'
+              geo-area: '#/components/schemas/BoundingBoxesAnalysisInputDTO'
+        progress:
+          type: number
+          format: double
+          description: "A negative value if the input is an endless streaming, a value between [0, 1] otherwise"
+          readOnly: true
+        resultsCount:
+          type: number
+          format: int64
+          description: "The number of results available for this analysis. While started, this value can be outdated."
+          readOnly: true
+        settings:
+          type: object
+          additionalProperties: true
+        exports:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysisExportDTO'
+        createDate:
+          type: string
+          format: date-time
+          readOnly: true
+        updateDate:
+          type: string
+          format: date-time
+          readOnly: true
+    AnalysisUpdatableDTO:
+      properties:
+        status:
+          $ref: '#/components/schemas/AnalysisStatusEnum'
+        visibility:
+          $ref: '#/components/schemas/AnalysisVisibilityEnum'
+        settings:
+          type: object
+          additionalProperties: true
+    AnalysisStatusHistoryDTO:
+      type: object
+      properties:
+        oldStatus:
+          $ref: '#/components/schemas/AnalysisStatusEnum'
+        newStatus:
+          $ref: '#/components/schemas/AnalysisStatusEnum'
+        message:
+          type: string
+        errorCode:
+          type: integer
+        user:
+          $ref: '#/components/schemas/UserDTO'
+        date:
+          type: string
+          format: date-time
+    AnalysisSettingTypeEnum:
+      type: string
+      enum:
+        - number
+        - string
+        - text
+        - boolean
+        - single-choice
+        - multiple-choices
+    AnalysisSettingChoiceDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        value: {}
+    AnalysisSettingDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        label:
+          type: string
+        type:
+          $ref: '#/components/schemas/AnalysisSettingTypeEnum'
+        editable:
+          type: boolean
+        description:
+          type: string
+        choices:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalysisSettingChoiceDTO'
+        defaultValue: {}
+        currentValue: {}
+    PagedAnalyses:
+      allOf:
+        - $ref: '#/components/schemas/PagedResponse'
+        - type: object
+          properties:
+            objects:
+              type: array
+              items:
+                $ref: '#/components/schemas/AnalysisDTO'
+    PagedAnalysisResults:
+      allOf:
+        - $ref: '#/components/schemas/PagedResponse'
+        - type: object
+          properties:
+            analysisId:
+              type: string
+            objects:
+              type: array
+              items:
+                oneOf:
+                  - $ref: '#/components/schemas/TwitterNeelAnalysisResultDTO'
+    AnalysisResultsCount:
+      type: object
+      properties:
+        analysisId:
+          type: string
+        count:
+          type: integer
+          format: int64
+    AnalysisExportDTO:
+      type: object
+      properties:
+        documentId:
+          type: string
+        format:
+          type: string
+        progress:
+          type: number
+          format: double
+          readOnly: true
+        completed:
+          type: boolean
+          readOnly: true
+        failed:
+          type: boolean
+          readOnly: true
+        message:
+          type: string
+          readOnly: true
+    NeelProcessedTweetDTO:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/TwitterStatusDTO'
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinkedEntityDTO'
+    AnalysisResultDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        analysisId:
+          type: string
+        processDate:
+          type: string
+          format: date-time
+        saveDate:
+          type: string
+          format: date-time
+    TwitterNeelAnalysisResultDTO:
+      allOf:
+        - $ref: '#/components/schemas/AnalysisResultDTO'
+        - type: object
+          required:
+            - status
+            - entities
+          properties:
+            payload:
+              $ref: '#/components/schemas/NeelProcessedTweetDTO'
+    TwitterStatusDTO:
+      type: object
+      required:
+        - id
+        - text
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        user:
+          $ref: '#/components/schemas/TwitterUserDTO'
+        coordinates:
+          $ref: '#/components/schemas/CoordinatesDTO'
+    TwitterUserDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        screenName:
+          type: string
+        location:
+          type: string
+        profileImageUrl:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/CoordinatesDTO'
+    CoordinatesDTO:
+      type: object
+      properties:
+        latitude:
+          type: number
+          format: double
+        longitude:
+          type: number
+          format: double
+    LinkedEntityDTO:
+      type: object
+      properties:
+        value:
+          type: string
+        link:
+          type: string
+        confidence:
+          type: number
+        category:
+          type: string
+        isNil:
+          type: boolean
+        nilCluster:
+          type: string
+        position:
+          $ref: '#/components/schemas/TextRangeDTO'
+        resource:
+          $ref: '#/components/schemas/ResourceDTO'
+    TextRangeDTO:
+      type: object
+      properties:
+        start:
+          type: integer
+        end:
+          type: integer
+    ResourceDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        shortDesc:
+          type: string
+        thumb:
+          type: string
+        thumbLarge:
+          type: string
+        url:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/CoordinatesDTO'
+        extra:
+          type: object
+          additionalProperties: {}
+    DocumentDTO:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        analysisType:
+          type: string
+        analysisId:
+          type: string
+        category:
+          type: string
+        filename:
+          type: string
+        size:
+          type: integer
+          format: int64
+        contentType:
+          type: string
+        uploadDate:
+          type: string
+          format: 'date-time'
+        user:
+          $ref: '#/components/schemas/UserDTO'
+  parameters:
+    pageSizeParam:
+      name: pageSize
+      in: query
+      description: 'How many items to return per page'
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        maximum: 2000
+        default: 100
+    pageParam:
+      name: page
+      in: query
+      description: 'The page from which start to fetch items (zero-based)'
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
+  responses:
+    UnauthorizedError:
+      description: JWT token is missing or invalid
+    UnaccessibleError:
+      description: Cannot access to this resource
+    AnalysisNotFoundError:
+      description: Analysis not found
+    InvalidStatusError:
+      description: Analysis status change cannot be applied
+    DocumentNotFoundError:
+      description: Document not found
+
+servers:
+  -
+    url: /api/public
+    variables: {}
+    description: 'Analysis microservice'

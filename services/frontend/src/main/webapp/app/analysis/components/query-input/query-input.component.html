@@ -1,0 +1,18 @@
+<div class="query-input d-inline-flex">
+    <tag-input
+        [(ngModel)]="tokens"
+        (onAdd)="onTagsChanged()"
+        (onRemove)="onTagsChanged()"
+        [modelAsStrings]="true"
+        theme="bigtwine-theme"></tag-input>
+    <div class="ml-2">
+        <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="joiner" (change)="onTagsChanged()">
+            <label ngbButtonLabel class="btn btn-sm btn-outline-light">
+                <input ngbButton type="radio" value="any"> ANY
+            </label>
+            <label ngbButtonLabel class="btn btn-sm btn-outline-light">
+                <input ngbButton type="radio" value="all"> ALL
+            </label>
+        </div>
+    </div>
+</div>

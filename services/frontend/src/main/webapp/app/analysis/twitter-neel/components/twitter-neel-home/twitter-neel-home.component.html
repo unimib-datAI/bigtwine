@@ -1,0 +1,37 @@
+<div class="wrapper wrapper--toolbar">
+    <div class="toolbar toolbar--fixed toolbar--last">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div *btwHasNotAuthority="'ROLE_DEMO'" ngbDropdown class="d-inline-block mr-2">
+                        <button class="btn btn-sm btn-outline-primary" id="newAnalysisDropdown" ngbDropdownToggle>New</button>
+                        <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="newAnalysisDropdown">
+                            <a class="dropdown-item" ngbDropdownItem [routerLink]="'query/new'">Query</a>
+                            <a class="dropdown-item" ngbDropdownItem [routerLink]="'dataset/new'">Dataset</a>
+                            <a class="dropdown-item" ngbDropdownItem [routerLink]="'geo-area/new'">Geo Area</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-outline-secondary mr-2" (click)="refresh()">Refresh</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper__content">
+        <div class="scrollable-container">
+            <div class="container" *ngIf="hasTwitterConnection === false">
+                <div class="row">
+                    <div class="col">
+                        <div class="alert alert-warning my-4">
+                            You have not connected your account to Twitter, some functionality may not work properly (e.g. real time analyses).
+                            Go to the <a routerLink="/account/settings">settings</a> page to proceed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <btw-analysis-list analysisType="twitter-neel" [owned]="true"></btw-analysis-list>
+            </div>
+        </div>
+    </div>
+</div>

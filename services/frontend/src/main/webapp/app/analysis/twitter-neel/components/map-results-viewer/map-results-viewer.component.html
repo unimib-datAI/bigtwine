@@ -1,0 +1,179 @@
+
+<div class="row no-gutters h-100">
+    <div class="col-12 col-lg-6 col-xl-4 h-50 h-lg-100">
+        <div class="row no-gutters h-100">
+            <div class="col-12 col-md-6 h-100 tweets-column">
+                <div class="scrollable-container tweets-container">
+                    <ul class="item-list item-list--tweet">
+                        <ng-container *ngIf="!isFilteringEnabled; else filteredTweetsList">
+                            <li *ngFor="let tweet of paginatedTweets$ | async"
+                                (click)="onTweetClick(tweet)"
+                                [class]="tweetCssClass(tweet)">
+                                <btw-neel-processed-tweet [tweet]="tweet"></btw-neel-processed-tweet>
+                            </li>
+                        </ng-container>
+                        <ng-template #filteredTweetsList>
+                            <li *ngFor="let tweet of filteredTweets$ | async" (click)="onTweetClick(tweet)" class="item-list__item">
+                                <btw-neel-processed-tweet [tweet]="tweet"></btw-neel-processed-tweet>
+                            </li>
+                        </ng-template>
+                    </ul>
+                </div>
+            </div>
+            <div class="col col-md-6 h-100 entities-column">
+                <div class="scrollable-container h-50 resources-container">
+                    <ng-container *ngIf="selectedTweet === null; else tweetEntitiesList">
+                        <ul class="item-list item-list--resource">
+                            <li *ngFor="let resource of resources$ | async"
+                                (click)="onResourceClick(resource)"
+                                [class]="resourceCssClass(resource)">
+                                <btw-linked-entity [resource]="resource" [tweetsCount]="resourcesCounter[resource.url]"></btw-linked-entity>
+                            </li>
+                        </ul>
+                    </ng-container>
+                    <ng-template #tweetEntitiesList>
+                        <ul class="item-list item-list--linkedentity">
+                            <li *ngFor="let entity of selectedTweetLinkedEntities()" class="item-list__item">
+                                <btw-linked-entity [entity]="entity"></btw-linked-entity>
+                            </li>
+                        </ul>
+                    </ng-template>
+                </div>
+                <div class="scrollable-container h-50 nil-entities-container">
+                    <ng-container *ngIf="selectedTweet === null; else tweetNilList">
+                        <ul class="item-list item-list--nilentity">
+                            <li *ngFor="let entity of nilEntities$ | async"
+                                (click)="onNilEntityClick(entity)"
+                                [class]="nilEntityCssClass(entity)">
+                                <btw-nil-entity
+                                    [nilEntity]="entity"
+                                    [tweetsCount]="nilEntityTweetsCount(entity)"></btw-nil-entity>
+                            </li>
+                        </ul>
+                    </ng-container>
+                    <ng-template #tweetNilList>
+                        <ul class="item-list item-list--nil">
+                            <li *ngFor="let entity of selectedTweetNilEntities()" class="item-list__item">
+                                <btw-nil-entity [entity]="entity"></btw-nil-entity>
+                            </li>
+                        </ul>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg order-first order-lg-last h-50 h-lg-100">
+        <agm-map
+            [latitude]="0"
+            [longitude]="0"
+            [zoom]="2"
+            [disableDefaultUI]="false"
+            [zoomControl]="true"
+            [zoomControlOptions]="{position: 8}"
+            [streetViewControl]="false"
+            [styles]="mapStyles"
+            [backgroundColor]="mapBg">
+
+            <ng-container *ngIf="selectedTweet === null && selectedResource === null; else selectedMarkers">
+                <agm-marker-cluster
+                    [styles]="getClusterStyles('tweets')"
+                    title="Tweets marker cluster">
+                    <ng-container *ngFor="let l of statusLocations$ | async">
+                        <agm-marker
+                            *ngIf="l.source === 'status'"
+                            [latitude]="l.coordinates.latitude"
+                            [longitude]="l.coordinates.longitude"
+                            [markerDraggable]="false"
+                            (markerClick)="onMarkerClick(l)"
+                            iconUrl="content/images/markers/tweets.svg"
+                            label=""
+                            title="Tweet location">
+                        </agm-marker>
+                    </ng-container>
+                </agm-marker-cluster>
+
+                <agm-marker-cluster
+                    [styles]="getClusterStyles('users')"
+                    title="Twitter users marker cluster">
+                    <agm-marker
+                        *ngFor="let l of userLocations$ | async"
+                        [latitude]="l.coordinates.latitude"
+                        [longitude]="l.coordinates.longitude"
+                        [markerDraggable]="false"
+                        (markerClick)="onMarkerClick(l)"
+                        iconUrl="content/images/markers/users.svg"
+                        label=""
+                        title="Twitter user location">
+                    </agm-marker>
+                </agm-marker-cluster>
+
+                <agm-marker-cluster
+                    [styles]="getClusterStyles('resources')"
+                    title="Resources marker cluster">
+                    <agm-marker
+                        *ngFor="let l of resourceLocations$ | async"
+                        [latitude]="l.coordinates.latitude"
+                        [longitude]="l.coordinates.longitude"
+                        [markerDraggable]="false"
+                        (markerClick)="onMarkerClick(l)"
+                        iconUrl="content/images/markers/resources.svg"
+                        label=""
+                        title="Resource location">
+                    </agm-marker>
+                </agm-marker-cluster>
+            </ng-container>
+            <ng-template #selectedMarkers>
+                <ng-container *ngIf="selectedTweet !== null">
+                    <agm-marker
+                        *ngIf="selectedTweet.status.coordinates"
+                        [latitude]="selectedTweet.status.coordinates.latitude"
+                        [longitude]="selectedTweet.status.coordinates.longitude"
+                        [markerDraggable]="false"
+                        (markerClick)="selectedTweet = null"
+                        iconUrl="content/images/markers/tweets.svg"
+                        label=""
+                        title="Tweet location">
+                    </agm-marker>
+
+                    <agm-marker
+                        *ngIf="selectedTweet.status.user.coordinates"
+                        [latitude]="selectedTweet.status.user.coordinates.latitude"
+                        [longitude]="selectedTweet.status.user.coordinates.longitude"
+                        [markerDraggable]="false"
+                        (markerClick)="selectedTweet = null"
+                        iconUrl="content/images/markers/users.svg"
+                        label=""
+                        title="Twitter user location">
+                    </agm-marker>
+
+                    <ng-container *ngFor="let entity of selectedTweet.entities">
+                        <agm-marker
+                            *ngIf="entity.resource && entity.resource.coordinates"
+                            [latitude]="entity.resource.coordinates.latitude"
+                            [longitude]="entity.resource.coordinates.longitude"
+                            [markerDraggable]="false"
+                            (markerClick)="selectedTweet = null"
+                            iconUrl="content/images/markers/resources.svg"
+                            label=""
+                            title="Resource location">
+                        </agm-marker>
+                    </ng-container>
+                </ng-container>
+
+                <ng-container *ngIf="selectedResource !== null">
+                    <agm-marker
+                        *ngIf="selectedResource && selectedResource.coordinates"
+                        [latitude]="selectedResource.coordinates.latitude"
+                        [longitude]="selectedResource.coordinates.longitude"
+                        [markerDraggable]="false"
+                        (markerClick)="selectedResource = null"
+                        iconUrl="content/images/markers/resources.svg"
+                        label=""
+                        title="Resource location">
+                    </agm-marker>
+                </ng-container>
+            </ng-template>
+        </agm-map>
+    </div>
+</div>

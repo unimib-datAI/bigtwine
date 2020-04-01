@@ -1,0 +1,100 @@
+<div class="toolbar toolbar--secondary">
+    <div class="row no-gutters">
+        <div class="col-auto">
+            <div class="d-inline-flex px-3">
+                <div class="input-group input-group-sm">
+                    <div class="input-group-prepend">
+                        <div class="btn-group" ngbDropdown role="group">
+                            <button class="btn btn-sm btn-light" ngbDropdownToggle>{{activeSearchType.label}}</button>
+                            <div class="dropdown-menu" ngbDropdownMenu>
+                                <button *ngFor="let searchType of availableSearchTypes"
+                                        (click)="onSearchTypeSelect(searchType)"
+                                        class="dropdown-item"
+                                        ngbDropdownItem>{{searchType.label}}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!activeSearchType.options; else filterWithOptions">
+                        <input
+                            class="form-control"
+                            placeholder="Filter results by query"
+                            type="text"
+                            [(ngModel)]="searchQuery"
+                            [formControl]="searchQueryControl">
+                    </ng-container>
+                    <ng-template #filterWithOptions>
+                        <select class="form-control custom-select"
+                                [(ngModel)]="searchQuery"
+                                [formControl]="searchQueryControl">
+                            <option *ngFor="let option of activeSearchType.options"
+                                    [value]="option.value">{{option.label}}</option>
+                        </select>
+                    </ng-template>
+                </div>
+                <button
+                    *ngIf="!liveSearchEnabled"
+                    type="button"
+                    class="btn btn-outline-light btn-sm ml-2"
+                    [disabled]="!shouldSearch"
+                    (click)="onSearchBtnCLick()">Search</button>
+
+                <button *ngIf="searchQuery"
+                        type="reset"
+                        class="btn btn-outline-warning btn-sm ml-2"
+                        (click)="onSearchResetBtnCLick()">Reset</button>
+            </div>
+        </div>
+        <div class="col">
+            <div class="pagination px-3 align-items-center" *ngIf="paginationEnabled">
+                <div class="btn-group btn-group-sm" role="group">
+                    <button
+                        type="button"
+                        class="btn btn-outline-light"
+                        [disabled]="(pagination.currentPage - 1) < 0"
+                        (click)="onChangePageBtnClick(-1)">Prev</button>
+
+                    <div class="btn-group" ngbDropdown role="group">
+                        <button class="btn btn-sm btn-outline-light" ngbDropdownToggle>
+                            <span class="pl-2">{{ pagination.currentPage + 1 }} / {{ pagination.pagesCount }}</span>
+                        </button>
+                        <div class="bg-dark" ngbDropdownMenu>
+                            <div class="px-2">
+                                <div class="input-group input-group-sm">
+                                    <input
+                                        class="form-control"
+                                        placeholder="Go to page..."
+                                        type="number"
+                                        [(ngModel)]="gotoPageNumber">
+                                    <div class="input-group-append">
+                                        <button type="button"
+                                                class="btn btn-sm btn-outline-light"
+                                                (click)="onGoToPageBtnClick()">Go</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-light"
+                        [disabled]="(pagination.currentPage + 1) >= pagination.pagesCount"
+                        (click)="onChangePageBtnClick(+1)">Next</button>
+                </div>
+
+                <span class="ml-2 badge">
+                    {{ pagination.allItemsCount | numeral:"0a" }} results
+                </span>
+            </div>
+        </div>
+        <div class="col text-right">
+            <div class="d-inline-flex">
+                <ng-container *ngIf="shouldShowExportBtn">
+                    <btw-results-export-btn [analysis]="currentAnalysis"></btw-results-export-btn>
+                </ng-container>
+
+                <ng-content select=".space-right"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

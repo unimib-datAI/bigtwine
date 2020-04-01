@@ -1,0 +1,19 @@
+@import '~app/variables';
+
+.library-table {
+    margin-bottom: 0;
+
+    /*thead th {
+        position: sticky;
+        top: 0;
+        background: $table-dark-bg;
+    }*/
+
+    tr {
+        cursor: pointer;
+    }
+
+    tr.selected {
+        background: $content-highlight-bg-color;
+    }
+}

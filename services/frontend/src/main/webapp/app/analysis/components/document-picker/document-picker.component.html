@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="document-picker mt-5">
+                <ngb-tabset type="pills" (tabChange)="onTabChange($event)" [destroyOnHide]="false">
+                    <ngb-tab id="upload" title="Upload">
+                        <ng-template ngbTabContent>
+                            <btw-document-uploader
+                                #documentUploader
+                                [acceptMimeType]="acceptMimeType"
+                                [analysisType]="analysisType"
+                                [documentCategory]="documentCategory"
+                                [documentType]="documentType"
+                                (documentUpload)="onDocumentUploaded($event)"
+                                (stateChange)="onUploaderStateChange($event)"></btw-document-uploader>
+                        </ng-template>
+                    </ngb-tab>
+                    <ngb-tab id="library" title="Library">
+                        <ng-template ngbTabContent>
+                            <btw-document-library
+                                #documentLibrary
+                                [analysisType]="analysisType"
+                                [documentCategory]="documentCategory"
+                                [documentType]="documentType"
+                                (documentSelected)="onDocumentSelected($event)"></btw-document-library>
+                        </ng-template>
+                    </ngb-tab>
+                </ngb-tabset>
+                <div class="document-picker__submit-row">
+                    <div class="row">
+                        <div class="col">
+                            <button *ngIf="cancelBtnVisible"
+                                    class="btn btn-outline-danger"
+                                    [disabled]="!cancelBtnEnabled"
+                                    (click)="onCancelBtnClick()">Cancel</button>
+                        </div>
+                        <div class="col text-right">
+                            <button class="btn btn-outline-secondary ml-2"
+                                    [disabled]="!resetBtnEnabled"
+                                    (click)="onResetBtnClick()">Reset</button>
+                            <button class="btn btn-outline-primary ml-2"
+                                    [disabled]="!selectBtnEnabled"
+                                    (click)="onSelectBtnClick()">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

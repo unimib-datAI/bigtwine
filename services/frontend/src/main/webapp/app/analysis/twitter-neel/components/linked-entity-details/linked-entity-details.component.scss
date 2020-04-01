@@ -1,0 +1,31 @@
+@import "~app/variables";
+
+.sebm-google-map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.entity-details {
+    &__title {
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 1.2rem;
+        margin-top: 0.5rem;
+    }
+
+    &__map {
+        margin-bottom: 1rem;
+    }
+
+    &__extra {
+        .table {
+            max-width: 100%;
+            background-color: $content-bg-color;
+
+            td {
+                word-break: break-all;
+            }
+        }
+
+    }
+}

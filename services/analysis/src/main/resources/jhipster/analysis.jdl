@@ -1,0 +1,38 @@
+enum AnalysisStatus {
+	READY,
+    STARTED,
+    STOPPED,
+    COMPLETED,
+    CANCELLED,
+    FAILED
+}
+
+enum AnalysisType {
+	TWITTER_NEEL
+}
+
+enum AnalysisInputType {
+	QUERY,
+    DATASET
+}
+
+enum AnalysisVisibility {
+	PRIVATE,
+	PUBLIC
+}
+
+@service(serviceClass)
+@paginate(pagination)
+entity Analysis {
+	type AnalysisType required
+    inputType AnalysisInputType required
+    status AnalysisStatus required
+    visibility AnalysisVisibility required
+    owner String required
+    progress Double required
+    createDate Instant required
+    updateDate Instant required
+    input String
+    settings String
+}
+

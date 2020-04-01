@@ -1,0 +1,38 @@
+<div class="toolbar">
+    <div class="row no-gutters">
+        <div class="col-auto">
+            <ng-content select=".space-left"></ng-content>
+        </div>
+        <div class="col">
+            <div class="row no-gutters">
+                <div class="col px-3">
+                    <button class="btn btn-outline-primary btn-sm" *ngIf="showCreateBtn" (click)="createAnalysis()">Create</button>
+                    <button class="btn btn-outline-primary btn-sm" *ngIf="showStartBtn" (click)="startAnalysis()">Start</button>
+                    <button class="btn btn-outline-primary btn-sm" *ngIf="showStopBtn" (click)="stopAnalysis()">Stop</button>
+                    <button class="btn btn-outline-success btn-sm" *ngIf="showCompleteBtn" (click)="completeAnalysis()">Complete</button>
+                    <button class="btn btn-outline-danger btn-sm" *ngIf="showCancelBtn" (click)="cancelAnalysis()">Cancel</button>
+                </div>
+            </div>
+            <ng-content select=".space-center"></ng-content>
+        </div>
+        <div class="col-auto">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <ng-content select=".space-right"></ng-content>
+                </div>
+                <div class="col-auto px-3">
+                    <a href="#" *ngIf="currentAnalysis"
+                          (click)="$event.preventDefault(); onStatusLabelClick()">
+                        <btw-analysis-status-badge [analysisStatus]="currentAnalysis.status"></btw-analysis-status-badge>
+                    </a>
+                </div>
+                <div class="col-auto px-3">
+                    <button class="btn btn-outline-light btn-sm" *ngIf="currentAnalysis" (click)="openSettings()">
+                        <fa-icon icon="sliders-h"></fa-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

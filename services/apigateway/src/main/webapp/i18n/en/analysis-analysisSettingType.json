@@ -1,0 +1,13 @@
+{
+    "apigatewayApp": {
+        "AnalysisSettingType": {
+            "null": "",
+            "NUMBER": "NUMBER",
+            "STRING": "STRING",
+            "TEXT": "TEXT",
+            "BOOLEAN": "BOOLEAN",
+            "SINGLE_CHOICE": "SINGLE_CHOICE",
+            "MULTIPLE_CHOICES": "MULTIPLE_CHOICES"
+        }
+    }
+}

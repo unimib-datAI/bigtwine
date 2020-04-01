@@ -1,0 +1,88 @@
+{
+    "name": "Analysis",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "AnalysisType",
+            "fieldValues": "TWITTER_NEEL",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "inputType",
+            "fieldType": "AnalysisInputType",
+            "fieldValues": "QUERY,DATASET",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "AnalysisStatus",
+            "fieldValues": "READY,STARTED,STOPPED,COMPLETED,CANCELLED,FAILED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "visibility",
+            "fieldType": "AnalysisVisibility",
+            "fieldValues": "PRIVATE,PUBLIC",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "progress",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "updateDate",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "input",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "settings",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resultsCount",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190219210930",
+    "entityTableName": "analyses",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "analysis",
+    "applications": "*",
+    "microserviceName": "analysis"
+}

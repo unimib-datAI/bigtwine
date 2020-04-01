@@ -1,0 +1,59 @@
+#Similarita nell'algoritmo candidate selection
+Candidate_Selection_Symilarity = Standard
+#Candidate_Selection_Symilarity = BM25
+
+#Field in ricerca nel candidate selection
+Candidate_Selection_Field = Label
+#Per ricerca su label abstract
+#Candidate_Selection_Field = Label;Abstract
+
+#Documenti da candidate selection in cosine similarity con tweet
+Cosine_Similarity_Doc = 2
+
+#Identifica numeri nel testo
+Manage_Number = False
+
+#Best type dalla pagina linkata
+Type_From_Page = True
+
+#Best type dalla pagina linkata e come Micropost
+Type_From_Page_And_Micropost = True
+
+#Preprocess dell'entity riconosciuta
+Preprocess_Entity = True
+
+#Riadatta l'entity riconosciuta all'entity linkata
+Reduce_Entity = True
+
+#File input
+#Aritter_File_Name = "C:\Users\cezar.sas\Desktop\NEEL\ElSystem\neel-twitter\Data\out-micro2014.txt"
+
+#Gold standard file
+Gold_Standard_File_Name = "GoldStandard.csv"
+
+#Ground truth file
+Ground_Truth_File_Name = "GroundTruth.csv"
+
+#File map di ritter
+Map_To_Ritter = "Configuration/mapping.xml"
+
+#File map challenge
+Map_To_Challenge = "Configuration/mapping microposts.xml"
+
+#Knowledge base path
+#Index_Path = "C:\\Users\\cezar.sas\\Desktop\\NEEL\\KnowledgeBase"
+
+#Peso etichetta distanza
+Label_Distance_Weight = 3
+
+#Punteggio Lucene
+Alfa_Lucene_Score = 0.7
+
+#Peso rank
+Rank_Weight = 0.6
+
+#Valore di epsilon
+Epsilon_Type = 0.00000001
+
+#Risultati massimi
+Max_Results = 500

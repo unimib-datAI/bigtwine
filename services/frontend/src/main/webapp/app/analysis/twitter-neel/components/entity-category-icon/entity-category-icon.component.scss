@@ -1,0 +1,9 @@
+@import "../../variables";
+
+.entity-category {
+    @each $cat, $color in $categories-color {
+        &--#{$cat} {
+            color: $color;
+        }
+    }
+}

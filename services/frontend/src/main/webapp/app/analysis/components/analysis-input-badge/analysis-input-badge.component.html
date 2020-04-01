@@ -1,0 +1,12 @@
+<ng-container *ngIf="analysisInput.type === 'query'">
+    <span class="badge badge-primary query-operator">{{queryAnalysisInput.joinOperator}} of:</span>
+    <span class="badge badge-secondary query-token" *ngFor="let token of queryAnalysisInput.tokens">{{token}}</span>
+</ng-container>
+<ng-container *ngIf="analysisInput.type === 'dataset'">
+    <span class="badge badge-primary">{{datasetAnalysisInput.name}}</span>
+    <span class="badge badge-secondary">{{datasetAnalysisInput.size | numeral:"0.0 b"}}</span>
+</ng-container>
+<ng-container *ngIf="analysisInput.type === 'geo-area'">
+    <span class="badge badge-primary">{{geoAreaAnalysisInput.description}}</span>
+    <span class="badge badge-secondary">{{geoAreaAnalysisInput.boundingBoxes.length}} BBOX</span>
+</ng-container>

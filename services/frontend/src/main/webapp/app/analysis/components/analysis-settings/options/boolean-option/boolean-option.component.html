@@ -1,0 +1,10 @@
+<btw-option-wrapper [option]="option">
+    <div class="option-input">
+        <input
+            type="checkbox"
+            class="form-check-input"
+            [checked]="value"
+            [disabled]="disabled"
+            (change)="onValueChange($event.currentTarget.checked)">
+    </div>
+</btw-option-wrapper>

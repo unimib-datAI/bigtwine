@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-analysis-setting-collection-heading" jhiTranslate="apigatewayApp.analysisAnalysisSettingCollection.home.createOrEditLabel">Create or edit a Analysis Setting Collection</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!analysisSettingCollection.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="analysisSettingCollection.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSettingCollection.analysisType" for="field_analysisType">Analysis Type</label>
+                    <select class="form-control" name="analysisType" [(ngModel)]="analysisSettingCollection.analysisType" id="field_analysisType" >
+                        <option value="TWITTER_NEEL">{{'apigatewayApp.AnalysisType.TWITTER_NEEL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSettingCollection.analysisInputType" for="field_analysisInputType">Analysis Input Type</label>
+                    <select class="form-control" name="analysisInputType" [(ngModel)]="analysisSettingCollection.analysisInputType" id="field_analysisInputType" >
+                        <option value="QUERY">{{'apigatewayApp.AnalysisInputType.QUERY' | translate}}</option>
+                        <option value="GEO_AREA">{{'apigatewayApp.AnalysisInputType.GEO_AREA' | translate}}</option>
+                        <option value="DATASET">{{'apigatewayApp.AnalysisInputType.DATASET' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="apigatewayApp.analysisAnalysisSettingCollection.settings" for="field_settings">Settings</label>
+                    <select class="form-control" id="field_settings" multiple name="settings" [(ngModel)]="analysisSettingCollection.settings" required>
+                        <option [ngValue]="getSelected(analysisSettingCollection.settings, analysisSettingOption)" *ngFor="let analysisSettingOption of analysissettings; trackBy: trackAnalysisSettingById">{{analysisSettingOption.label}}</option>
+                    </select>
+                </div>
+                <div [hidden]="!(editForm.controls.settings?.dirty && editForm.controls.settings?.invalid)">
+                    <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.settings?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

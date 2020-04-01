@@ -1,0 +1,47 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import '~app/variables';
+
+.sebm-google-map-container {
+    height: 100%;
+    width: 100%;
+}
+
+.item-list {
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+
+    &__item {
+        background: $content-bg-color;
+        border-bottom: 1px solid $content-separator-color;
+        color: $content-text-color;
+        font-size: 0.75rem;
+        padding: 1rem 0.5rem;
+
+        &.active {
+            background: $content-highlight-bg-color;
+            opacity: 1;
+        }
+
+        &.inactive {
+            opacity: 0.25;
+        }
+    }
+}
+
+.tweets-container, .resources-container {
+    @include media-breakpoint-up(lg) {
+        padding-top: 44px;
+    }
+}
+
+.tweets-column, .entities-column {
+    border-right: 2px solid $page-separator-color;
+}
+
+.resources-container {
+    border-bottom: 2px solid $page-separator-color;
+}

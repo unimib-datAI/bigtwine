@@ -1,0 +1,21 @@
+<div class="wrapper wrapper--toolbar">
+    <div class="toolbar-container">
+        <btw-analysis-toolbar showCreateBtn="true" (actionBtnClick)="onToolbarActionBtnClick($event)">
+            <div class="space-left">
+                <div class="px-3">
+                    <btw-query-input (queryChange)="this.query = $event"></btw-query-input>
+                </div>
+            </div>
+        </btw-analysis-toolbar>
+    </div>
+    <div class="wrapper__content">
+    </div>
+</div>
+
+
+
+<btw-analysis-toolbar showCreateBtn="true" (actionBtnClick)="onToolbarActionBtnClick($event)">
+    <div class="space-center">
+        <btw-query-input (queryChange)="this.query = $event"></btw-query-input>
+    </div>
+</btw-analysis-toolbar>

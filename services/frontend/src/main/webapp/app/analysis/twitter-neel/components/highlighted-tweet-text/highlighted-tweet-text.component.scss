@@ -1,0 +1,28 @@
+@import "../../variables";
+
+@mixin entity-bg-color() {
+    background: $category-default-color;
+
+    @each $category, $color in $categories-color {
+        &.#{$category} {
+            background: linear-gradient(90deg,
+                rgba($color, 0) 0%,
+                rgba($color, 1) 10%,
+                rgba($color, 1) 90%,
+                rgba($color, 0) 100%
+            );
+        }
+    }
+}
+
+::shadow .entity {
+    @include entity-bg-color();
+
+    &.linked {
+
+    }
+
+    &.nil {
+        text-decoration: underline dotted;
+    }
+}

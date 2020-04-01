@@ -1,0 +1,62 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="apigatewayApp.analysisAnalysisSetting.home.title">Analysis Settings</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-analysis-setting" [routerLink]="['/analysis-setting/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="apigatewayApp.analysisAnalysisSetting.home.createLabel">
+            Create new Analysis Setting
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="analysisSettings">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.name">Name</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.label">Label</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.description">Description</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.type">Type</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.visibility">Visibility</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let analysisSetting of analysisSettings ;trackBy: trackId">
+                <td><a [routerLink]="['/analysis-setting', analysisSetting.id, 'view' ]">{{analysisSetting.id}}</a></td>
+                <td>{{analysisSetting.name}}</td>
+                <td>{{analysisSetting.label}}</td>
+                <td>{{analysisSetting.description}}</td>
+                <td jhiTranslate="{{'apigatewayApp.AnalysisSettingType.' + analysisSetting.type}}">{{analysisSetting.type}}</td>
+                <td jhiTranslate="{{'apigatewayApp.AnalysisSettingVisibility.' + analysisSetting.visibility}}">{{analysisSetting.visibility}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/analysis-setting', analysisSetting.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/analysis-setting', analysisSetting.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'analysis-setting/'+ analysisSetting.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

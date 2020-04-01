@@ -1,0 +1,89 @@
+<div class="modal-header">
+    <h4 class="modal-title">Legend</h4>
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')"><span aria-hidden="true">x</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Categories</h5>
+                    <div class="row">
+                        <ng-container *ngFor="let category of categories">
+                            <div class="col-3 text-center">
+                                <btw-entity-category-icon [category]="category"></btw-entity-category-icon>
+                            </div>
+                            <div class="col-9"><small>{{category}}</small></div>
+                        </ng-container>
+                    </div>
+                    <h5 class="mt-3">Confidence</h5>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <btw-confidence-icon [value]="0"></btw-confidence-icon>
+                        </div>
+                        <div class="col-9"><small>Low</small></div>
+                        <div class="col-3 text-center">
+                            <btw-confidence-icon [value]=".5"></btw-confidence-icon>
+                        </div>
+                        <div class="col-9"><small>Medium</small></div>
+                        <div class="col-3 text-center">
+                            <btw-confidence-icon [value]="1"></btw-confidence-icon>
+                        </div>
+                        <div class="col-9"><small>High</small></div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h5>Icons</h5>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <fa-icon icon="map-marker-alt"></fa-icon>
+                        </div>
+                        <div class="col-9">
+                            <small>Tweet/Resource has coordinates</small>
+                        </div>
+                        <div class="col-3 text-center">
+                            <fa-icon icon="map"></fa-icon>
+                        </div>
+                        <div class="col-9">
+                            <small>Tweet user location</small>
+                        </div>
+                        <div class="col-3 text-center">
+                            <i class="fas fa-external-link-square-alt"></i>
+                        </div>
+                        <div class="col-9">
+                            <small>External Link</small>
+                        </div>
+                        <div class="col-3 text-center">
+                            <btw-tweets-counter-icon value="1"></btw-tweets-counter-icon>
+                        </div>
+                        <div class="col-9">
+                            <small>Number of related tweets</small>
+                        </div>
+                    </div>
+                    <h5 class="mt-3">Markers</h5>
+                    <div class="row">
+                        <div class="col-3 text-center">
+                            <img src="/content/images/markers/resources.svg" height="16" alt="">
+                        </div>
+                        <div class="col-9"><small>Resource coordinates</small></div>
+                        <div class="col-3 text-center">
+                            <img src="/content/images/markers/tweets.svg" height="16" alt="">
+                        </div>
+                        <div class="col-9"><small>Tweet geo reference</small></div>
+                        <div class="col-3 text-center">
+                            <img src="/content/images/markers/users.svg" height="16" alt="">
+                        </div>
+                        <div class="col-9"><small>Tweet user location (Geo decoded)</small></div>
+                        <div class="col-3 text-center">
+                            <img src="/content/images/markers/resources-m1.svg" height="16" alt="">
+                        </div>
+                        <div class="col-9"><small>Marker cluster (same color of the single marker)</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

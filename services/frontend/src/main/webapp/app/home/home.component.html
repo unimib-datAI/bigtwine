@@ -1,0 +1,30 @@
+<div class="container page-container">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-9">
+            <h1 class="display-4" jhiTranslate="home.title">Welcome to BigTWINE!</h1>
+
+            <div [ngSwitch]="isAuthenticated()">
+                <ng-container *ngSwitchCase="true">
+                    <div class="alert alert-success" >
+                        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                            translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+                    </div>
+                    <br>
+                    <div class="alert alert-warning" *btwHasAnyAuthority="'ROLE_DEMO'">
+                        <span id="home-demo-message"> You are logged in as a demo user, some features are restricted. </span>
+                    </div>
+
+                </ng-container>
+
+                <div class="alert alert-warning" *ngSwitchCase="false">
+                    <span>If you want to </span>
+                    <a class="alert-link" (click)="login()" >sign in</a><span>, you can try the demo account: <br/>- login: demo <br/>-  password: demo</span>
+                </div>
+                <div class="alert alert-warning" *ngSwitchCase="false">
+                    <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+                    <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container-fluid viewer-container h-100">
+    <div class="row no-gutters h-100">
+        <div class="col-12 h-100" [ngClass]="{'col-md-6 col-lg-8': !!selectedEntity}">
+            <div class="scrollable-container px-3">
+                <ul class="tweet-list">
+                    <li *ngFor="let tweet of tweets$ | async"
+                        class="tweet-list__item mt-3">
+                        <btw-neel-processed-tweet-large
+                            [tweet]="tweet"
+                            [(selectedEntity)]="selectedEntity"
+                            (selectedEntityChange)="onSelectedEntityChange($event, tweet)"></btw-neel-processed-tweet-large>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 d-none d-md-block h-100" *ngIf="selectedEntity">
+            <div class="scrollable-container px-3">
+                <div class="entity-details-wrapper my-3">
+                    <btw-linked-entity-details
+                        [entity]="selectedEntity"
+                        [parentTweet]="selectedEntityTweet"></btw-linked-entity-details>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

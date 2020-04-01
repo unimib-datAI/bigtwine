@@ -1,0 +1,52 @@
+{
+    "name": "CronTask",
+    "fields": [
+        {
+            "fieldName": "task",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "CronTaskStatus",
+            "fieldValues": "RUNNING,FAILED,COMPLETED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "executedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "finishedDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "schedule",
+            "otherEntityName": "cronSchedule",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cronTask"
+        }
+    ],
+    "changelogDate": "20190910114748",
+    "entityTableName": "cron_task",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "cronscheduler",
+    "applications": "*",
+    "microserviceName": "cronscheduler"
+}

@@ -1,0 +1,13 @@
+<btw-option-wrapper [option]="option">
+    <div class="option-input">
+        <select
+            [disabled]="disabled"
+            (change)="onValueChange($event.currentTarget.value)">
+            <option
+                *ngFor="let choice of choices"
+                [value]="choice.value"
+                [selected]="choice.value === value"
+            >{{choice.label}}</option>
+        </select>
+    </div>
+</btw-option-wrapper>

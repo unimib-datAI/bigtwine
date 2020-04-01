@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.geo"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "geo",
+    "packageName": "it.unimib.disco.bigtwine.services.geo",
+    "packageFolder": "it/unimib/disco/bigtwine/services/geo",
+    "serverPort": "9005",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ODUwMjg3ZjE5NWU5MTYzMGFiNWU1YjQ0MzNkMjQ3ODRlYTg0MmFhOTIwYjllNDE1YWYxYjVkMDY4OWExYTI1YWYyNzg5ZTkyNDBiZjY4ZjljNGY2OTY0MWJmMmEzMzMxMzA1YzZmMzVmYzdhZDEyMzc1YTcwMWJiYzQyYTE4NjE=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

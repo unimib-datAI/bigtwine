@@ -1,0 +1,9 @@
+<btw-option-wrapper [option]="option">
+    <div class="option-input">
+        <input
+            type="text"
+            [value]="value"
+            [disabled]="disabled"
+            (change)="onValueChange($event.currentTarget.value)">
+    </div>
+</btw-option-wrapper>

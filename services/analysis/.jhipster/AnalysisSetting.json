@@ -1,0 +1,56 @@
+{
+    "name": "AnalysisSetting",
+    "fields": [
+        {
+            "fieldName": "name",
+            "javadoc": "Setting name, should be alphanumeric and lowercase",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "[a-z0-9-]+"
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "AnalysisSettingType",
+            "fieldValues": "NUMBER,STRING,TEXT,BOOLEAN,SINGLE_CHOICE,MULTIPLE_CHOICES",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "visibility",
+            "fieldType": "AnalysisSettingVisibility",
+            "fieldValues": "GLOBAL,HIDDEN,USER_VISIBLE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "options",
+            "javadoc": "Each option on separated line with the following format: <value>:<name>",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20190907074037",
+    "entityTableName": "analyses.setting",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "analysis",
+    "applications": "*",
+    "microserviceName": "analysis"
+}

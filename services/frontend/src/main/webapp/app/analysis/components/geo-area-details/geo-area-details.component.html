@@ -1,0 +1,4 @@
+<div *ngIf="geoArea" class="geo-area" (click)="onShowMoreDetails()" title="Click to see the map">
+    <span class="geo-area__desc">{{geoArea.description}}</span>
+    <small class="geo-area__bboxes">{{geoArea.boundingBoxes.length}} bounding box</small>
+</div>

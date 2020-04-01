@@ -1,0 +1,17 @@
+@import '~app/variables';
+
+.geo-area {
+    cursor: pointer;
+
+    &__desc {
+        display: block;
+        line-height: 1rem;
+        font-size: 1rem;
+    }
+
+    &__bboxes {
+        display: block;
+        color: $text-secondary-color;
+        font-size: 0.625rem;
+    }
+}

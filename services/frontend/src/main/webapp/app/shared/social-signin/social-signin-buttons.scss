@@ -1,0 +1,45 @@
+.ssi-buttons-list {
+    margin-bottom: 1rem;
+}
+
+.ssi-button {
+    $root: &;
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.15rem;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-size: 24px 24px;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    &__label {
+        color: inherit;
+        flex-grow: 1;
+        line-height: 24px;
+        padding: 4px;
+    }
+
+    &--twitter {
+        background: #1DA1F2;
+        color: #fff;
+
+        &:before {
+            background-image: url('../../../content/images/social-icons/twitter.svg');
+        }
+
+        #{$root}__label {
+        }
+    }
+}

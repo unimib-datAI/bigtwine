@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:1.4.0"
+    }
+}
+
+apply plugin: com.google.cloud.tools.jib.gradle.JibPlugin
+
+jib {
+    from {
+        image = 'openjdk:8-jre-alpine'
+    }
+    to {
+        image = '535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/flink-streamprocessor'
+        credHelper = 'ecr-login'
+        tags = ['latest', project.version]
+    }
+    container {
+        entrypoint = ['/entrypoint.sh']
+        useCurrentTimestamp = true
+    }
+    extraDirectories {
+        permissions = [
+                '/entrypoint.sh': '755'
+        ]
+    }
+}
+

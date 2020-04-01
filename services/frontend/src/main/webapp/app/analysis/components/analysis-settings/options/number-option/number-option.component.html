@@ -1,0 +1,11 @@
+<btw-option-wrapper [option]="option">
+    <div class="option-input">
+        <btw-stepper
+            [value]="value"
+            (valueChange)="onValueChange($event)"
+            [disabled]="disabled"
+            [minValue]="minValue"
+            [maxValue]="maxValue"
+            [step]="step"></btw-stepper>
+    </div>
+</btw-option-wrapper>

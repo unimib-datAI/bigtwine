@@ -1,0 +1,26 @@
+<div class="wrapper wrapper--toolbar">
+    <div class="multi-toolbars-container">
+        <btw-analysis-toolbar
+            [showCreateBtn]="showCreateBtn"
+            [showStartBtn]="showStartBtn"
+            [showStopBtn]="showStopBtn"
+            [showCancelBtn]="showCancelBtn"
+            [showCompleteBtn]="showCompleteBtn">
+            <div class="space-left">
+                <div class="px-3">
+                    <btw-geo-area-details [geoArea]="geoArea"></btw-geo-area-details>
+                </div>
+            </div>
+        </btw-analysis-toolbar>
+        <btw-results-toolbar>
+            <div class="space-right">
+                <div class="px-3">
+                    <btw-view-mode-switcher></btw-view-mode-switcher>
+                </div>
+            </div>
+        </btw-results-toolbar>
+    </div>
+    <div class="wrapper__content">
+        <router-outlet name="results-viewer"></router-outlet>
+    </div>
+</div>

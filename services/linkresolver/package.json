@@ -1,0 +1,16 @@
+{
+    "name": "linkresolver",
+    "version": "0.0.0",
+    "description": "Description for linkresolver",
+    "private": true,
+    "license": "UNLICENSED",
+    "cacheDirectories": [
+        "node_modules"
+    ],
+    "devDependencies": {
+        "generator-jhipster": "5.7.2"
+    },
+    "engines": {
+        "node": ">=8.9.0"
+    }
+}

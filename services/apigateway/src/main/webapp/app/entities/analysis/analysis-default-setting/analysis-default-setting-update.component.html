@@ -1,0 +1,78 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-analysis-default-setting-heading" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.home.createOrEditLabel">Create or edit a Analysis Default Setting</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!analysisDefaultSetting.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="analysisDefaultSetting.id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.setting" for="field_setting">Setting</label>
+                    <select class="form-control" id="field_setting" name="setting" [(ngModel)]="analysisDefaultSetting.setting"  required>
+                        <option *ngIf="!editForm.value.setting" [ngValue]="null" selected></option>
+                        <option [ngValue]="analysisSettingOption.id === analysisDefaultSetting.setting?.id ? analysisDefaultSetting.setting : analysisSettingOption" *ngFor="let analysisSettingOption of analysissettings; trackBy: trackAnalysisSettingById">{{analysisSettingOption.label}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.setting?.dirty && editForm.controls.setting?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.setting?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisType" for="field_analysisType">Analysis Type</label>
+                    <select class="form-control" name="analysisType" [(ngModel)]="analysisDefaultSetting.analysisType" id="field_analysisType" >
+                        <option value="TWITTER_NEEL">{{'apigatewayApp.AnalysisType.TWITTER_NEEL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisInputTypes" for="field_analysisInputTypes">Analysis Input Types</label>
+                    <select class="form-control" name="analysisInputTypes" [(ngModel)]="analysisDefaultSetting.analysisInputTypes" multiple id="field_analysisInputTypes" >
+                        <option value="QUERY">{{'apigatewayApp.AnalysisInputType.QUERY' | translate}}</option>
+                        <option value="GEO_AREA">{{'apigatewayApp.AnalysisInputType.GEO_AREA' | translate}}</option>
+                        <option value="DATASET">{{'apigatewayApp.AnalysisInputType.DATASET' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userRoles" for="field_userRoles">User Roles</label>
+                    <select id="field_userRoles" class="form-control" multiple name="userRoles" [(ngModel)]="analysisDefaultSetting.userRoles">
+                        <option *ngFor="let authority of authorities" [value]="authority">{{authority}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.defaultValue" for="field_defaultValue">Default Value</label>
+                    <input type="text" class="form-control" name="defaultValue" id="field_defaultValue"
+                           [(ngModel)]="analysisDefaultSetting.defaultValue" required/>
+                    <div [hidden]="!(editForm.controls.defaultValue?.dirty && editForm.controls.defaultValue?.invalid)">
+                        <small class="form-text text-danger"
+                               [hidden]="!editForm.controls.defaultValue?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userCanOverride" for="field_userCanOverride">User Can Override</label>
+                    <input type="checkbox" class="form-control" name="userCanOverride" id="field_userCanOverride"
+                        [(ngModel)]="analysisDefaultSetting.userCanOverride" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.priority" for="field_priority">Priority</label>
+                    <input type="number" class="form-control" name="priority" id="field_priority"
+                        [(ngModel)]="analysisDefaultSetting.priority" />
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+    "apigatewayApp": {
+        "analysisAnalysisSettingCollection": {
+            "home": {
+                "title": "Analysis Setting Collections",
+                "createLabel": "Create a new Analysis Setting Collection",
+                "createOrEditLabel": "Create or edit a Analysis Setting Collection"
+            },
+            "delete": {
+                "question": "Are you sure you want to delete Analysis Setting Collection {{ id }}?"
+            },
+            "detail": {
+                "title": "Analysis Setting Collection"
+            },
+            "analysisType": "Analysis Type",
+            "analysisInputType": "Analysis Input Type",
+            "settings": "Settings"
+        }
+    },
+    "analysisApp": {
+        "analysisAnalysisSettingCollection": {
+            "created": "A new Analysis Setting Collection is created with identifier {{ param }}",
+            "updated": "A Analysis Setting Collection is updated with identifier {{ param }}",
+            "deleted": "A Analysis Setting Collection is deleted with identifier {{ param }}"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "apigatewayApp": {
+        "AnalysisSettingVisibility": {
+            "null": "",
+            "GLOBAL": "GLOBAL",
+            "HIDDEN": "HIDDEN",
+            "USER_VISIBLE": "USER_VISIBLE"
+        }
+    }
+}

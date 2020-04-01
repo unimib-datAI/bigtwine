@@ -1,0 +1,9 @@
+{
+    "apigatewayApp": {
+        "AnalysisVisibility": {
+            "null": "",
+            "PRIVATE": "PRIVATE",
+            "PUBLIC": "PUBLIC"
+        }
+    }
+}

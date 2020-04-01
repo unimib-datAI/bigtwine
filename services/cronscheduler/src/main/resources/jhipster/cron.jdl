@@ -1,0 +1,52 @@
+@paginate(pagination)
+entity CronEntry {
+    service String required
+	group String required
+    name String required
+    parallelism Integer required min(0)
+    active Boolean
+    cronExpr String required
+    lastRun Instant
+}
+
+enum CronStatus {
+	SCHEDULED,
+	RUNNING,
+	FAILED,
+    PARTIAL,
+    SUCCESS
+}
+
+@paginate(pagination)
+entity CronSchedule {
+	status CronStatus required
+    tasksCount Integer min(1)
+    createdDate Instant
+	updatedDate Instant
+	scheduledDate Instant
+	executedDate Instant
+	finishedDate Instant
+}
+
+enum CronTaskStatus {
+	RUNNING,
+	FAILED,
+    COMPLETED
+}
+
+entity CronTask {
+	task Integer required
+    status CronTaskStatus required
+    message String
+	executedDate Instant
+	finishedDate Instant
+}
+
+relationship OneToOne {
+	CronSchedule{entry} to CronEntry
+}
+
+relationship OneToOne {
+	CronTask{schedule} to CronSchedule
+}
+

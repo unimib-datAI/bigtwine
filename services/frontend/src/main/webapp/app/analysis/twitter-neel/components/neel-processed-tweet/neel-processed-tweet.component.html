@@ -1,0 +1,45 @@
+<div class="tweet">
+    <div class="row no-gutters flex-nowrap tweet__user-info mw-100" *ngIf="status.user">
+        <div class="col-auto pl-2" *ngIf="status.user.profileImageUrl">
+            <img width="32"
+                 height="32"
+                 class="object-fit-cover"
+                 [defaultImage]="'content/images/avatar-placeholder.png'"
+                 [lazyLoad]="status.user.profileImageUrl"
+                 alt="">
+        </div>
+        <div class="col px-2 text-truncate">
+            <div class="row no-gutters">
+                <div class="col text-truncate">
+                    <div class="tweet__username text-truncate" *ngIf="status.user.name">{{status.user.name}}</div>
+                </div>
+                <div class="col-auto pl-2" *ngIf="status.coordinates">
+                    <i title="This tweet is geo-referenced" class="fas fa-map-marker-alt"></i>
+                </div>
+            </div>
+
+            <div class="row no-gutters">
+                <div class="col tweet__user-details text-truncate">
+                    <small class="" *ngIf="status.user.screenName">
+                        <a class="text-white font-weight-normal"
+                           [href]="'https://twitter.com/' + (status.user.screenName || 'u') + '/status/' + status.id"
+                           title="See this tweet on twitter.com"
+                           target="_blank">
+                            <i class="fab fa-twitter"></i>
+                            {{status.user.screenName}}
+                        </a>
+                    </small>
+                    <small class="ml-2" title="User location" *ngIf="status.user.coordinates">
+                        <i class="fas fa-map"></i>
+                        {{status.user.location}}
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters mt-2">
+        <div class="col px-2">
+            <btw-highlighted-tweet-text [tweet]="tweet"></btw-highlighted-tweet-text>
+        </div>
+    </div>
+</div>

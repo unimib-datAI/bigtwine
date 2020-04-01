@@ -1,0 +1,29 @@
+@import '~app/variables';
+
+.document-picker {
+    border: 1px solid $content-border-color;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 2px;
+
+    ::ng-deep ul.nav.nav-pills, &__submit-row {
+        padding: 1rem;
+        background: $content-darker-bg-color;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        position: relative;
+    }
+    ::ng-deep .tab-pane {
+        height: 100%;
+    }
+
+    &__submit-row {
+        .btn.disabled, .btn:disabled {
+            opacity: 0.25;
+        }
+    }
+
+    ::ng-deep .tab-content {
+        background: $content-bg-color;
+        height: 50vh;
+    }
+}

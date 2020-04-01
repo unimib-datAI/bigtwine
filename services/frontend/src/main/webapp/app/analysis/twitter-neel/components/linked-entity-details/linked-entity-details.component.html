@@ -1,0 +1,79 @@
+<div class="entity-details">
+    <div class="entity-details__img">
+        <img width="100%"
+             height="160"
+             class="object-fit-cover mb-2"
+             [src]="resource.thumbLarge"
+             alt="">
+    </div>
+    <div class="px-3">
+        <h2 class="entity-details__title">{{resource.name}} <a [href]="resource.url" target="_blank"><i class="fas fa-external-link-square-alt"></i></a></h2>
+        <p class="entity-details__desc">{{resource.shortDesc | truncateWords:50}}</p>
+        <div *ngIf="shouldShowMap"
+             class="embed-responsive embed-responsive-4by3 entity-details__map">
+            <div class="embed-responsive-item">
+                <agm-map
+                    [latitude]="mapCenterCoordinates.latitude"
+                    [longitude]="mapCenterCoordinates.longitude"
+                    [zoom]="1"
+                    [disableDefaultUI]="true"
+                    [zoomControl]="false"
+                    [styles]="mapStyles"
+                    [backgroundColor]="mapBg">
+                    <agm-marker
+                        *ngIf="shouldShowResourceMapMarker"
+                        [latitude]="resource.coordinates.latitude"
+                        [longitude]="resource.coordinates.longitude"
+                        [label]="''"
+                        [markerDraggable]="false"
+                        iconUrl="content/images/markers/resources.svg"
+                        label=""
+                        title="Resource location">
+                    </agm-marker>
+                    <agm-marker
+                        *ngIf="shouldShowStatusMapMarker"
+                        [latitude]="parentTweet.status.coordinates.latitude"
+                        [longitude]="parentTweet.status.coordinates.longitude"
+                        [markerDraggable]="false"
+                        iconUrl="content/images/markers/tweets.svg"
+                        label=""
+                        title="Tweet location">
+                    </agm-marker>
+                    <agm-marker
+                        *ngIf="shouldShowTwitterUserMapMarker"
+                        [latitude]="parentTweet.status.user.coordinates.latitude"
+                        [longitude]="parentTweet.status.user.coordinates.longitude"
+                        [markerDraggable]="false"
+                        iconUrl="content/images/markers/users.svg"
+                        label=""
+                        title="Twitter user location">
+                    </agm-marker>
+                </agm-map>
+            </div>
+        </div>
+        <div *ngIf="shouldShowExtraFields" class="entity-details__extra">
+            <table class="table table-striped">
+                <tbody>
+                <ng-container *ngFor="let field of resource.extra | keyvalue">
+                    <ng-container *ngIf="isListExtraField(field); else simpleField">
+                        <tr>
+                            <th [rowSpan]="field.value.length">{{field.key}}</th>
+                            <td [innerHTML]="extraFieldValueFormatter(field.key, field.value[0])"></td>
+                        </tr>
+                        <tr *ngFor="let row of field.value.slice(1)">
+                            <td [innerHTML]="extraFieldValueFormatter(field.key, row)"></td>
+                        </tr>
+                    </ng-container>
+                    <ng-template #simpleField>
+                        <tr>
+                            <th>{{field.key}}</th>
+                            <td [innerHTML]="extraFieldValueFormatter(field.key, field.value)"></td>
+                        </tr>
+                    </ng-template>
+                </ng-container>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

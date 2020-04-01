@@ -1,0 +1,205 @@
+# API-first development with OpenAPI
+# This file will be used at compile time to generate Spring-MVC endpoint stubs using openapi-generator
+openapi: "3.0.1"
+info:
+  title: "socials"
+  version: 0.0.1
+paths:
+  /oauth/authorize/{provider}:
+    parameters:
+      - $ref: '#/components/parameters/oAuth10ProviderParam'
+    post:
+      summary: 'Create an authorized url for the provided callback.'
+      description: ""
+      operationId: authorizeV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth10AuthorizeRequest'
+      responses:
+        '201':
+          description: 'OAuth authorized url created'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth10AuthorizeResponse'
+      tags:
+        - 'OAuth 1.0'
+  /oauth/signin/{provider}:
+    parameters:
+      - $ref: '#/components/parameters/oAuth10ProviderParam'
+    post:
+      summary: 'Sign up with Twitter'
+      description: ""
+      operationId: signInV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRequest'
+      responses:
+        '201':
+          description: 'Signed in with the provider'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignInResponse'
+      tags:
+        - 'OAuth 1.0'
+  /oauth/connect/{provider}:
+    parameters:
+      - $ref: '#/components/parameters/oAuth10ProviderParam'
+    post:
+      summary: 'Connect an existing local account with a Twitter account'
+      description: ""
+      operationId: connectV1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth10VerifyRequest'
+      responses:
+        '201':
+          description: 'Local account connected to the social profile'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectResponse'
+      tags:
+        - 'OAuth 1.0'
+    get:
+      summary: 'Check if current user has a connection to the provider'
+      description: ""
+      operationId: connectedV1
+      responses:
+        '200':
+          description: 'Return the social name of the user if is authenticated or null otherwise'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConnectedResponse'
+      tags:
+        - 'OAuth 1.0'
+    delete:
+      summary: 'Delete connection to the provider and the current user'
+      description: ""
+      operationId: deleteV1
+      responses:
+        '200':
+          description: 'Return true on delete success'
+        '404':
+          description: 'Connection missing'
+      tags:
+        - 'OAuth 1.0'
+  /oauth/connection/{provider}/{user}:
+    parameters:
+      - $ref: '#/components/parameters/oAuth10ProviderParam'
+      - $ref: '#/components/parameters/userParam'
+    get:
+      summary: 'Get user connection'
+      description: ""
+      operationId: getConnectionV1
+      responses:
+        '200':
+          description: 'User connection with the provider'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuth10Credentials'
+      tags:
+        - 'OAuth 1.0'
+components:
+  schemas:
+    OAuth10AuthorizeRequest:
+      type: object
+      required:
+        - callbackUrl
+      properties:
+        callbackUrl:
+          type: string
+    OAuth10AuthorizeResponse:
+      type: object
+      properties:
+        requestToken:
+          type: string
+        authorizedUrl:
+          type: string
+    OAuth10VerifyRequest:
+      type: object
+      required:
+        - requestToken
+        - verifier
+      properties:
+        requestToken:
+          type: string
+        verifier:
+          type: string
+    SignInRequest:
+      allOf:
+        - $ref: '#/components/schemas/OAuth10VerifyRequest'
+        - type: object
+          properties:
+            allowImplicitSignUp:
+              type: boolean
+              default: true
+    ConnectResponse:
+      type: object
+      properties:
+        user:
+          type: string
+        providerId:
+          type: string
+        providerUserId:
+          type: string
+        displayName:
+          type: string
+    SignInResponse:
+      allOf:
+        - $ref: '#/components/schemas/ConnectResponse'
+        - type: object
+          properties:
+            idToken:
+              type: string
+    ConnectedResponse:
+      type: object
+      properties:
+        user:
+          type: string
+        displayName:
+          type: string
+        connected:
+          type: boolean
+    OAuth10Credentials:
+      type: object
+      properties:
+        consumerKey:
+          type: string
+        consumerSecret:
+          type: string
+        accessToken:
+          type: string
+        accessTokenSecret:
+          type: string
+  parameters:
+    oAuth10ProviderParam:
+      in: path
+      name: provider
+      required: true
+      description: 'A recognized provider id (e.g. twitter)'
+      schema:
+        type: string
+    userParam:
+      in: path
+      name: user
+      required: true
+      schema:
+        type: string
+servers:
+  -
+    url: http://localhost:9009/api
+    variables: {}
+    description: 'Socials microservice'

@@ -1,0 +1,11 @@
+@import "~app/variables";
+
+.tweets-counter {
+    border: 1px solid $c-black-pearl;
+    background-color: $c-dark-pastel-blue;
+    border-radius: 3px;
+    color: $c-black-pearl;
+    padding: 0 4px;
+    font-size: 80%;
+    font-weight: bold;
+}

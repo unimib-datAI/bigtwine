@@ -1,0 +1,34 @@
+{
+    "apigatewayApp": {
+        "analysisAnalysisSetting": {
+            "home": {
+                "title": "AnalysisSettings",
+                "createLabel": "Genera un nuovo Analysis Setting",
+                "createOrEditLabel": "Genera o modifica un Analysis Setting"
+            },
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Analysis Setting {{ id }}?"
+            },
+            "detail": {
+                "title": "Analysis Setting"
+            },
+            "name": "Name",
+            "label": "Label",
+            "description": "Description",
+            "type": "Type",
+            "visibility": "Visibility",
+            "options": "Options",
+            "help": {
+                "name": "Setting name, should be alphanumeric and lowercase",
+                "options": "Each option on separated line with the following format: &lt;value&gt;:&lt;name&gt;"
+            }
+        }
+    },
+    "analysisApp": {
+        "analysisAnalysisSetting": {
+            "created": "&Egrave; stato generato un nuovo Analysis Setting con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Analysis Setting identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Analysis Setting con identificatore {{ param }}"
+        }
+    }
+}

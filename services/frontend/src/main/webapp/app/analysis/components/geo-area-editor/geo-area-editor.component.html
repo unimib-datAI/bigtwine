@@ -1,0 +1,113 @@
+<div class="container-fluid px-0 h-100 geoarea-editor">
+    <div class="row flex-column no-gutters h-100">
+        <div class="col-auto" *ngIf="!readonly">
+            <div class="toolbar toolbar--last toolbar--static">
+                <div class="px-2 d-inline-flex">
+                    <input type="text"
+                           class="form-control geoarea-editor__desc-input"
+                           placeholder="Enter a description... (required)"
+                           [(ngModel)]="geoArea.description">
+                    <button class="btn btn-sm btn-outline-light ml-2"
+                            [disabled]="!saveBtnEnabled"
+                            (click)="onSave()">Save</button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row h-100 no-gutters">
+                <div class="col-12 col-md-3 geoarea-editor__details">
+                    <div class="geoarea-editor__details-header row no-gutters" *ngIf="!readonly">
+                        <div class="col">
+                            <span class="geoarea-editor__counter badge" [ngClass]="{'badge-danger': !bboxCountValid, 'badge-success': bboxCountValid}">
+                                {{geoArea.boundingBoxes.length}} / {{maxBbox}}
+                            </span>
+                        </div>
+                        <div class="col-auto">
+                            <div class="btn btn-sm btn-outline-primary" (click)="addBbox()">Add +</div>
+                        </div>
+                    </div>
+                    <div class="geoarea-editor__bbox-list h-100">
+                        <div class="scrollable">
+                            <div *ngFor="let bbox of geoArea.boundingBoxes; let i = index"
+                                class="bbox-item">
+                                <div class="row no-gutters">
+                                    <div class="col-auto">
+                                        <span class="bbox-item__color" [ngStyle]="{backgroundColor: colorForBboxAtIndex(i)}">&nbsp;</span>
+                                    </div>
+                                    <div class="col p-2">
+                                        <div class="row no-gutters mb-1" *ngIf="!readonly || bbox.name">
+                                            <div class="col">
+                                                <input class="form-control bbox-item__name-field"
+                                                       type="text"
+                                                       [(ngModel)]="bbox.name"
+                                                       [readOnly]="readonly"
+                                                       placeholder="Enter a descriptive name...">
+                                            </div>
+                                        </div>
+
+                                        <div class="row no-gutters bbox-item__coordinates">
+                                            <div class="col-auto pr-2">
+                                                <fa-icon icon="compass"></fa-icon>
+                                            </div>
+                                            <div class="col">
+                                                <span class="badge badge-light">North: {{bbox.northEastCoords.longitude | number:"0.5-10"}}</span>
+                                                <span class="badge badge-light">East: {{bbox.northEastCoords.latitude | number:"0.5-10"}}</span>
+                                                <span class="badge badge-light">South: {{bbox.southWestCoords.longitude | number:"0.5-10"}}</span>
+                                                <span class="badge badge-light">West: {{bbox.southWestCoords.latitude | number:"0.5-10"}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center pr-2" *ngIf="!readonly">
+                                        <button class="btn btn-sm btn-link bbox-item__del-btn p-0" (click)="removeBbox(i)">
+                                            <fa-icon icon="times-circle"></fa-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col geoarea-editor__map-wrapper">
+                    <input *ngIf="!readonly"
+                           type="text"
+                           autocorrect="off"
+                           autocapitalize="off"
+                           spellcheck="off"
+                           class="geoarea-editor__search form-control form-control-lg"
+                           placeholder="Search for a location"
+                           (keydown.enter)="$event.preventDefault()"
+                           #search>
+                    <agm-map
+                        class="geoarea-editor__map h-100"
+                        [zoom]="2"
+                        [mapDraggable]="true"
+                        [styles]="mapStyles"
+                        [backgroundColor]="mapBg"
+                        [disableDefaultUI]="false"
+                        [zoomControl]="true"
+                        [zoomControlOptions]="{position: 8}"
+                        [streetViewControl]="false"
+                        #map>
+                        <agm-rectangle
+                            *ngFor="let bbox of geoArea.boundingBoxes; let i = index"
+                            [north]="bbox.northEastCoords.latitude"
+                            [east]="bbox.northEastCoords.longitude"
+                            [south]="bbox.southWestCoords.latitude"
+                            [west]="bbox.southWestCoords.longitude"
+                            [editable]="!readonly"
+                            [rectangleDraggable]="!readonly"
+                            [fillColor]="colorForBboxAtIndex(i)"
+                            [fillOpacity]="0.6"
+                            [strokeColor]="colorForBboxAtIndex(i)"
+                            [strokeOpacity]="1.0"
+                            (boundsChange)="rectangleBoundsChange($event, i)"
+                            (dragstart)="rectangleDragStart($event, i)"
+                            (dragEnd)="rectangleDragEnd($event, i)"
+                            (mouseDown)="rectangleMouseDown(i)">
+                        </agm-rectangle>
+                    </agm-map>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

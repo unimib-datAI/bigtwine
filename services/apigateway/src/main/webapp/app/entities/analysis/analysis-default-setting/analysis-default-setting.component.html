@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.home.title">Analysis Default Settings</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-analysis-default-setting" [routerLink]="['/analysis-default-setting/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.home.createLabel">
+            Create new Analysis Default Setting
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="analysisDefaultSettings">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+                <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.setting">Setting</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisType">Analysis Type</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisInputTypes">Analysis Input Types</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userRoles">User Roles</span></th>
+                <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.defaultValue">Default Value</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userCanOverride">User Can Override</span></th>
+            <th><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.priority">Priority</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let analysisDefaultSetting of analysisDefaultSettings ;trackBy: trackId">
+                <td><a [routerLink]="['/analysis-default-setting', analysisDefaultSetting.id, 'view' ]">{{analysisDefaultSetting.id}}</a></td>
+                <td>
+                    <div *ngIf="analysisDefaultSetting.setting">
+                        <a [routerLink]="['../analysis-setting', analysisDefaultSetting.setting?.id, 'view' ]" >{{analysisDefaultSetting.setting?.label}}</a>
+                    </div>
+                </td>
+                <td>{{analysisDefaultSetting.analysisType}}</td>
+                <td>{{analysisDefaultSetting.analysisInputTypes}}</td>
+                <td>{{analysisDefaultSetting.userRoles}}</td>
+                <td>{{analysisDefaultSetting.defaultValue}}</td>
+                <td>{{analysisDefaultSetting.userCanOverride}}</td>
+                <td>{{analysisDefaultSetting.priority}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/analysis-default-setting', analysisDefaultSetting.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/analysis-default-setting', analysisDefaultSetting.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'analysis-default-setting/'+ analysisDefaultSetting.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="analysisSetting">
+            <h2><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.detail.title">Analysis Setting</span> {{analysisSetting.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.name" [ngbTooltip]="'apigatewayApp.analysisAnalysisSetting.help.name' | translate">Name</span></dt>
+                <dd>
+                    <span>{{analysisSetting.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.label">Label</span></dt>
+                <dd>
+                    <span>{{analysisSetting.label}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.description">Description</span></dt>
+                <dd>
+                    <span>{{analysisSetting.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisSettingType.' + analysisSetting.type}}">{{analysisSetting.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.visibility">Visibility</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisSettingVisibility.' + analysisSetting.visibility}}">{{analysisSetting.visibility}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisSetting.options" [ngbTooltip]="'apigatewayApp.analysisAnalysisSetting.help.options' | translate">Options</span></dt>
+                <dd>
+                    <span>{{analysisSetting.options}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/analysis-setting', analysisSetting.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+version: 0.2
+phases:
+    install:
+        runtime-versions:
+            java: corretto8
+            docker: 18
+        commands:
+            - echo Nothing to do in the install phase...
+    pre_build:
+        commands:
+            - echo Logging in to Amazon ECR...
+            - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+    build:
+        commands:
+            - echo Build started on `date`
+            - ./gradlew -Pprod bootJar jib
+    post_build:
+        commands:
+            - echo Build completed on `date`
+cache:
+    paths:
+        - '/root/.gradle/wrapper/**/*'
+        - '/root/.gradle/caches/**/*'
+        - '.gradle/**/*'

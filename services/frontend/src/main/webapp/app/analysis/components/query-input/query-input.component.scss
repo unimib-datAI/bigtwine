@@ -1,0 +1,108 @@
+@import "../../../../../../../node_modules/ngx-chips/core/styles/core/core";
+
+$bigtwine-primary: #fff;
+$bigtwine-primary-dark: darken($bigtwine-primary, 10%);
+$bigtwine-tag-height: 21px;
+$bigtwine-container-padding: 4px;
+
+// this is the container's theme
+$bigtwine-theme: (
+    container-padding: $bigtwine-container-padding,
+    container-border-bottom: none,
+    container-border-bottom-focused: 1px solid $bigtwine-primary,
+    container-border-bottom-invalid: 1px solid $bigtwine-primary,
+    border-radius: 0.1rem,
+    container-height: $bigtwine-tag-height + $bigtwine-container-padding * 2,
+);
+
+// this is the tag's theme
+$bigtwine-tag-theme: (
+    background: $bigtwine-primary,
+    background-focused: $bigtwine-primary-dark,
+    background-active: $bigtwine-primary-dark,
+    background-hover: $bigtwine-primary-dark,
+    color: #111,
+    color-hover: #111,
+    border-radius: 0.15rem,
+    box-shadow: none,
+    height: $bigtwine-tag-height,
+    line-height: $bigtwine-tag-height,
+    font-size: 12px,
+    margin: 0 .3rem 0 0
+);
+
+// this is the delete icon's theme
+$bigtwine-icon-theme: (
+    fill: #111,
+    fill-focus: #111,
+    transition: none,
+    height: 12px,
+    width: 12px
+);
+
+$bigtwine-tag-input-form-theme: (
+);
+
+// apply theme to the container
+::ng-deep tag-input .ng2-tag-input.bigtwine-theme {
+    @include tag-input-theme($bigtwine-theme);
+
+    background-color: rgba(#fff, 0.25);
+    max-width: 360px;
+    border: 1px solid #fff;
+
+    &.ng2-tag-input--focused {
+        box-shadow: 0 0 0 3pt rgba(#007bff, 0.25);
+    }
+
+    &.ng2-tag-input--invalid {
+        box-shadow: 0 0 0 3pt rgba(#dc3545, 0.25);
+    }
+
+    .ng2-tags-container {
+        flex-wrap: nowrap !important;
+        overflow: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+// apply theme to the tags
+::ng-deep tag-input .ng2-tag-input.bigtwine-theme tag {
+    @include tag-theme($bigtwine-tag-theme);
+
+    overflow: visible;
+}
+
+// apply theme to the delete icon
+::ng-deep tag-input .ng2-tag-input.bigtwine-theme tag delete-icon {
+    @include icon-theme($bigtwine-icon-theme);
+    margin-left: 0.45rem;
+
+    &:hover {
+        transform: none;
+    }
+
+    svg {
+        height: 12px;
+        width: 12px;
+        vertical-align: middle;
+    }
+}
+
+// apply theme to the input form
+::ng-deep tag-input .ng2-tag-input.bigtwine-theme tag-input-form {
+    @include tag-input-form-theme($bigtwine-tag-input-form-theme);
+
+    input[type="text"] {
+        height: $bigtwine-tag-height;
+        font-size: 12px;
+        border-radius: 0.15rem;
+        background-color: rgba(#fff, 0.5);
+        display: block;
+        color: $bigtwine-primary;
+    }
+}

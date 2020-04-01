@@ -1,0 +1,77 @@
+<div class="modal-header">
+    <h4 class="modal-title">Analysis settings</h4>
+    <button aria-label="Close" data-dismiss="modal" class="close" type="button" (click)="activeModal.dismiss('closed')"><span aria-hidden="true">x</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row justify-content-center">
+        <div class="col">
+            <ng-container *ngIf="isLoading; else ready">
+                <img class="loading" src="/content/images/loading.svg" alt="">
+            </ng-container>
+            <ng-template #ready>
+                <form>
+                    <div class="form-group" *ngFor="let setting of settings">
+                        <label [for]="setting.name" class="form-control-label">{{setting.label}}</label>
+
+                        <!-- Number field -->
+                        <input
+                            *ngIf="setting.type === 'number'"
+                            [id]="setting.name"
+                            [name]="setting.name"
+                            [(ngModel)]="settingsModel[setting.name]"
+                            [readOnly]="!setting.editable"
+                            class="form-control"
+                            type="number">
+
+                        <!-- Number field -->
+                        <input
+                            *ngIf="setting.type === 'string'"
+                            [id]="setting.name"
+                            [name]="setting.name"
+                            [(ngModel)]="settingsModel[setting.name]"
+                            [readOnly]="!setting.editable"
+                            class="form-control"
+                            type="text">
+
+                        <!-- Boolean field -->
+                        <input *ngIf="setting.type === 'boolean'"
+                               [name]="setting.name"
+                               [id]="setting.name"
+                               [(ngModel)]="settingsModel[setting.name]"
+                               [readOnly]="!setting.editable"
+                               class="form-check"
+                               type="checkbox">
+
+                        <!-- Textarea -->
+                        <textarea *ngIf="setting.type === 'text'"
+                                  [name]="setting.name"
+                                  [id]="setting.name"
+                                  [(ngModel)]="settingsModel[setting.name]"
+                                  [readOnly]="!setting.editable"
+                                  class="form-control"></textarea>
+
+                        <!-- Select -->
+                        <select *ngIf="setting.type === 'single-choice' || setting.type === 'multiple-choices'"
+                                [name]="setting.name"
+                                [id]="setting.name"
+                                [attr.multiple]="setting.type === 'multiple-choices' ? 'multiple' : null"
+                                [(ngModel)]="settingsModel[setting.name]"
+                                [disabled]="!setting.editable"
+                                class="form-control">
+                            <option *ngFor="let choice of setting.choices"
+                                    [ngValue]="choice.value">{{choice.name}}</option>
+                        </select>
+                        <small class="form-text text-muted" *ngIf="setting.description">{{setting.description}}</small>
+                    </div>
+                    <div *btwHasNotAuthority="'ROLE_DEMO'" class="text-right">
+                        <button *ngIf="hasEditableSettings" class="btn btn-outline-light" (click)="save()">Save</button>
+                    </div>
+                </form>
+
+            </ng-template>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+{
+    "apigatewayApp": {
+        "analysisAnalysis": {
+            "home": {
+                "title": "Analyses",
+                "createLabel": "Genera un nuovo Analysis",
+                "createOrEditLabel": "Genera o modifica un Analysis"
+            },
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Analysis {{ id }}?"
+            },
+            "detail": {
+                "title": "Analysis"
+            },
+            "type": "Type",
+            "inputType": "Input Type",
+            "status": "Status",
+            "visibility": "Visibility",
+            "owner": "Owner",
+            "progress": "Progress",
+            "createDate": "Create Date",
+            "updateDate": "Update Date",
+            "input": "Input",
+            "settings": "Settings",
+            "resultsCount": "Results Count"
+        }
+    },
+    "analysisApp": {
+        "analysisAnalysis": {
+            "created": "&Egrave; stato generato un nuovo Analysis con identificatore { param }}",
+            "updated": "&Egrave; stato aggiornato Analysis identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Analysis con identificatore {{ param }}"
+        }
+    }
+}

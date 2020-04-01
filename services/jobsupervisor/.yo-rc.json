@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.jobsupervisor",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "jobsupervisor",
+    "packageName": "it.unimib.disco.bigtwine.services.jobsupervisor",
+    "packageFolder": "it/unimib/disco/bigtwine/services/jobsupervisor",
+    "serverPort": "9007",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NTE5ZDU1NWIwNjQ1YmJjOGRlZmM3NDVhYWYxODgxZWNlZTA5MTIyYTNhMjNiMGMwYTcxYjQwMTIxZDBkMzU4NzhmZTgyN2JlZmZkZDA1ODdhNmY2ZGRiZDA4NzBkM2MwYWQyZDNkMTQ5NjFlNmExOTEyN2VhNWFhMzNlMmM1NGQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

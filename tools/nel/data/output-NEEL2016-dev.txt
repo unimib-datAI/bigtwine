@@ -1,0 +1,386 @@
+[#ID#]	676787386471305216
+[#TWEET#]	RT @Lagana: Thanks to @ShaneHelmsCom for posting this.
+
+[#ID#]	675572272418021377
+[#ETS#]	VIP 	band 	2.5
+[#ETS#]	VIP 	person 	0.5
+[#TWEET#]	RT @VisitAbuDhabi: You could win 3 days #InAbuDhabi with us & @EtihadAirways, VIP #StarWars Premiere tickets & more! Join now: https://t.co…
+
+[#ID#]	675232468220452864
+[#TWEET#]	Countdown to #starwars #theforceawakens
+
+[#ID#]	676782403495555072
+[#TWEET#]	I think this is the @kyle_newman stamp of approval. I AM READY NOW. #TheForceAwakens  https://t.co/yLOKG2vV1n
+
+[#ID#]	676786955028455424
+[#TWEET#]	RT @GMA: REMINDER: When you see @StarWars: #TheForceAwakens... shhhhh. Take cue from @HamillHimself. Don't spoil it! https://t.co/TmpCDNixQk
+
+[#ID#]	677036072061108224
+[#TWEET#]	It's here. Our review of #TheForceAwakens: https://t.co/gzXmaWZ6lK https://t.co/66SeaWthoz
+
+[#ID#]	674966855078043650
+[#TWEET#]	Tickets booked for Starwars 😊 hurrah!! #starwars
+
+[#ID#]	677036874330845184
+[#TWEET#]	My review of #StarWars #TheForceAwakens for @TheWrap https://t.co/QUFv46PAD5
+
+[#ID#]	676781603247427584
+[#ETS#]	Joseph Gordon-Levitt 	person 	7.0
+[#TWEET#]	RT @varietyjl: The full #Yoda costume by Joseph Gordon-Levitt includes Grinch pajama pants. #StarWars #TheForceAwakens https://t.co/QfgzfJb…
+
+[#ID#]	674965833714696196
+[#TWEET#]	RT @latimes: #StarWars, the line awakens https://t.co/XTDNYMnTxE
+
+[#ID#]	675199567684571137
+[#ETS#]	Lucas 	person 	5.0
+[#ETS#]	Kershner 	person 	5.0
+[#ETS#]	Marquand 	person 	2.0
+[#ETS#]	Marquand 	geo-loc 	0.5
+[#ETS#]	Abrams 	geo-loc 	5.0
+[#ETS#]	JJ 	person 	6.0
+[#TWEET#]	RT @StarWarsJunk: Lucas, Kershner, Marquand, Abrams. Welcome to the team JJ. #StarWars #TheForceAwakens https://t.co/a375arn6gZ
+
+[#ID#]	676786709259026433
+[#ETS#]	Star Wars Match 	person 	1.5
+[#ETS#]	Star Wars Match 	product 	2.0
+[#ETS#]	Han Solo 	band 	0.5
+[#ETS#]	Han Solo 	other 	3.5
+[#TWEET#]	My Star Wars Match is Han Solo. I can live with that https://t.co/dcGbsCrz09 #TheForceAwakens #SpotifyStarWars
+
+[#ID#]	676780264958373889
+[#ETS#]	Disney 	person 	1.5
+[#ETS#]	Disney 	company 	1.5
+[#TWEET#]	RT @stevezaragoza: I honestly can't imagine anyone being disappointed by #TheForceAwakens. Disney delivered the Star Wars film we've been w…
+
+[#ID#]	675246212270923776
+[#TWEET#]	RT @OswaldoOliver_: I honestly didn't think I could be any more excited for this movie. I was wrong: #TheForceAwakens #StarWars https://t.c…
+
+[#ID#]	676781806251851778
+[#TWEET#]	RT @Dodge: Our work here is complete. #Dodge #TheForceAwakens https://t.co/SkrzarRY5r
+
+[#ID#]	674964700950634496
+[#TWEET#]	RT @HerUniverse: When your daughter loves #Chewbacca and she also loves princesses. #StarWars https://t.co/8qCStr8sss
+
+[#ID#]	676780015200026624
+[#TWEET#]	RT @STcom: Astronauts on #ISS to catch #StarWars #TheForceAwakens in space https://t.co/TBqYm1AxAi https://t.co/2ustHbkRqm
+
+[#ID#]	676781477120487425
+[#TWEET#]	RT @smoshanthony: BB-8 and I became BB-FFs last night at the #TheForceAwakens premiere. (Got in somehow thanks to… https://t.co/rSftZjz92T
+
+[#ID#]	676781895921758208
+[#TWEET#]	RT @MovieMantz: Morning-after EMOJI!!! #StarWars #TheForceAwakens https://t.co/IU0YCMqH0i
+
+[#ID#]	676786897822289920
+[#TWEET#]	Spilled ginger tea all over on the elevator to work. #InternationalTeaDay #TheForceAwakens
+
+[#ID#]	676781317640560641
+[#TWEET#]	RT @Lagana: Thanks to @ShaneHelmsCom for posting this.
+
+[#ID#]	674962773475008512
+[#ETS#]	Gary 	person 	7.0
+[#ETS#]	TV 	movie 	2.0
+[#ETS#]	TV 	other 	1.5
+[#TWEET#]	RT @SWFanDad: @carrieffisher I love how enthusiastic Gary looks to be on TV! Great interview! #StarWars #TheForceAwakens https://t.co/iZmtw…
+
+[#ID#]	676783119404425216
+[#ETS#]	Lupita Nyong'o 	person 	6.0
+[#TWEET#]	RT @EW: Lupita Nyong'o spills about her #StarWars: #TheForceAwakens audition: https://t.co/VnF4G6TxUw https://t.co/toPpxsO8Ni
+
+[#ID#]	675211266399592451
+[#TWEET#]	RT @sweatynerdnews: This precise time next week I will be into the second hour of #StarWars #TheForceAwakens. Midnight showing here in the …
+
+[#ID#]	676784658705719300
+[#TWEET#]	RT @cbfowler: The #starwars #theforceawakens experience makes you feel like a kid again. @kirkherbstreit we… https://t.co/H74GkT4ybs
+
+[#ID#]	675224302975901696
+[#TWEET#]	Can you confirm this ? carrieffisher LOL we will find out in a week. #StarWars #TheForceAwakens #Meme https://t.co/bzK8RfGygC
+
+[#ID#]	675574693945081856
+[#ETS#]	Kylo Ren 	other 	1.5
+[#ETS#]	Kylo Ren 	geo-loc 	1.0
+[#TWEET#]	My theory about #StarWars  7 coming out next week (Possible Spoiler) Kylo Ren...
+
+[#ID#]	676803993490866176
+[#ETS#]	The Force 	movie 	7.0
+[#TWEET#]	RT @people: The Force is strong with these #StarWars inspired looks from last night https://t.co/5Lj8iZjkEM https://t.co/RhJADtxciU
+
+[#ID#]	676779905879707648
+[#TWEET#]	RT @jimmyfallon: Tonight: @mark_wahlberg, @billburr, music from @SherylCrow, + something fun for #StarWars fans! Don't miss!! #FallonTonigh…
+
+[#ID#]	676781144034160640
+[#ETS#]	Star Wars Match 	movie 	0.333333333333
+[#ETS#]	Star Wars Match 	product 	1.66666666667
+[#ETS#]	Star Wars Match 	other 	0.333333333333
+[#TWEET#]	My Star Wars Match is Rey. Who's Yours? https://t.co/8XzEa8Vy6c #TheForceAwakens #SpotifyStarWars
+
+[#ID#]	675212273556791296
+[#ETS#]	Hutt 	person 	1.0
+[#ETS#]	Hutt 	geo-loc 	0.5
+[#TWEET#]	Fighting Jabba the Hutt #starwars #theforceawakens #lukeskywalker #kyloren #jabbathehutt… https://t.co/BcMujNHlY1
+
+[#ID#]	676804088521203712
+[#TWEET#]	Are we the Rebels or the Empire? I asked @NASA to weigh in here: https://t.co/QLNWNtPhid @POLITICOAgenda #StarWars https://t.co/K9NtAxTHfi
+
+[#ID#]	676780450153672704
+[#TWEET#]	RT @CNN: About 1,000 people on Earth have already seen @StarWars #TheForceAwakens. Early reactions: https://t.co/bGzVaUEuFM https://t.co/rw…
+
+[#ID#]	675241953332764672
+[#TWEET#]	I am so ready for #TheForceAwakens I can feel it in my veins
+
+[#ID#]	674961698357452800
+[#TWEET#]	#StarWars in a week guys....a fucking week
+
+[#ID#]	676786525636395008
+[#ETS#]	Star Wars 	movie 	1.0
+[#ETS#]	Star Wars 	product 	1.33333333333
+[#ETS#]	Star Wars 	company 	0.333333333333
+[#ETS#]	The Empire 	movie 	1.0
+[#ETS#]	The Empire 	geo-loc 	1.0
+[#ETS#]	The Empire 	facility 	0.666666666667
+[#TWEET#]	RT @Josh_Castle: Day two... Star Wars Episode V: The Empire Strikes Back #StarWars #TheForceAwakens https://t.co/NaoWZSWnzy
+
+[#ID#]	676784789156929537
+[#ETS#]	Star Wars Match 	movie 	1.0
+[#ETS#]	Star Wars Match 	product 	3.5
+[#TWEET#]	¿ESTO ES PORQUE SOY NEGRO? //  My Star Wars Match is Finn. Who's Yours? https://t.co/V7cHQgalDB #TheForceAwakens #SpotifyStarWars
+
+[#ID#]	674961790112018432
+[#TWEET#]	RT @csa_asc: Our robotics controllers draw their strength from a mysterious, ubiquitous power... #maplecreamcookies #StarWars https://t.co/…
+
+[#ID#]	676786249085030401
+[#TWEET#]	RT @jimmyfallon: Tonight: @mark_wahlberg, @billburr, music from @SherylCrow, + something fun for #StarWars fans! Don't miss!! #FallonTonigh…
+
+[#ID#]	676787703745089536
+[#ETS#]	Dark Side 	movie 	2.0
+[#ETS#]	Dark Side 	product 	1.0
+[#TWEET#]	RT @Kat_McNamara: Thanks @aliceandolivia & @louboutinworld for taking me to the Dark Side @StarWars #TheForceAwakens premiere.❥ https://t.c…
+
+[#ID#]	675214520562950145
+[#TWEET#]	RT @Gary_TheDog: New character poster from #TheForceAwakens release https://t.co/10zVGyRjPL
+
+[#ID#]	676786725537058816
+[#TWEET#]	RT @starwars: The legend himself during the #StarWars #TheForceAwakens #redcarpet event. https://t.co/xAtsjjEp0q
+
+[#ID#]	675183697969180672
+[#TWEET#]	RT @501stLegion: Soon!
+
+[#ID#]	676782319609380864
+[#TWEET#]	Super excited for #theforceawakens but keep telling myself to not expecting so high
+
+[#ID#]	675175718834319361
+[#TWEET#]	RT @starwars: We're up for this. #TheForceAwakens
+
+[#ID#]	676803772492947456
+[#ETS#]	Joseph Gordon-Levitt 	person 	7.0
+[#TWEET#]	RT @varietyjl: The full #Yoda costume by Joseph Gordon-Levitt includes Grinch pajama pants. #StarWars #TheForceAwakens https://t.co/QfgzfJb…
+
+[#ID#]	676783865839554562
+[#TWEET#]	VIDEO: Fans out ‘in force’ for the #WorldPremiere of ‘#StarWars: #TheForceAwakens’ last night in #LosAngeles. https://t.co/a9Ql2wLd7y #wcyb
+
+[#ID#]	676782085080784896
+[#TWEET#]	RT @DickersonforS20: Best since #ANewHope only 2 more days until #TheForceAwakens  https://t.co/7w7xL5Qzwm
+
+[#ID#]	676785052395679744
+[#TWEET#]	That'd be a Wookie. #TheForceAwakens  https://t.co/tqzRknT0r6
+
+[#ID#]	676802434870542336
+[#ETS#]	Google 	company 	7.0
+[#TWEET#]	Type "a long time ago in a galaxy far far away" on Google see what happens. #StarWars #StarWarsForceAwakens #Google
+
+[#ID#]	674962746098769920
+[#TWEET#]	RT @SuperheroSteel: #XMenApocalypse Trailer To Be Attached to #StarWars #TheForceAwakens! https://t.co/wz9EUtDaPq https://t.co/eLpIO7UVWT
+
+[#ID#]	676781873859837952
+[#TWEET#]	RT @starwars: The wait is almost over. 5 days until #StarWars: #TheForceAwakens!
+
+[#ID#]	676803081112260609
+[#TWEET#]	RT @starwars: Fall in line. The #StarWars #TheForceAwakens #redcarpet is LIVE right now on https://t.co/mVXi17qoJk https://t.co/T5kACvdEu1
+
+[#ID#]	676803247827357696
+[#TWEET#]	For the week that's in it #starwars #yoda #maytheforcebewithyou https://t.co/kvUH7LuobC
+
+[#ID#]	676802339928465409
+[#TWEET#]	#StarWars may the force with you video taken in #tokyohands whilst on a trip in #tokyo #bobafett @haden_ @Gaynoir https://t.co/nK6zqmR481
+
+[#ID#]	676781177638887424
+[#ETS#]	Rob Sniffin 	person 	0.75
+[#ETS#]	Rob Sniffin 	company 	0.25
+[#ETS#]	Rob Sniffin 	other 	0.25
+[#ETS#]	Rob Sniffin 	movie 	0.25
+[#ETS#]	Star Wars 	movie 	0.666666666667
+[#ETS#]	Star Wars 	product 	1.0
+[#ETS#]	Star Wars 	company 	0.333333333333
+[#TWEET#]	#TheForceAwakens on Hot Pepper Theater as @BarefootShakes's own Rob Sniffin talks "Star Wars: Verily A New Hope." https://t.co/uvTDxW72UB
+
+[#ID#]	676784562287022080
+[#TWEET#]	3 MORE DAYS!  ‘#TheForceAwakens’ will hit theaters this Friday - https://t.co/v32gFhrFtp (AP PHOTO) https://t.co/00kga2R94u
+
+[#ID#]	676802567419125761
+[#ETS#]	Jedi 	person 	3.0
+[#ETS#]	Jedi 	company 	0.5
+[#TWEET#]	RT @arminvanbuuren: Looking for another Jedi, help! 😂 #StarWars #TheForceAwakens #AnotherYou https://t.co/aVlXK39SoU
+
+[#ID#]	676782871206633474
+[#ETS#]	Lupita Nyong'o 	person 	2.0
+[#ETS#]	Lupita Nyong'o 	other 	1.0
+[#TWEET#]	RT @EW: Lupita Nyong'o spills about her #StarWars: #TheForceAwakens audition: https://t.co/VnF4G6TxUw https://t.co/toPpxsO8Ni
+
+[#ID#]	675573565240926208
+[#TWEET#]	And here are the finished goods 🍪 mmmmm #gingerbread #Christmas #TheForceAwakens    #StarWars https://t.co/PbFg4P4LnY
+
+[#ID#]	675240564611260416
+[#TWEET#]	After seeing this version of #TheForceAwakens trailer, I agree! An idea of the film's overall arc is gleamed! https://t.co/AUErAs0ESe
+
+[#ID#]	675184886106472448
+[#TWEET#]	RT @verizon: Catch a new first look of #TheForceAwakens...and be one of the first to see the film. Stay tuned for tix.
+
+[#ID#]	676785921140854785
+[#TWEET#]	RT @smoshanthony: BB-8 and I became BB-FFs last night at the #TheForceAwakens premiere. (Got in somehow thanks to… https://t.co/rSftZjz92T
+
+[#ID#]	676804112785145856
+[#ETS#]	Forest Mission Kylo Ren 	band 	0.25
+[#ETS#]	Forest Mission Kylo Ren 	product 	0.75
+[#ETS#]	Forest Mission Kylo Ren 	other 	0.75
+[#ETS#]	Forest Mission Kylo Ren 	facility 	0.25
+[#TWEET#]	#Starwars Star Wars The Force Awakens 3.75-Inch Figure Forest Mission Kylo Ren - NEW https://t.co/y6aTiRsZrU
+
+[#ID#]	676803838624587776
+[#TWEET#]	RT @victoriabeckham: Love this!! x vb #StarWars https://t.co/wVHk6jB0Ya
+
+[#ID#]	675577160220999680
+[#TWEET#]	Not long to go now #starwars https://t.co/htQuNpx7Ca
+
+[#ID#]	675244377036496896
+[#ETS#]	Sky 	movie 	0.25
+[#ETS#]	Sky 	company 	0.25
+[#ETS#]	Sky 	person 	0.25
+[#ETS#]	Sky 	tvshow 	0.25
+[#TWEET#]	@Clockwork_Ange @LeighFrancis 😃 lol I'm poor from buying #StarWars #TheForceAwakens toys, so I can't afford Sky 😢 https://t.co/0aPWCFs3IE
+
+[#ID#]	675566649362149376
+[#ETS#]	UK 	band 	2.0
+[#ETS#]	UK 	geo-loc 	1.5
+[#TWEET#]	@Anntwerp It's not the UK leaders, but the people. >500,000  sigs on petition to ban #Trump https://t.co/cZ6KYHHGJW
+
+[#ID#]	675572247797604352
+[#ETS#]	Daily Show 	tvshow 	7.0
+[#TWEET#]	RT @Cernovich: Affirmative action hire @Trevornoah who has tanked Daily Show ratings (lowest in decade) is making incest jokes about #Trump…
+
+[#ID#]	675562857275240448
+[#ETS#]	UK 	band 	1.0
+[#ETS#]	UK 	geo-loc 	2.0
+[#TWEET#]	RT @AnonyOps: #OpTrump: Petition to ban #Trump from the UK now has over half a million signatures! https://t.co/6xTyGxLkW5 https://t.co/leq…
+
+[#ID#]	675561125191139329
+[#ETS#]	Muhammad Ali 	person 	5.0
+[#ETS#]	Donald Trump 	person 	8.0
+[#TWEET#]	#Trump #Trump2016 Muhammad Ali Criticises Donald Trump's Call to Ban Muslims From Entering  @FollowNewsNow
+
+[#ID#]	675578659772743680
+[#TWEET#]	RT @AlArabiya_Eng: #Trump’s name torn down at #Dubai property site https://t.co/8xBUCfOVOf
+
+[#ID#]	675561224386428928
+[#TWEET#]	And #Obama has actually joined US forces w/this repressive Islamic regime in a pretend fight against the other! https://t.co/rjoCJCinxi
+
+[#ID#]	675564728790466560
+[#TWEET#]	Chmn @RepEdRoyce: #Obama admin must confront #Iran’s dangerous acts&press for full details on its past nuclear work https://t.co/Py8tdWu6tg
+
+[#ID#]	675571441245413377
+[#TWEET#]	@MrEdTrain @jayleno Nice job #Obama! Geez & we send how much 💰over sea's 🤔 Whether aquariums or #vets let's do🇺🇸1st! https://t.co/0zxMwB5kLf
+
+[#ID#]	675564984462536704
+[#ETS#]	Granny State 	movie 	0.666666666667
+[#ETS#]	Granny State 	sportsteam 	0.666666666667
+[#ETS#]	Granny State 	facility 	0.666666666667
+[#TWEET#]	RT @beny_benson: #obama's Legacy (of Debt): Our Enslaved Chidren to the New "Granny State" #pjnet #ccot #tcot #WSJ https://t.co/lfeciwpWRM
+
+[#ID#]	675564581897576448
+[#TWEET#]	@steph93065 shes hates me but she's no bigot, intelligent and correct most of the time. #Trump
+
+[#ID#]	675558257067331584
+[#TWEET#]	RT @Snarkaroni: How #Trump sees the world. https://t.co/GFp63gl6cw
+
+[#ID#]	675554919030616065
+[#ETS#]	Top-ranking General Says 	person 	1.33333333333
+[#ETS#]	Top-ranking General Says 	other 	0.333333333333
+[#ETS#]	Top-ranking General Says 	band 	0.333333333333
+[#ETS#]	Temporarily Ban Muslims 	person 	0.333333333333
+[#ETS#]	Temporarily Ban Muslims 	other 	1.66666666667
+[#ETS#]	Temporarily Ban Muslims 	tvshow 	0.333333333333
+[#TWEET#]	RT @KLSouth: RT @ARnews1936: Top-ranking General Says #Trump’s Plan to Temporarily Ban Muslims is the Right One. via @TrishIntel https://t.…
+
+[#ID#]	675554177129439233
+[#TWEET#]	RT @CindyBlackwel12: #TRUMP RALLY
+
+[#ID#]	675566345921167360
+[#TWEET#]	@Khayali_janan @FauziaKasuri sadly the$ is in control whilst our Muslim leaders lick"arse"#Trump is not popular as he is been made 2b#$Media
+
+[#ID#]	675566471762718722
+[#ETS#]	Intelligence 	band 	1.5
+[#ETS#]	Intelligence 	person 	0.5
+[#TWEET#]	Intelligence Official on #ISIS: 'If the Public Knew the Truth, #Obama Would be Impeached' https://t.co/YUVgi3cCuE
+
+[#ID#]	675563914692657152
+[#TWEET#]	@PressTV If that is true then #Trump will not will the election. No need for the constant media propaganda.
+
+[#ID#]	675563919470018561
+[#TWEET#]	@tamaraholder #WakeUpAmerica #FactsNotEmotion #DebateIt
+
+[#ID#]	675572576186445824
+[#TWEET#]	RT @openrussiaworld: #Putin says must “act very firmly, destroying any targets that threaten #Russia in #Syria” #Obama #Merkel #Cameron htt…
+
+[#ID#]	675566859769413632
+[#TWEET#]	RT @ChristiChat: ⭐️️@realDonaldTrump
+
+[#ID#]	675571736524406784
+[#TWEET#]	@POTUS #Obama If you're not monitoring mosques due to fear of profiling, you're not doing your job to protect #USA #WakeUpAmerica
+
+[#ID#]	675572412667330561
+[#TWEET#]	RT @JMontanaPOTL: Hey #Obama!
+
+[#ID#]	675559276518051840
+[#ETS#]	America 	person 	0.666666666667
+[#ETS#]	America 	geo-loc 	1.0
+[#ETS#]	America 	tvshow 	0.333333333333
+[#ETS#]	War 	person 	0.75
+[#ETS#]	War 	product 	0.25
+[#ETS#]	War 	band 	0.25
+[#ETS#]	War 	tvshow 	0.25
+[#TWEET#]	RT @yourpotus: #RealDonaldTrump Obama Aiding Enemy While #Muslims in America are Preparing for War - https://t.co/3329MYcPMO #Obama #Impeac…
+
+[#ID#]	675571077611933696
+[#TWEET#]	RT @PatrickW: Sorry, #Trump. These #Muslims are already here and they aren't leaving. https://t.co/AGhjbUYcoH
+
+[#ID#]	675571249322450944
+[#ETS#]	Texas 	person 	1.0
+[#ETS#]	Texas 	geo-loc 	2.0
+[#TWEET#]	RT @TarekFatah: Texas Muslims force Islamic cleric to resign after he says he supports #Trump's proposal to ban Muslim immigration. https:/…
+
+[#ID#]	675295188797906944
+[#TWEET#]	@POTUS #Obama speaks of a 65 nation coalition, about half dozen are fighting ISIS what are the rest doing, cheerleaders maybe?
+
+[#ID#]	675554253792935936
+[#TWEET#]	RT @Politics_PR: Oh this is EPIC! - #Trump https://t.co/6DTF6Pq3V8
+
+[#ID#]	675565480959176704
+[#TWEET#]	#Trump lead among Republicans undiminished in first poll after Muslim comments: WASHINGTON… https://t.co/NU3pTxSE7f
+
+[#ID#]	675578130493538304
+[#TWEET#]	RT @Politics_PR: Oh this is EPIC! - #Trump https://t.co/6DTF6Pq3V8
+
+[#ID#]	675573077321736193
+[#TWEET#]	RT @OraTV: WATCH NOW @TraceeEllisRoss talks #blackish, #Obama, her <3 for Yiddish & more w/@kingsthings https://t.co/Ue9kBLuJpQ https://t.c…
+
+[#ID#]	675564526515781632
+[#ETS#]	San Bernardino 	geo-loc 	1.5
+[#ETS#]	San Bernardino 	facility 	1.0
+[#TWEET#]	RT @joe_nuzz: #Obama to NSC & FBI: “Downplay” #jihad terror angle of San Bernardino https://t.co/uw98XWljX6
+
+[#ID#]	675562963802173440
+[#TWEET#]	RT @IthacaForBernie: STAND WITH #SANDERS against #Trump's racism and xenophobia: https://t.co/HW6RiKJXbD #GiveEmHellBernie #DumpTrump! http…
+
+[#ID#]	675559772943290368
+[#TWEET#]	RT @PalmyraPioneer: Mr: #Trump
+
+[#ID#]	675561901724729344
+[#TWEET#]	RT @SfaLumberjack21: @scrowder @dmturner1232 @PeteBakeman @SMolloyDVM @tedcruz #Trump's stump last election https://t.co/24yyy2dRHb

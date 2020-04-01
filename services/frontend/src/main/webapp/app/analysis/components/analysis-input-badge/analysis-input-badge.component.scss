@@ -1,0 +1,11 @@
+.query-operator {
+    text-transform: capitalize;
+}
+
+.query-token {
+    margin-right: 3px;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}

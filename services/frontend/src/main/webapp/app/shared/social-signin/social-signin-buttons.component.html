@@ -1,0 +1,9 @@
+<div class="ssi-buttons-list">
+    <ng-container *ngFor="let providerInfo of providers">
+        <button *ngIf="!provider || provider === providerInfo.id"
+                (click)="signIn(providerInfo)"
+                class="ssi-button ssi-button--{{ providerInfo.id }}">
+            <span class="ssi-button__label">{{ 'social-signin-button.label.signin-with' | translate }} {{ providerInfo.name }}</span>
+        </button>
+    </ng-container>
+</div>

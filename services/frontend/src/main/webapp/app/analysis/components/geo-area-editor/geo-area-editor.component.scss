@@ -1,0 +1,75 @@
+@import '~app/variables';
+
+.geoarea-editor {
+    &__counter {
+
+    }
+
+    &__desc-input {
+        width: 320px;
+    }
+
+    &__details {
+        min-width: 300px;
+        border-right: 2px solid $page-separator-color;
+    }
+
+    &__details-header {
+        padding: 1rem 0.5rem;
+        background: $content-bg-color;
+        border-bottom: 1px solid $content-separator-color;
+    }
+
+    &__map-wrapper {
+        position: relative;
+    }
+
+    &__search {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 600px;
+        max-width: calc(100% - 20px);
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 4px -1px;
+    }
+}
+
+.bbox-item {
+    background: $content-bg-color;
+    border-bottom: 1px solid $content-separator-color;
+    color: $content-text-color;
+
+    &__name-field {
+        display: block;
+        background: transparent;
+        border: none;
+        color: $content-text-color;
+        text-indent: 10px;
+    }
+
+    &__color {
+        display: block;
+        position: relative;
+        width: 20px;
+        height: 100%;
+    }
+
+    &__del-btn {
+        padding: 0;
+        color: $content-text-color;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &__coordinates {
+        font-size: 0.8rem;
+    }
+}
+
+:host-context(.geo-area-editor-modal) .geoarea-editor {
+    height: 65vh !important;
+}

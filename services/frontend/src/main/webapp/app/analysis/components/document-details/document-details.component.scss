@@ -1,0 +1,15 @@
+@import '~app/variables';
+
+.dataset {
+    &__filename {
+        display: block;
+        line-height: 1rem;
+        font-size: 1rem;
+    }
+
+    &__size {
+        display: block;
+        color: $text-secondary-color;
+        font-size: 0.625rem;
+    }
+}

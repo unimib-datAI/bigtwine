@@ -1,0 +1,22 @@
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        <h1 class="display-4" jhiTranslate="home.title">Welcome to the BigTWINE administration</h1>
+
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                You must <a class="alert-link" (click)="login()">sign in</a> as an admin user to access to the administration panel.
+            </div>
+
+            <ng-container *ngSwitchCase="true">
+                <div class="alert alert-success" *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                    <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message"
+                        translateValues="{username: '{{account.login}}'}"> You are logged in as user "{{account.login}}". </span>
+                </div>
+                <div class="alert alert-danger" *jhiHasNotAuthority="'ROLE_ADMIN'">
+                    <span id="home-noadmin-message" *ngIf="account"> You are logged in as user "{{account.login}}". This account has not admin privileges. </span>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</div>

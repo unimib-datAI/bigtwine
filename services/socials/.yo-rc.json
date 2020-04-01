@@ -1,0 +1,39 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.socials",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "socials",
+    "packageName": "it.unimib.disco.bigtwine.services.socials",
+    "packageFolder": "it/unimib/disco/bigtwine/services/socials",
+    "serverPort": "9009",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NTY3MWEyZjkwMDNjMzdmZWQ1ZmU4YzUyYmM5MzFiNWI1YjA5YTAyZjAwOGFjNzM0ZWY0ZGYzZDU5YmZiOTk2ZWEzNjdjNDk0YmM3OWRiYzkxYzRmMDBjYWZkNGIyZDllNzQ1NmI1OTI5M2I4MTczYWFmZTE4M2JlNmMzNmFjZGY=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "it"
+    ],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

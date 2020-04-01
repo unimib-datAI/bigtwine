@@ -1,0 +1,66 @@
+<div class="container p-3 uploader">
+    <ng-container *ngIf="state === 'waiting'">
+        <form #ourForm="ngForm" class="uploader-form" [ngClass]="{'drop-error': !!error}">
+            <input type="hidden" [ngModel]="documentType" name="documentType">
+            <input type="hidden" [ngModel]="documentCategory" name="documentCategory">
+            <input type="hidden" [ngModel]="analysisType" name="analysisType">
+
+            <div class="uploader-form__drop-zone" [ngxDragAndDrop]="optionsDrop" *ngxInputFile="optionsInput">
+                <h3>Drop files here to upload</h3>
+                <p>
+                    Or click here to select local files.
+                    <small class="d-block text-secondary">Accepted mime types: {{acceptMimeType.join(', ')}}</small>
+                </p>
+
+            </div>
+        </form>
+    </ng-container>
+
+    <ng-container *ngIf="state === 'uploading'">
+        <div class="uploader-progress">
+            <circle-progress
+                [radius]="100"
+                [showSubtitle]="false"
+                [showTitle]="true"
+                [showUnits]="true"
+                [titleFontSize]="'38px'"
+                [titleColor]="'#fff'"
+                [title]="uploader.progressTotal | number:'1.0-1'"
+                [units]="'%'"
+                [unitsColor]="'#fff'"
+                [unitsFontSize]="'24px'"
+                [outerStrokeWidth]="6"
+                [innerStrokeWidth]="6"
+                [space]="-6"
+                [outerStrokeLinecap]="'square'"
+                [percent]="uploader.progressTotal"></circle-progress>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="state === 'success'">
+        <div class="uploader-finalstate">
+            <div class="uploader-finalstate__icon text-success">
+                <fa-icon icon="check-circle" size="8x"></fa-icon>
+            </div>
+            <h3 class="uploader-finalstate__title">Upload Successful</h3>
+            <p class="uploader-finalstate__text">
+                Document {{document.filename}} upload completed.
+            </p>
+        </div>
+
+    </ng-container>
+
+    <ng-container *ngIf="state === 'failed'">
+        <div class="uploader-finalstate">
+            <div class="uploader-finalstate__icon text-danger">
+                <fa-icon icon="times-circle" size="8x"></fa-icon>
+            </div>
+            <h3 class="uploader-finalstate__title">Upload Failed</h3>
+            <p class="uploader-finalstate__text">
+                {{error}}
+            </p>
+            <small>Click reset to try again.</small>
+        </div>
+    </ng-container>
+
+</div>

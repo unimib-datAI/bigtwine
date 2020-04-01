@@ -1,0 +1,15 @@
+@import "~app/variables";
+
+.confidence-icon {
+    &--low {
+        color: $danger;
+    }
+
+    &--medium {
+        color: $warning;
+    }
+
+    &--high {
+        color: $success;
+    }
+}

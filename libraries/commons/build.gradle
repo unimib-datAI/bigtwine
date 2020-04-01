@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id "com.github.hierynomus.license" version "0.15.0"
+}
+
+group 'it.unimib.disco.bigtwine'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-stream', version: '2.0.1.RELEASE'
+    compile group: 'org.springframework', name: 'spring-messaging', version: '5.0.10.RELEASE'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile group: "org.apache.commons", name: "commons-csv", version: "1.6"
+    compile group: 'com.github.docker-java', name: 'docker-java', version: '3.1.4'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+downloadLicenses {
+    dependencyConfiguration = 'compile'
+    includeProjectDependencies = true
+}

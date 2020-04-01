@@ -1,0 +1,61 @@
+@import "~app/variables";
+
+.uploader {
+    height: 100%;
+}
+
+.uploader-form {
+    height: 100%;
+    text-align: center;
+
+    &__drop-zone {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 10px dashed $content-lighter-bg-color;
+    }
+
+    ::ng-deep label.input-file {
+        height: 100%;
+    }
+
+    &.drop-error {
+        .uploader-form__drop-zone {
+            border-color: rgba($danger, 0.5);
+        }
+    }
+}
+
+.uploader-progress {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploader-finalstate {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__icon {
+        margin-bottom: 2rem;
+
+        svg {
+            width: 128px;
+        }
+    }
+
+    &__title {
+
+    }
+
+    &__text {
+
+    }
+}

@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="apigatewayApp.analysisAnalysis.home.title">Analyses</span>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="analyses">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="type"><span jhiTranslate="apigatewayApp.analysisAnalysis.type">Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="apigatewayApp.analysisAnalysis.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="visibility"><span jhiTranslate="apigatewayApp.analysisAnalysis.visibility">Visibility</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="owner"><span jhiTranslate="apigatewayApp.analysisAnalysis.owner">Owner</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="progress"><span jhiTranslate="apigatewayApp.analysisAnalysis.progress">Progress</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createDate"><span jhiTranslate="apigatewayApp.analysisAnalysis.createDate">Create Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="updateDate"><span jhiTranslate="apigatewayApp.analysisAnalysis.updateDate">Update Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="input"><span jhiTranslate="apigatewayApp.analysisAnalysis.input">Input</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="settings"><span jhiTranslate="apigatewayApp.analysisAnalysis.settings">Settings</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="resultsCount"><span jhiTranslate="apigatewayApp.analysisAnalysis.resultsCount">Results Count</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let analysis of analyses ;trackBy: trackId">
+                <td><a [routerLink]="['/analysis', analysis.id, 'view' ]">{{analysis.id}}</a></td>
+                <td jhiTranslate="{{'apigatewayApp.AnalysisType.' + analysis.type}}">{{analysis.type}}</td>
+                <td jhiTranslate="{{'apigatewayApp.AnalysisStatus.' + analysis.status}}">{{analysis.status}}</td>
+                <td jhiTranslate="{{'apigatewayApp.AnalysisVisibility.' + analysis.visibility}}">{{analysis.visibility}}</td>
+                <td>{{analysis.owner['username']}}</td>
+                <td>{{analysis.progress}}</td>
+                <td>{{analysis.createDate | date:'medium'}}</td>
+                <td>{{analysis.updateDate | date:'medium'}}</td>
+                <td>{{analysis.input | json}}</td>
+                <td>{{analysis.settings | json}}</td>
+                <td>{{analysis.resultsCount}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/analysis', analysis.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/analysis', analysis.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'analysis/'+ analysis.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="analyses && analyses.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

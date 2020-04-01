@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+    name: flink-streamprocessor
+    namespace: bigtwine
+    labels:
+        job: flink-streamprocessor
+spec:
+    template:
+        metadata:
+            labels:
+                job: flink-streamprocessor
+        spec:
+            containers:
+                - name: flink-streamprocessor
+                  image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/flink-streamprocessor
+                  imagePullPolicy: Always
+                  env:
+                    - name: GRIDFS_HOST
+                      value: mongodb-0.mongodb.bigtwine
+                    - name: MONGO_HOST
+                      value: mongodb-0.mongodb.bigtwine
+                    - name: KAFKA_BOOTSTRAP_SERVERS
+                      value: jhipster-kafka.bigtwine.svc.cluster.local:9092
+                  resources:
+                      requests:
+                          memory: "256Mi"
+                          cpu: "500m"
+                      limits:
+                          memory: "512Mi"
+                          cpu: "1"
+            restartPolicy: Never

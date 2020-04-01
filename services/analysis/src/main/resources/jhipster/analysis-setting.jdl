@@ -1,0 +1,99 @@
+enum AnalysisSettingType {
+	NUMBER,
+    STRING,
+    TEXT,
+    BOOLEAN,
+    SINGLE_CHOICE,
+    MULTIPLE_CHOICES
+}
+
+enum AnalysisSettingVisibility {
+	GLOBAL,
+    HIDDEN,
+    USER_VISIBLE
+}
+
+@paginate(pagination)
+@service(serviceClass)
+entity AnalysisSetting {
+	/** Setting name, should be alphanumeric and lowercase, can contains dashes  */
+	name String required pattern(/[a-z0-9-]+/)
+    label String required
+    description String
+    type AnalysisSettingType required
+    /**
+     * Change how the user can interact with a setting
+     *
+     * GLOBAL: Setting not embedded into analyses and not visible to the user
+     * HIDDEN: Setting embedded into analyses but not visible to the user
+     * USER_VISIBLE: Setting embedded into analyses and visible to the user
+     */
+    visibility AnalysisSettingVisibility required
+    /** Each option pair on separated lines with the following format: <value>:<name>  */
+    options TextBlob
+}
+
+@paginate(pagination)
+entity AnalysisDefaultSetting {
+	defaultValue String required
+    userCanOverride Boolean
+    priority Integer
+}
+
+@paginate(pagination)
+entity AnalysisSettingCollection {
+    analysisType AnalysisType required
+    analysisInputType AnalysisInputType required
+}
+
+relationship ManyToOne {
+	AnalysisDefaultSetting{analysisType} to AnalysisType
+}
+
+relationship ManyToMany {
+	AnalysisDefaultSetting{analysisInputTypes} to AnalysisInputType
+}
+
+relationship ManyToMany {
+	AnalysisDefaultSetting{userRoles} to Authority
+}
+
+relationship ManyToOne {
+	AnalysisDefaultSetting{setting(label) required} to AnalysisSetting
+}
+
+relationship OneToMany {
+	AnalysisSetting{choices required} to AnalysisSettingChoice
+}
+
+relationship ManyToMany {
+	AnalysisSettingCollection{settings(label) required} to AnalysisSetting
+}
+
+@skipServer
+@skipClient
+entity AnalysisType
+
+@skipServer
+@skipClient
+entity AnalysisInputType
+
+@skipServer
+@skipClient
+entity Authority
+
+@skipServer
+@skipClient
+entity AnalysisSettingChoice
+
+@skipServer
+@skipClient
+enum AnalysisType {
+    TWITTER_NEEL
+}
+
+@skipServer
+@skipClient
+enum AnalysisInputType {
+    QUERY, DATASET, GEO_AREA
+}

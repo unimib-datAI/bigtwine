@@ -1,0 +1,18 @@
+<div class="nil-entity">
+    <div class="row no-gutters px-2">
+        <div class="col text-truncate">
+            <span class="nil-entity__value">{{entityValue}}</span>
+        </div>
+        <div class="col-auto nil-entity__tweets-count pl-1" *ngIf="tweetsCount">
+            <btw-tweets-counter-icon [value]="tweetsCount"></btw-tweets-counter-icon>
+        </div>
+        <ng-container *ngIf="entity">
+            <div class="col-auto nil-entity__category pl-1">
+                <btw-entity-category-icon [category]="entity.category"></btw-entity-category-icon>
+            </div>
+            <div class="col-auto nil-entity__confidence pl-1">
+                <btw-confidence-icon [value]="entity.confidence"></btw-confidence-icon>
+            </div>
+        </ng-container>
+    </div>
+</div>

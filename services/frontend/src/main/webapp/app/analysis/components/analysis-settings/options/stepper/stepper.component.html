@@ -1,0 +1,22 @@
+<div class="input-group input-group-sm">
+    <div class="input-group-prepend">
+        <button
+            type="button"
+            class="btn btn-secondary btn-sm"
+            [disabled]="disabled"
+            (click)="onMinusBtnClick()">-</button>
+    </div>
+    <input
+        class="form-control readonly"
+        placeholder="0"
+        type="number"
+        readonly
+        [value]="value">
+    <div class="input-group-append">
+        <button
+            type="button"
+            class="btn btn-secondary btn-sm"
+            [disabled]="disabled"
+            (click)="onPlusBtnClick()">+</button>
+    </div>
+</div>

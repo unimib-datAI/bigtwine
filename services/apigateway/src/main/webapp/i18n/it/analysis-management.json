@@ -1,0 +1,30 @@
+{
+    "analysisManagement": {
+        "home": {
+            "title": "Analisis",
+            "createLabel": "Crea un nuovo analisis",
+            "createOrEditLabel": "Crea o modifica un analisis"
+        },
+        "created": "È stato creato un nuovo analisis con identificativo {{ param }}",
+        "updated": "Sono stato aggiornati i dati dell'analisis identificato da {{ param }}",
+        "deleted": "È stato eliminato l'analisis identificato da {{ param }}",
+        "delete": {
+            "question": "Si è sicuri di volere eliminare l'analisis {{ login }}?"
+        },
+        "detail": {
+            "title": "analisis"
+        },
+        "login": "Login",
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "email": "Email",
+        "activated": "Attivato",
+        "deactivated": "Disattivato",
+        "profiles": "Profili",
+        "langKey": "Lingua",
+        "createdBy": "Creato da",
+        "createdDate": "Creato il",
+        "lastModifiedBy": "Modificato da",
+        "lastModifiedDate": "Modificato il"
+    }
+}

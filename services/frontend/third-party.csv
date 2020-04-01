@@ -1,0 +1,42 @@
+department,relatedTo,name,licensePeriod,material,licenseType,link,comment
+kessler,stuff,@agm/core,perpetual,material,MIT,git+https://github.com/SebastianM/angular-google-maps.git,1.1.0
+kessler,stuff,@agm/js-marker-clusterer,perpetual,material,MIT,git+https://github.com/SebastianM/angular-google-maps.git,1.1.0
+kessler,stuff,@angular/animations,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.2.15
+kessler,stuff,@angular/common,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/compiler,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/core,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/forms,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/platform-browser,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/platform-browser-dynamic,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@angular/router,perpetual,material,MIT,git+https://github.com/angular/angular.git,7.1.0
+kessler,stuff,@fortawesome/angular-fontawesome,perpetual,material,MIT,git+https://github.com/FortAwesome/angular-fontawesome.git,0.3.0
+kessler,stuff,@fortawesome/fontawesome-free,perpetual,material,(CC-BY-4.0 AND OFL-1.1 AND MIT),git+https://github.com/FortAwesome/Font-Awesome.git,5.11.2
+kessler,stuff,@fortawesome/fontawesome-svg-core,perpetual,material,MIT,git+https://github.com/FortAwesome/Font-Awesome.git,1.2.25
+kessler,stuff,@fortawesome/free-brands-svg-icons,perpetual,material,(CC-BY-4.0 AND MIT),git+https://github.com/FortAwesome/Font-Awesome.git,5.11.2
+kessler,stuff,@fortawesome/free-solid-svg-icons,perpetual,material,(CC-BY-4.0 AND MIT),git+https://github.com/FortAwesome/Font-Awesome.git,5.11.2
+kessler,stuff,@ng-bootstrap/ng-bootstrap,perpetual,material,MIT,git+https://github.com/ng-bootstrap/ng-bootstrap.git,4.2.2
+kessler,stuff,@ngrx/effects,perpetual,material,MIT,git+https://github.com/ngrx/platform.git,7.4.0
+kessler,stuff,@ngrx/store,perpetual,material,MIT,git+https://github.com/ngrx/platform.git,7.4.0
+kessler,stuff,@ngrx/store-devtools,perpetual,material,MIT,git+https://github.com/ngrx/platform.git,7.4.0
+kessler,stuff,@stomp/ng2-stompjs,perpetual,material,MIT,git+https://github.com/stomp-js/ng2-stompjs.git,7.2.0
+kessler,stuff,@wkoza/ngx-upload,perpetual,material,MIT,git+https://github.com/wKoza/ngx-upload.git,6.4.0
+kessler,stuff,base-href-webpack-plugin,perpetual,material,MIT,git+https://github.com/dzonatan/base-href-webpack-plugin.git,2.0.0
+kessler,stuff,bootstrap,perpetual,material,MIT,git+https://github.com/twbs/bootstrap.git,4.1.3
+kessler,stuff,core-js,perpetual,material,MIT,git+https://github.com/zloirock/core-js.git,2.5.7
+kessler,stuff,js-marker-clusterer,perpetual,material,Apache-2.0,git+https://github.com/googlemaps/js-marker-clusterer.git,1.0.0
+kessler,stuff,moment,perpetual,material,MIT,git+https://github.com/moment/moment.git,2.22.2
+kessler,stuff,ng-circle-progress,perpetual,material,MIT,git+https://github.com/bootsoon/ng-circle-progress.git,1.5.1
+kessler,stuff,ng-jhipster,perpetual,material,Apache-2.0,git+https://github.com/jhipster/ng-jhipster.git,0.5.6
+kessler,stuff,ng-lazyload-image,perpetual,material,MIT,git+https://github.com/tjoskar/ng-lazyload-image.git,7.0.1
+kessler,stuff,ngx-chips,perpetual,material,MIT,git+https://github.com/Gbuomprisco/ngx-chips.git,2.1.0
+kessler,stuff,ngx-cookie,perpetual,material,MIT,git+https://github.com/salemdar/ngx-cookie.git,2.0.1
+kessler,stuff,ngx-infinite-scroll,perpetual,material,MIT,git+https://github.com/orizens/ngx-infinite-scroll.git,6.0.1
+kessler,stuff,ngx-webstorage,perpetual,material,MIT,git+https://github.com/PillowPillow/ng2-webstorage.git,2.0.1
+kessler,stuff,numeral,perpetual,material,MIT,git+https://github.com/adamwdraper/Numeral-js.git,2.0.6
+kessler,stuff,rxjs,perpetual,material,Apache-2.0,git+https://github.com/reactivex/rxjs.git,6.3.3
+kessler,stuff,sockjs-client,perpetual,material,MIT,git+https://github.com/sockjs/sockjs-client.git,1.3.0
+kessler,stuff,swagger-ui,perpetual,material,Apache-2.0,git+https://github.com/swagger-api/swagger-ui.git,2.2.10
+kessler,stuff,tslib,perpetual,material,Apache-2.0,git+https://github.com/Microsoft/tslib.git,1.9.3
+kessler,stuff,vh-check,perpetual,material,MIT,git+https://github.com/Hiswe/vh-check.git,2.0.5
+kessler,stuff,webstomp-client,perpetual,material,Apache-2.0,git+https://github.com/JSteunou/webstomp-client.git,1.2.6
+kessler,stuff,zone.js,perpetual,material,MIT,git://github.com/angular/zone.js.git,0.8.26

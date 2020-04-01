@@ -1,0 +1,29 @@
+@import '~app/variables';
+
+.viewer-container {
+    max-width: 1460px;
+    margin: 0 auto;
+
+    .scrollable-container {
+        padding-top: 44px;
+    }
+}
+.tweet-list {
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+
+    &__item {
+        color: $content-text-color;
+        font-size: 0.75rem;
+    }
+}
+
+.entity-details-wrapper {
+    color: #fff;
+    background-color: $content-bg-color;
+    border: 1px solid $content-border-color;
+    border-radius: 2px;
+    overflow: hidden;
+}

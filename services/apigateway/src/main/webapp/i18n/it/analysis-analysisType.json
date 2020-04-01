@@ -1,0 +1,8 @@
+{
+    "apigatewayApp": {
+        "AnalysisType": {
+            "null": "",
+            "TWITTER_NEEL": "TWITTER_NEEL"
+        }
+    }
+}

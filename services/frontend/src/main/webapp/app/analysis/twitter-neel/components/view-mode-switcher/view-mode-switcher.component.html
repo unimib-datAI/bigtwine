@@ -1,0 +1,14 @@
+<div class="btn-group btn-group-toggle"
+     ngbRadioGroup
+     name="radioBasic"
+     [(ngModel)]="currentViewMode"
+     (change)="onToggleViewModeBtnClick()">
+    <label ngbButtonLabel class="btn btn-sm btn-outline-light">
+        <input ngbButton type="radio" [value]="VIEW_MODE_MAP">
+        <fa-icon [icon]="modeIcon(VIEW_MODE_MAP)"></fa-icon>
+    </label>
+    <label ngbButtonLabel class="btn btn-sm btn-outline-light">
+        <input ngbButton type="radio" [value]="VIEW_MODE_LIST">
+        <fa-icon [icon]="modeIcon(VIEW_MODE_LIST)"></fa-icon>
+    </label>
+</div>

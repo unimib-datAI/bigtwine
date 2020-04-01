@@ -1,0 +1,6 @@
+<btw-document-picker
+    [documentType]="'input'"
+    [documentCategory]="'tweets-dataset'"
+    [analysisType]="'twitter-neel'"
+    [acceptMimeType]="['text/csv', 'text/tsv']"
+    (documentChange)="onDocumentSelection($event)"></btw-document-picker>

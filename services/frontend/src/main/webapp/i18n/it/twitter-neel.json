@@ -1,0 +1,13 @@
+{
+    "analysis": {
+        "twitterNeel": {
+            "home": "Twitter NEEL Home",
+            "queryNew": "Twitter NEEL Home Query Analysis New",
+            "queryView": "Twitter NEEL Query Analysis View",
+            "datasetUpload": "Twitter NEEL Dataset Upload",
+            "datasetView": "Twitter NEEL Dataset Analysis View",
+            "geoAreaNew": "Twitter NEEL Geo Area Create",
+            "geoAreaView": "Twitter NEEL Geo Area Analysis View"
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.cronscheduler"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "cronscheduler",
+    "packageName": "it.unimib.disco.bigtwine.services.cronscheduler",
+    "packageFolder": "it/unimib/disco/bigtwine/services/cronscheduler",
+    "serverPort": "9006",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NjljODIwYTU1MTU0OWQ1ZmNhZjk4NWM1YTllOWVkNDYxZjQwNjg2MDZkMGRiMTA4YzBiMmFhNzFkODVlMDc2OTAyMDRlNjYxZGM1YmJmM2I0NWU1YjNlMTJjZGZiNWIyOTVmYTZmZjIxYWRmODg0MjM3MDhiNjFlMGY5YTIyNGQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

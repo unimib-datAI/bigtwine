@@ -1,0 +1,24 @@
+<div class="scrollable-container">
+    <table class="table table-dark table-striped table-hover library-table">
+        <thead>
+        <th>Name</th>
+        <th>Tags</th>
+        <th>Size</th>
+        <th>Date</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let doc of documents"
+            [ngClass]="{selected: doc === selectedDocument}"
+            (click)="onDocumentSelect(doc)">
+            <td>{{doc.filename}}</td>
+            <td>
+                <span *ngIf="doc.type" class="badge badge-secondary">{{doc.type}}</span>
+                <span *ngIf="doc.category" class="badge badge-secondary">{{doc.category}}</span>
+                <span *ngIf="doc.analysisType" class="badge badge-secondary">{{doc.analysisType}}</span>
+            </td>
+            <td>{{doc.size | numeral: "0.0b"}}</td>
+            <td>{{doc.uploadDate | date: "short"}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+{
+    "apigatewayApp": {
+        "AnalysisStatus": {
+            "null": "",
+            "READY": "READY",
+            "STARTED": "STARTED",
+            "STOPPED": "STOPPED",
+            "COMPLETED": "COMPLETED",
+            "CANCELLED": "CANCELLED",
+            "FAILED": "FAILED"
+        }
+    }
+}

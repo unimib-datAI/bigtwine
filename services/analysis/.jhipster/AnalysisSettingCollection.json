@@ -1,0 +1,35 @@
+{
+    "name": "AnalysisSettingCollection",
+    "fields": [
+        {
+            "fieldName": "analysisType",
+            "fieldType": "AnalysisType",
+            "fieldValues": "TWITTER_NEEL"
+        },
+        {
+            "fieldName": "analysisInputType",
+            "fieldType": "AnalysisInputType",
+            "fieldValues": "QUERY,GEO_AREA,DATASET"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "relationshipName": "settings",
+            "otherEntityName": "analysisSetting",
+            "otherEntityRelationshipName": "analysisSettingCollection",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20191108214324",
+    "entityTableName": "analyses.setting_collections",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "analysis",
+    "applications": "*",
+    "microserviceName": "analysis"
+}

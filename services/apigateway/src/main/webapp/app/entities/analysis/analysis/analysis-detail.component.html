@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="analysis">
+            <h2><span jhiTranslate="apigatewayApp.analysisAnalysis.detail.title">Analysis</span> {{analysis.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisType.' + analysis.type}}">{{analysis.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.inputType">Input Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisInputType.' + analysis.inputType}}">{{analysis.inputType}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisStatus.' + analysis.status}}">{{analysis.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.visibility">Visibility</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'apigatewayApp.AnalysisVisibility.' + analysis.visibility}}">{{analysis.visibility}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.owner">Owner</span></dt>
+                <dd>
+                    <span>{{analysis.owner}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.progress">Progress</span></dt>
+                <dd>
+                    <span>{{analysis.progress}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.createDate">Create Date</span></dt>
+                <dd>
+                    <span>{{analysis.createDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.updateDate">Update Date</span></dt>
+                <dd>
+                    <span>{{analysis.updateDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.input">Input</span></dt>
+                <dd>
+                    <span>{{analysis.input}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.settings">Settings</span></dt>
+                <dd>
+                    <span>{{analysis.settings}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysis.resultsCount">Results Count</span></dt>
+                <dd>
+                    <span>{{analysis.resultsCount}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/analysis', analysis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

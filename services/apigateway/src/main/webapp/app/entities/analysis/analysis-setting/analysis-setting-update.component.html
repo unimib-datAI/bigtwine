@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-analysis-setting-heading" jhiTranslate="apigatewayApp.analysisAnalysisSetting.home.createOrEditLabel">Create or edit a Analysis Setting</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!analysisSetting.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="analysisSetting.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.name" for="field_name" [ngbTooltip]="'apigatewayApp.analysisAnalysisSetting.help.name' | translate">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="analysisSetting.name" required pattern="[a-z0-9-]+"/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.name?.errors?.pattern" jhiTranslate="entity.validation.pattern" translateValues="{ pattern: 'Name' }">
+                            This field should follow pattern for "Name".
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.label" for="field_label">Label</label>
+                    <input type="text" class="form-control" name="label" id="field_label"
+                        [(ngModel)]="analysisSetting.label" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.description" for="field_description">Description</label>
+                    <textarea class="form-control" name="description" id="field_description"
+                        [(ngModel)]="analysisSetting.description" ></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="analysisSetting.type" id="field_type"  required>
+                        <option value="NUMBER">{{'apigatewayApp.AnalysisSettingType.NUMBER' | translate}}</option>
+                        <option value="STRING">{{'apigatewayApp.AnalysisSettingType.STRING' | translate}}</option>
+                        <option value="TEXT">{{'apigatewayApp.AnalysisSettingType.TEXT' | translate}}</option>
+                        <option value="BOOLEAN">{{'apigatewayApp.AnalysisSettingType.BOOLEAN' | translate}}</option>
+                        <option value="SINGLE_CHOICE">{{'apigatewayApp.AnalysisSettingType.SINGLE_CHOICE' | translate}}</option>
+                        <option value="MULTIPLE_CHOICES">{{'apigatewayApp.AnalysisSettingType.MULTIPLE_CHOICES' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.visibility" for="field_visibility">Visibility</label>
+                    <select class="form-control" name="visibility" [(ngModel)]="analysisSetting.visibility" id="field_visibility"  required>
+                        <option value="GLOBAL">{{'apigatewayApp.AnalysisSettingVisibility.GLOBAL' | translate}}</option>
+                        <option value="HIDDEN">{{'apigatewayApp.AnalysisSettingVisibility.HIDDEN' | translate}}</option>
+                        <option value="USER_VISIBLE">{{'apigatewayApp.AnalysisSettingVisibility.USER_VISIBLE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.visibility?.dirty && editForm.controls.visibility?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.visibility?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysisSetting.options" for="field_options" [ngbTooltip]="'apigatewayApp.analysisAnalysisSetting.help.options' | translate">Options</label>
+                    <textarea class="form-control" name="options" id="field_options"
+                        [(ngModel)]="analysisSetting.options" ></textarea>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

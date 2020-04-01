@@ -1,0 +1,18 @@
+<div class="tweet">
+    <div class="tweet__head px-2 py-3">
+        <btw-neel-processed-tweet [tweet]="tweet"></btw-neel-processed-tweet>
+    </div>
+    <div class="tweet__entities" *ngIf="hasLinkedEntities">
+        <div class="scrollable-container scrollable-container--horizontal mw-100">
+            <ul class="entity-list py-3 px-2">
+                <ng-container *ngFor="let entity of linkedEntities">
+                    <li class="entity-list__item mx-2"
+                        [ngClass]="isSelected(entity) ? 'active' : ''"
+                        (click)="onEntityClick(entity)">
+                        <btw-linked-entity [entity]="entity" [vertical]="true"></btw-linked-entity>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</div>

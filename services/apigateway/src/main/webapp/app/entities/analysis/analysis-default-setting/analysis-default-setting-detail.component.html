@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="analysisDefaultSetting">
+            <h2><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.detail.title">Analysis Default Setting</span> {{analysisDefaultSetting.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.setting">Setting</span></dt>
+                <dd>
+                    <div *ngIf="analysisDefaultSetting.setting">
+                        <a [routerLink]="['/analysis-setting', analysisDefaultSetting.setting?.id, 'view']">{{analysisDefaultSetting.setting?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisType">Analysis Type</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.analysisType}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.analysisInputTypes">Analysis Input Types</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.analysisInputTypes}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userRoles">User Roles</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.userRoles}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.defaultValue">Default Value</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.defaultValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.userCanOverride">User Can Override</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.userCanOverride}}</span>
+                </dd>
+                <dt><span jhiTranslate="apigatewayApp.analysisAnalysisDefaultSetting.priority">Priority</span></dt>
+                <dd>
+                    <span>{{analysisDefaultSetting.priority}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/analysis-default-setting', analysisDefaultSetting.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

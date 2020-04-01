@@ -1,0 +1,47 @@
+<div class="px-3">
+    <div class="btn-group" ngbDropdown placement="bottom-right" role="group">
+        <button class="btn btn-sm btn-outline-light" ngbDropdownToggle>
+            <fa-icon icon="download"></fa-icon>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" ngbDropdownMenu>
+            <button *ngFor="let format of getExportFormats()"
+                    class="dropdown-item"
+                    (click)="onExportBtnClick(format.type)"
+                    ngbDropdownItem>{{format.label}}</button>
+            <div class="dropdown-divider" *ngIf="(analysis.exports && analysis.exports.length) && getExportFormats().length"></div>
+            <ng-container *ngIf="analysis.exports && analysis.exports.length">
+                <ng-container *ngFor="let exp of analysis.exports">
+                    <div *ngIf="isExportRunning(exp) || exp.failed; else exportCompleted" class="dropdown-item dropdown-item--rich disabled">
+                        <span class="dropdown-item__title">{{getFormatLabel(exp.format)}}</span>
+                        <span class="dropdown-item__icon text-danger"
+                              [ngbTooltip]="exp.message"
+                              placement="bottom" *ngIf="exp.failed">
+                            <fa-icon icon="times-circle"></fa-icon>
+                        </span>
+                        <span class="dropdown-item__icon">
+                            <circle-progress
+                                *ngIf="isExportRunning(exp)"
+                                [percent]="exp.progress * 100"
+                                [subtitle]="((exp.progress * 100) | number:'1.0-0') + '%'"
+                                [radius]="12"
+                                [outerStrokeColor]="'#3e8acc'"
+                                [innerStrokeColor]="'#ccc'"></circle-progress>
+                        </span>
+                    </div>
+                    <ng-template #exportCompleted>
+                        <a class="dropdown-item dropdown-item--rich"
+                           [href]="getExportLink(exp)"
+                           target="_blank"
+                           ngbTooltip="Analysis results export completed, click to download"
+                           placement="bottom">
+                            <span class="dropdown-item__title">{{getFormatLabel(exp.format)}}</span>
+                            <span class="dropdown-item__icon text-success">
+                                <fa-icon icon="file-download"></fa-icon>
+                            </span>
+                        </a>
+                    </ng-template>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>

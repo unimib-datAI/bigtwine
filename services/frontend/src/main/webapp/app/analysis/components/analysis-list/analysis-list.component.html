@@ -1,0 +1,50 @@
+<div class="row">
+    <table class="table table-striped table-dark analysis-list">
+        <thead>
+        <tr>
+            <th>INPUT TYPE</th>
+            <th>INPUT</th>
+            <th class="text-center" *ngIf="!owned">OWNER</th>
+            <th class="text-center">RESULTS</th>
+            <th class="text-center">PROGRESS</th>
+            <th class="text-center">STATUS</th>
+            <th style="width: 40px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="analysis-list__row" *ngFor="let analysis of analyses$ | async" [routerLink]="analysis.input.type + '/view/' + analysis.id">
+            <td>{{analysis.input.type}}</td>
+            <td><btw-analysis-input-badge [analysisInput]="analysis.input"></btw-analysis-input-badge></td>
+            <td class="text-center" *ngIf="!owned">{{analysis.owner.username}}</td>
+            <td class="text-center" >
+                <ng-container *ngIf="analysis.resultsCount < 1000; else formattedResultsCount">
+                    {{ analysis.resultsCount }}
+                </ng-container>
+                <ng-template #formattedResultsCount>
+                    {{ analysis.resultsCount | numeral:"0.0 a"}}
+                </ng-template>
+            </td>
+            <td class="text-center" [ngSwitch]="analysis.input.bounded">
+                <fa-icon icon="infinity" *ngSwitchCase="false"></fa-icon>
+                <ng-container *ngSwitchCase="true">
+                    <ng-container *ngIf="analysis.progress < 1; else analysisCompleted">
+                        {{analysis.progress * 100 | number: "0.0-0"}} %
+                        <ngb-progressbar
+                            *ngIf="analysis.status == 'started' || analysis.status == 'stopped'"
+                            [type]="analysisProgressBarStyle(analysis)"
+                            [value]="analysis.progress * 100"
+                            height="2px"></ngb-progressbar>
+                    </ng-container>
+                    <ng-template #analysisCompleted>
+                        <fa-icon icon="check"></fa-icon>
+                    </ng-template>
+                </ng-container>
+            </td>
+            <td class="text-center"><btw-analysis-status-badge [analysisStatus]="analysis.status"></btw-analysis-status-badge></td>
+            <td class="text-right">
+                <fa-icon icon="angle-right"></fa-icon>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

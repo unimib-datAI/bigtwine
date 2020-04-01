@@ -1,0 +1,154 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-analysis-heading" jhiTranslate="apigatewayApp.analysisAnalysis.home.createOrEditLabel">Create or edit a Analysis</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!analysis.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="analysis.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" [(ngModel)]="analysis.type" id="field_type"  required>
+                        <option value="TWITTER_NEEL">{{'apigatewayApp.AnalysisType.TWITTER_NEEL' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.type?.dirty && editForm.controls.type?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.type?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.inputType" for="field_inputType">Input Type</label>
+                    <select class="form-control" name="inputType" [(ngModel)]="analysis.inputType" id="field_inputType"  required>
+                        <option value="QUERY">{{'apigatewayApp.AnalysisInputType.QUERY' | translate}}</option>
+                        <option value="DATASET">{{'apigatewayApp.AnalysisInputType.DATASET' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.inputType?.dirty && editForm.controls.inputType?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.inputType?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="analysis.status" id="field_status"  required>
+                        <option value="READY">{{'apigatewayApp.AnalysisStatus.READY' | translate}}</option>
+                        <option value="STARTED">{{'apigatewayApp.AnalysisStatus.STARTED' | translate}}</option>
+                        <option value="STOPPED">{{'apigatewayApp.AnalysisStatus.STOPPED' | translate}}</option>
+                        <option value="COMPLETED">{{'apigatewayApp.AnalysisStatus.COMPLETED' | translate}}</option>
+                        <option value="CANCELLED">{{'apigatewayApp.AnalysisStatus.CANCELLED' | translate}}</option>
+                        <option value="FAILED">{{'apigatewayApp.AnalysisStatus.FAILED' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.status?.dirty && editForm.controls.status?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.status?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.visibility" for="field_visibility">Visibility</label>
+                    <select class="form-control" name="visibility" [(ngModel)]="analysis.visibility" id="field_visibility"  required>
+                        <option value="PRIVATE">{{'apigatewayApp.AnalysisVisibility.PRIVATE' | translate}}</option>
+                        <option value="PUBLIC">{{'apigatewayApp.AnalysisVisibility.PUBLIC' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.visibility?.dirty && editForm.controls.visibility?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.visibility?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.owner" for="field_owner">Owner</label>
+                    <input type="text" class="form-control" name="owner" id="field_owner"
+                        [(ngModel)]="analysis.owner" required/>
+                    <div [hidden]="!(editForm.controls.owner?.dirty && editForm.controls.owner?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.owner?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.progress" for="field_progress">Progress</label>
+                    <input type="number" class="form-control" name="progress" id="field_progress"
+                        [(ngModel)]="analysis.progress" required/>
+                    <div [hidden]="!(editForm.controls.progress?.dirty && editForm.controls.progress?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.progress?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.progress?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.createDate" for="field_createDate">Create Date</label>
+                    <div class="d-flex">
+                        <input id="field_createDate" type="datetime-local" class="form-control" name="createDate" [(ngModel)]="createDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.createDate?.dirty && editForm.controls.createDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.createDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.updateDate" for="field_updateDate">Update Date</label>
+                    <div class="d-flex">
+                        <input id="field_updateDate" type="datetime-local" class="form-control" name="updateDate" [(ngModel)]="updateDate"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.updateDate?.dirty && editForm.controls.updateDate?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.updateDate?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.updateDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.input" for="field_input">Input</label>
+                    <input type="text" class="form-control" name="input" id="field_input"
+                        [(ngModel)]="analysis.input" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.settings" for="field_settings">Settings</label>
+                    <input type="text" class="form-control" name="settings" id="field_settings"
+                        [(ngModel)]="analysis.settings" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="apigatewayApp.analysisAnalysis.resultsCount" for="field_resultsCount">Results Count</label>
+                    <input type="number" class="form-control" name="resultsCount" id="field_resultsCount"
+                        [(ngModel)]="analysis.resultsCount" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

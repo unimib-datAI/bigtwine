@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.nel"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "nel",
+    "packageName": "it.unimib.disco.bigtwine.services.nel",
+    "packageFolder": "it/unimib/disco/bigtwine/services/nel",
+    "serverPort": "9003",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MjE2NzVmMzVlYzM0ZWZkMmUyNWM3Mjk0MWFhNWI2MjYzNDc2MjJlM2I5NTM0OGM3NDFhZDE0NGE0YjJjMzZlNGNhZWQwMWY2YjYzNjEzNmIyZGMzM2E3NTI4NWJiNGUyZGMwZWMwZGJhYmEzNjAzMjZkMDEzNzFiOTlhNzk0OTk=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.analysis"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "analysis",
+    "packageName": "it.unimib.disco.bigtwine.services.analysis",
+    "packageFolder": "it/unimib/disco/bigtwine/services/analysis",
+    "serverPort": "9001",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "YmFlNTYyNjBmYzFhMTEwMzY4MDM3MDJmZGU0ZGIxNmU3NzE0YzFmOGNhNjFjN2Y1MGNmYmVhNjcxY2QzODJjYmRmNjg3YjZkYmNjODU3N2Y1NjczNWU1MjY3NzcwM2Q5YTk2YTQ1MWViNjc4NDRlNTNiODFlNWE4OWFmMWEyNWI=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

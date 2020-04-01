@@ -1,0 +1,8 @@
+<div *ngIf="document; else loading" class="dataset">
+    <span class="dataset__filename">{{document.filename}}</span>
+    <small class="dataset__size">{{document.size | numeral:"0.00b"}}</small>
+</div>
+
+<ng-template #loading>
+    <img class="loading" src="/content/images/loading.svg" alt="">
+</ng-template>

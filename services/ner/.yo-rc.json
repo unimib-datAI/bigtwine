@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "it.unimib.disco.bigtwine.services.ner"
+    },
+    "jhipsterVersion": "5.7.2",
+    "applicationType": "microservice",
+    "baseName": "ner",
+    "packageName": "it.unimib.disco.bigtwine.services.ner",
+    "packageFolder": "it/unimib/disco/bigtwine/services/ner",
+    "serverPort": "9002",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MTRmN2IwYjM3MGVlNGM5NGQwYTY4MGYyZWJhNGY5ODZmMzNjY2E5ZTFlMDUzYTM4MGRiNjc5YTc1NDhmZjI2YWNhMGZlNmFmNmY1N2ZmMmM4MjY2YjdiOTcwMzIyYzM0ZTAyYzdkZThmYWQ2NDAxYzJmNDRjNjExYzM3NjFkZTc=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}

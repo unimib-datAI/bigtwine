@@ -1,0 +1,38 @@
+@import '~app/variables';
+
+.tweet {
+    color: #fff;
+    background-color: $content-lighter-bg-color;
+    border: 1px solid $content-border-color;
+    border-radius: 2px;
+    overflow: hidden;
+
+    &__head {
+        background-color: $content-darker-bg-color;
+    }
+}
+
+.entity-list {
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+        background: $content-bg-color;
+        color: $content-text-color;
+        font-size: 0.75rem;
+        padding: 0 0 0.5rem;
+        width: 200px;
+        border-radius: 2px;
+        overflow: hidden;
+        cursor: pointer;
+        flex-shrink: 0;
+
+        &.active {
+            background: $content-highlight-bg-color;
+        }
+    }
+}

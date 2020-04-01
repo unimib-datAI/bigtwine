@@ -1,0 +1,24 @@
+<div class="p-3">
+    <div *ngIf="!isLoading; else loading">
+        <ng-container *ngIf="username; else errorBox">
+            <h3>Welcome {{username}},</h3>
+            <p>in a few seconds this window will be closed.</p>
+        </ng-container>
+        <ng-template #errorBox>
+            <div class="text-center">
+                <div class="text-danger mt-5 mb-3">
+                    <fa-icon icon="times-circle" size="5x"></fa-icon>
+                </div>
+                <h3>Sign in failed</h3>
+                <p>{{error}}</p>
+                <button class="btn btn-outline-primary" (click)="closeWindow(0)">Close</button>
+            </div>
+        </ng-template>
+
+    </div>
+    <ng-template #loading>
+        <div class="loading-box text-center">
+            <img class="loading" src="/content/images/loading.svg" alt="">
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,161 @@
+<licenses>
+  <license name='CDDL + GPLv2 with classpath exception' url='https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html'>
+    <dependency>osgi-resource-locator-1.0.1.jar</dependency>
+  </license>
+  <license name='CDDL + GPLv2 with classpath exception' url='https://glassfish.java.net/nonav/public/CDDL+GPL_1_1.html'>
+    <dependency>aopalliance-repackaged-2.5.0-b42.jar</dependency>
+    <dependency>hk2-api-2.5.0-b42.jar</dependency>
+    <dependency>hk2-utils-2.5.0-b42.jar</dependency>
+    <dependency>hk2-locator-2.5.0-b42.jar</dependency>
+    <dependency>javax.inject-2.5.0-b42.jar</dependency>
+  </license>
+  <license name='Public Domain' url='https://creativecommons.org/publicdomain/zero/1.0/'>
+    <dependency>jersey-apache-connector-2.27.jar</dependency>
+    <dependency>jersey-hk2-2.27.jar</dependency>
+    <dependency>jersey-client-2.27.jar</dependency>
+    <dependency>jersey-common-2.27.jar</dependency>
+  </license>
+  <license name='New BSD License' url='http://www.opensource.org/licenses/bsd-license.php'>
+    <dependency>kryo-shaded-3.0.3.jar</dependency>
+    <dependency>minlog-1.3.0.jar</dependency>
+  </license>
+  <license name='Apache License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>httpclient-4.5.6.jar</dependency>
+    <dependency>junixsocket-common-2.2.0.jar</dependency>
+    <dependency>snakeyaml-1.19.jar</dependency>
+    <dependency>httpcore-4.4.10.jar</dependency>
+    <dependency>junixsocket-native-common-2.2.0.jar</dependency>
+    <dependency>tomcat-embed-el-8.5.31.jar</dependency>
+  </license>
+  <license name='Apache 2' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>objenesis-2.1.jar</dependency>
+  </license>
+  <license name='The GNU General Public License (GPL), Version 2, With Classpath Exception' url='https://github.com/jersey/jersey/blob/master/LICENSE.html'>
+    <dependency>jersey-common-2.27.jar</dependency>
+  </license>
+  <license name='Apache License, Version 2.0' url='https://www.apache.org/licenses/LICENSE-2.0'>
+    <dependency>spring-cloud-stream-2.0.1.RELEASE.jar</dependency>
+  </license>
+  <license name='Apache License, 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.html'>
+    <dependency>jersey-apache-connector-2.27.jar</dependency>
+    <dependency>jersey-hk2-2.27.jar</dependency>
+    <dependency>jersey-client-2.27.jar</dependency>
+    <dependency>jersey-common-2.27.jar</dependency>
+  </license>
+  <license name='Apache License 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>validation-api-2.0.1.Final.jar</dependency>
+    <dependency>hibernate-validator-6.0.10.Final.jar</dependency>
+  </license>
+  <license name='Apache License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0'>
+    <dependency>spring-tuple-1.0.0.RELEASE.jar</dependency>
+    <dependency>netty-codec-http-4.1.31.Final.jar</dependency>
+    <dependency>spring-boot-starter-2.0.3.RELEASE.jar</dependency>
+    <dependency>spring-context-5.0.7.RELEASE.jar</dependency>
+    <dependency>netty-transport-4.1.31.Final.jar</dependency>
+    <dependency>spring-boot-starter-logging-2.0.3.RELEASE.jar</dependency>
+    <dependency>netty-codec-socks-4.1.31.Final.jar</dependency>
+    <dependency>spring-boot-starter-validation-2.0.3.RELEASE.jar</dependency>
+    <dependency>spring-expression-5.0.7.RELEASE.jar</dependency>
+    <dependency>netty-resolver-4.1.31.Final.jar</dependency>
+    <dependency>spring-boot-2.0.3.RELEASE.jar</dependency>
+    <dependency>spring-messaging-5.0.10.RELEASE.jar</dependency>
+    <dependency>netty-transport-native-kqueue-4.1.31.Final-osx-x86_64.jar</dependency>
+    <dependency>spring-tx-5.0.7.RELEASE.jar</dependency>
+    <dependency>netty-buffer-4.1.31.Final.jar</dependency>
+    <dependency>netty-transport-native-unix-common-4.1.31.Final.jar</dependency>
+    <dependency>spring-jcl-5.0.10.RELEASE.jar</dependency>
+    <dependency>netty-common-4.1.31.Final.jar</dependency>
+    <dependency>netty-handler-4.1.31.Final.jar</dependency>
+    <dependency>spring-integration-tuple-1.0.0.RELEASE.jar</dependency>
+    <dependency>spring-core-5.0.10.RELEASE.jar</dependency>
+    <dependency>spring-beans-5.0.10.RELEASE.jar</dependency>
+    <dependency>netty-codec-4.1.31.Final.jar</dependency>
+    <dependency>spring-boot-autoconfigure-2.0.3.RELEASE.jar</dependency>
+    <dependency>netty-transport-native-epoll-4.1.31.Final-linux-x86_64.jar</dependency>
+    <dependency>spring-aop-5.0.7.RELEASE.jar</dependency>
+    <dependency>netty-handler-proxy-4.1.31.Final.jar</dependency>
+  </license>
+  <license name='Eclipse Public License - v 1.0' url='http://www.eclipse.org/legal/epl-v10.html'>
+    <dependency>logback-core-1.2.3.jar</dependency>
+    <dependency>logback-classic-1.2.3.jar</dependency>
+  </license>
+  <license name='MIT License' url='http://www.opensource.org/licenses/mit-license.php'>
+    <dependency>jul-to-slf4j-1.7.25.jar</dependency>
+    <dependency>slf4j-api-1.7.25.jar</dependency>
+    <dependency>jcl-over-slf4j-1.7.25.jar</dependency>
+  </license>
+  <license name='CDDL 1.1' url='https://oss.oracle.com/licenses/CDDL+GPL-1.1'>
+    <dependency>javax.ws.rs-api-2.1.jar</dependency>
+    <dependency>jersey-apache-connector-2.27.jar</dependency>
+    <dependency>jersey-hk2-2.27.jar</dependency>
+    <dependency>jersey-client-2.27.jar</dependency>
+  </license>
+  <license name='Apache License, version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>jboss-logging-3.3.2.Final.jar</dependency>
+  </license>
+  <license name='MPL 1.1' url='http://www.mozilla.org/MPL/MPL-1.1.html'>
+    <dependency>javassist-3.22.0-CR2.jar</dependency>
+  </license>
+  <license name='GNU Lesser General Public License' url='http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html'>
+    <dependency>logback-core-1.2.3.jar</dependency>
+    <dependency>logback-classic-1.2.3.jar</dependency>
+  </license>
+  <license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>jackson-jaxrs-base-2.9.8.jar</dependency>
+    <dependency>classmate-1.3.4.jar</dependency>
+    <dependency>spring-integration-jmx-5.0.6.RELEASE.jar</dependency>
+    <dependency>reactor-core-3.1.6.RELEASE.jar</dependency>
+    <dependency>spring-integration-core-5.0.6.RELEASE.jar</dependency>
+    <dependency>jackson-core-2.9.8.jar</dependency>
+    <dependency>guava-19.0.jar</dependency>
+    <dependency>commons-logging-1.2.jar</dependency>
+    <dependency>commons-lang-2.6.jar</dependency>
+    <dependency>jackson-module-jaxb-annotations-2.9.8.jar</dependency>
+    <dependency>javax.inject-1.jar</dependency>
+    <dependency>jackson-annotations-2.9.0.jar</dependency>
+    <dependency>jackson-jaxrs-json-provider-2.9.8.jar</dependency>
+    <dependency>docker-java-3.1.4.jar</dependency>
+    <dependency>jackson-databind-2.9.8.jar</dependency>
+  </license>
+  <license name='CDDL + GPLv2 with classpath exception' url='https://github.com/javaee/javax.annotation/blob/master/LICENSE'>
+    <dependency>javax.annotation-api-1.3.2.jar</dependency>
+  </license>
+  <license name='CC0' url='http://creativecommons.org/publicdomain/zero/1.0/'>
+    <dependency>reactive-streams-1.0.2.jar</dependency>
+  </license>
+  <license name='Apache License 2.0' url='http://www.apache.org/licenses/'>
+    <dependency>javassist-3.22.0-CR2.jar</dependency>
+  </license>
+  <license name='Apache 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>spring-retry-1.2.2.RELEASE.jar</dependency>
+  </license>
+  <license name='Apache License, Version 2.0' url='https://www.apache.org/licenses/LICENSE-2.0.txt'>
+    <dependency>log4j-api-2.10.0.jar</dependency>
+    <dependency>commons-csv-1.6.jar</dependency>
+    <dependency>commons-io-2.6.jar</dependency>
+    <dependency>commons-codec-1.11.jar</dependency>
+    <dependency>commons-compress-1.18.jar</dependency>
+    <dependency>log4j-to-slf4j-2.10.0.jar</dependency>
+  </license>
+  <license name='Bouncy Castle Licence' url='http://www.bouncycastle.org/licence.html'>
+    <dependency>bcpkix-jdk15on-1.60.jar</dependency>
+    <dependency>bcprov-jdk15on-1.60.jar</dependency>
+  </license>
+  <license name='GPL2 w/ CPE' url='https://oss.oracle.com/licenses/CDDL+GPL-1.1'>
+    <dependency>javax.ws.rs-api-2.1.jar</dependency>
+    <dependency>jersey-apache-connector-2.27.jar</dependency>
+    <dependency>jersey-hk2-2.27.jar</dependency>
+    <dependency>jersey-client-2.27.jar</dependency>
+  </license>
+  <license name='Common Development and Distribution License (CDDL), Version 1.1' url='https://oss.oracle.com/licenses/CDDL-1.1'>
+    <dependency>jersey-common-2.27.jar</dependency>
+  </license>
+  <license name='LGPL 2.1' url='http://www.gnu.org/licenses/lgpl-2.1.html'>
+    <dependency>javassist-3.22.0-CR2.jar</dependency>
+  </license>
+  <license name='Modified BSD' url='http://asm.objectweb.org/license.html'>
+    <dependency>jersey-apache-connector-2.27.jar</dependency>
+    <dependency>jersey-hk2-2.27.jar</dependency>
+    <dependency>jersey-client-2.27.jar</dependency>
+  </license>
+</licenses>

@@ -1,0 +1,61 @@
+{
+    "name": "CronSchedule",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "CronStatus",
+            "fieldValues": "SCHEDULED,RUNNING,FAILED,PARTIAL,SUCCESS",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tasksCount",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 1
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "updatedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "scheduledDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "executedDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "finishedDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "entry",
+            "otherEntityName": "cronEntry",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cronSchedule"
+        }
+    ],
+    "changelogDate": "20190909143546",
+    "entityTableName": "cron_schedule",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "cronscheduler",
+    "applications": "*",
+    "microserviceName": "cronscheduler"
+}
