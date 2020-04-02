@@ -14,7 +14,7 @@ jib {
         image = 'openjdk:8-jre-alpine'
     }
     to {
-        image = '535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/cronscheduler:latest'
+        image = 'bigtwine/cronscheduler'
         tags = ['latest', project.version]
     }
     container {

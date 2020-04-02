@@ -34,7 +34,7 @@ spec:
                 done
       containers:
       - name: analysis-app
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/analysis:1.0.1
+        image: bigtwine/analysis:1.0.2
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: prod

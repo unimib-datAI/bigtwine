@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: flink-streamprocessor
-        image: 535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/flink-streamprocessor:0.9
+        image: bigtwine/flink-streamprocessor:1.0.5
         args:
         - it.unimib.disco.bigtwine.streamprocessor.TwitterStreamJob
         - "--job-id"

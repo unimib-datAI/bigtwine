@@ -1,7 +1,7 @@
 #!/bin/sh
 
 LOCAL_IMAGE_NAME=bigtwine-ner-tool
-REPOSITORY_URI=535233662260.dkr.ecr.eu-central-1.amazonaws.com/bigtwine/ner-tool
+REPOSITORY_URI=bigtwine/ner-tool
 COMMIT_HASH=$(git rev-parse HEAD | cut -c 1-7)
 IMAGE_TAG=${COMMIT_HASH:=latest}
 
